@@ -34,6 +34,7 @@ class AuthServiceProvider extends ServiceProvider
        
         Gate::define('permissions', function ($user, $module_code, $access_type) {
             $user = auth('admin')->user();
+
             foreach($user->permissions as $permission):
                 if($permission->module_code == $module_code):
                     switch($access_type):

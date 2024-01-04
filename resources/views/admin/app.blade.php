@@ -179,8 +179,11 @@
     }
 
     .user-panel .image{ align-self: center; }
+    
+    .f-12{ font-size: 12px; }
+    .f-13{ font-size: 13px; }
+    .f-14{ font-size: 14px; }
 
-    /* .hr_color { border: 0.5px solid #01a89e; width: 100%;} */
   </style>
 
   @yield("style")
@@ -373,15 +376,6 @@
               </a>
             </li>
 
-            @can('permissions', ['users', 'view'])
-            <li class="nav-item">
-              <a href="{{ url('admin/users') }}" class="nav-link">
-                <i class="fas fa-users nav-icon"></i>
-                <p>Users</p>
-              </a>
-            </li>
-            @endcan
-
             @can('admin')
             <li class="nav-item {{ request()->segment(2) == 'roles' || request()->segment(2) == 'modules'
                               ? 'menu-is-opening menu-open' : '' }}">
@@ -479,8 +473,8 @@
             </li>
             @endcan
 
-            <!-- Product Management -->
-            @can('permissions', ['sliders', 'view'])
+            <!-- Store Management -->
+            @can('permissions', ['store', 'view'])
             <li class="nav-item">
               <a href="{{ url('admin/sliders') }}" class="nav-link">
                 <i class="nav-icon fas fa-store"></i>
@@ -516,14 +510,58 @@
               </ul>
             </li>
             @endcan
-            <!-- End Tour Management -->
+            <!-- End Store Management -->
+
+            <!-- Sales Executive -->
+            @can('permissions', ['sales-executive', 'view'])
+            <li class="nav-item">
+              <a href="{{ route('admin::sales-executive.index') }}" class="nav-link">
+                <i class="fas fa-user-tie nav-icon"></i>
+                <p>Sales Executive</p>
+              </a>
+            </li>
+            @endcan
+            <!-- End Sales Executive -->
+
+            <!-- Dealers -->
+            @can('permissions', ['dealers', 'view'])
+            <li class="nav-item">
+              <a href="{{ route('admin::dealers.index') }}" class="nav-link">
+                <i class="fas fa-user-friends nav-icon"></i>
+                <p>Dealers</p>
+              </a>
+            </li>
+            @endcan
+            <!-- End Dealers -->
+
+            <!-- User -->
+            @can('permissions', ['users', 'view'])
+            <li class="nav-item">
+              <a href="{{ url('admin/users') }}" class="nav-link">
+                <i class="fas fa-users nav-icon"></i>
+                <p>Customers</p>
+              </a>
+            </li>
+            @endcan
+            <!-- End User -->
+
+            <!-- Demo -->
+            @can('permissions', ['demo', 'view'])
+            <li class="nav-item">
+              <a href="{{ route('admin::demo.index') }}" class="nav-link">
+                <i class="fas fa-users nav-icon"></i>
+                <p>Demo</p>
+              </a>
+            </li>
+            @endcan
+            <!-- End Demo -->
 
 
             @can('site_settings')
             <li class="nav-item">
               <a href="{{url('admin/sitesettings')}}" class="nav-link">
                 <i class="nav-icon fas fa-cog"></i>
-                <p>Site Settings</p>
+                <p>Settings</p>
               </a>
             </li>
             @endcan

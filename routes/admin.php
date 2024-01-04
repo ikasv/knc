@@ -3,9 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\Management\DealerController;
+use App\Http\Controllers\Admin\Management\DemoController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ModuleController;
 use App\Http\Controllers\Admin\Management\MemberController;
+use App\Http\Controllers\Admin\Management\SalesExecutiveController;
 use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TourPackageController;
@@ -23,15 +26,30 @@ Route::group(['as' => 'admin::', 'middleware' => 'auth:admin'], function(){
   
 	# Resources
 	Route::resources([
+			# Demo 
+			'demo' 						=>  DemoController::class,
+			# End Demo 
+
 			'roles' 					=>  RoleController::class,
 			'modules' 					=>  ModuleController::class,
 			'categories' 				=>  CategoryController::class,
 			'sitesettings' 				=>  SiteSettingController::class,
 			'sliders' 					=>  SliderController::class,
 			'users' 					=>  UserController::class,			
-			'tour-packages' 			=>  TourPackageController::class,
+			'sales-executive' 			=>  SalesExecutiveController::class,
+			'dealers' 					=>  DealerController::class,
+			
 		]);
 		# End Resources
+
+		# Restore
+			# Demo
+				Route::patch('demo/restore/{id}', [SalesExecutiveController::class, 'restore'])->name('demo.restore');
+				# Demo
+			
+				Route::patch('dealer/restore/{id}', [SalesExecutiveController::class, 'restore'])->name('dealers.restore');
+				Route::patch('sales-executive/restore/{id}', [SalesExecutiveController::class, 'restore'])->name('sales-executive.restore');
+		# End Restore
 		
 		Route::get("role-permission/{id}",[RoleController::class,'role_permission'])->name('role_permission');
 		
