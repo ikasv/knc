@@ -134,8 +134,9 @@
                         <img src="https://www.ozonstar.com/img/logo.png" class="logo" alt="" srcset="">
                     </div>
                 </a>
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end drop-menue" id="navbarNav">
@@ -249,7 +250,7 @@
                 </div>
             </div>
         </div>
-        <button id="myBtn" type="button" class="toTop js-toTop to-top" onclick="topFunction();" style="display: inline-block;"><i
+        <button id="myBtn" type="button" class="toTop js-toTop to-top" onclick="topFunction();"><i
                 class="fa-solid fa-chevron-up"></i></button>
 
     </footer>
@@ -262,40 +263,42 @@
 
     <script>
         // navbar
-        document.addEventListener("DOMContentLoaded", function() {
-            window.addEventListener("scroll", function() {
-                if (window.scrollY > 200) {
-                    document.getElementById("sec-nav").classList.add("fixed-top");
+        $(document).ready(function() {
+            $(window).scroll(function() {
+                if ($(window).scrollTop() > 200) {
+                    $("#sec-nav").addClass("fixed-top");
 
-                    navbar_height = document.querySelector(".navbar").offsetHeight;
-                    document.body.style.paddingTop = navbar_height + "px";
+                    var navbarHeight = $(".navbar").height();
+                    $("body").css("padding-top", navbarHeight + "px");
                 } else {
-                    document.getElementById("sec-nav").classList.remove("fixed-top");
-
-                    document.body.style.paddingTop = "0";
+                    $("#sec-nav").removeClass("fixed-top");
+                    $("body").css("padding-top", "0");
                 }
             });
         });
         // navbar end
         // scroll-to-top
-        let mybutton = document.getElementById("myBtn");
+        $(document).ready(function() {
+            var mybutton = $("#myBtn");
 
-        window.onscroll = function() {
-            scrollFunction();
-        };
+            $(window).scroll(function() {
+                scrollFunction();
+            });
 
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
+            function scrollFunction() {
+                if ($(document).scrollTop() > 20 || $(document.documentElement).scrollTop() > 20) {
+                    mybutton.css("display", "block");
+                } else {
+                    mybutton.css("display", "none");
+                }
             }
-        }
 
-        function topFunction() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
+            mybutton.click(function() {
+                $("body,html").animate({
+                    scrollTop: 0
+                }, 600);
+            });
+        });
         // scroll-to-top end
     </script>
 </body>
