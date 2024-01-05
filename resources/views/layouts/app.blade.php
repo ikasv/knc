@@ -1,4 +1,4 @@
-<!doctype html>
+{{-- <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -77,4 +77,227 @@
         </main>
     </div>
 </body>
+</html> --}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
+    <link rel="stylesheet" href="{{ asset('public/assets/css/styles.css') }}">
+    <title>KNC</title>
+    @yield('style')
+</head>
+
+<body>
+    <section id="header">
+        <nav id="top-nav" class="py-2 border-bottom">
+            <div class="container mt-2 ">
+                <div class="row">
+                    <div class="col-5 align-self-center">
+
+                        <div class="header-social ">
+                            <a href="">
+                                <i class="fa-brands fa-facebook pe-2"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa-brands fa-instagram pe-2"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa-brands fa-twitter pe-2"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa-brands fa-linkedin pe-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-7 email">
+                        <a href="">
+                            <span><i class="fa-solid fa-envelope pe-2"></i></span>
+                            <span>info@knc@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        {{-- sec nav --}}
+        <nav id="sec-nav" class="navbar navbar-expand-lg navbar-light ">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <div>
+                        <img src="https://www.ozonstar.com/img/logo.png" class="logo" alt="" srcset="">
+                    </div>
+                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end drop-menue" id="navbarNav">
+                    <ul class="navbar-nav gap-lg-3 gap-0">
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Our company</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Medium</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pe-0" href="#">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+    <main>
+        @yield('content')
+    </main>
+
+    {{-- FOOTER  --}}
+    <footer id="footer">
+        <section id="first-footer" style="background-image: url({{ url('storage/front_images/banner.jpg') }})">
+            <div class="container">
+                <div class="row pt-5 pb-4">
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <a href="javascript.void(0)">
+                                <img src="https://www.ozonstar.com/img/logo.png" width="200" alt=""
+                                    srcset="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row pb-4 footer-menue">
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <span><a href="/">Home</a> </span>
+                            <span><a href="/">Our Cpmpany</a> </span>
+                            <span><a href="/">About Us</a> </span>
+                            <span><a href="/">Medium</a> </span>
+                            <span><a href="/">Blog</a> </span>
+                            <span><a href="/">Contact</a> </span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row pb-4">
+                    <div class="col-md-12 ">
+                        <div class="footer-info text-center">
+                            <span class="pe-2"><a href=""><i class="fa-solid fa-location-dot pe-2"></i>
+                                    Hawa Mahal Rd, Badi Choupad, J.D.A. Market, Pink City, Jaipur, Rajasthan 302002</a>
+                            </span>
+                            <span><a href=""><i class="fa-solid fa-envelope pe-2"></i>
+                                    info@gmail.com</a>
+                            </span>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row pb-5">
+                    <div class="col-md-12">
+                        <div class="footer-social ">
+                            <a href="">
+                                <i class="fa-brands fa-facebook pe-2"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa-brands fa-instagram pe-2"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa-brands fa-twitter pe-2"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa-brands fa-linkedin pe-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="sec-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 py-3">
+                        <div class="text-center">
+                            <span><a href="">
+                                    Privacy Policy</a> -
+                            </span>
+                            <span><a href="">
+                                    Cookies Policy</a> -
+                            </span>
+                            <span><a href="">
+                                    Overant</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button id="myBtn" type="button" class="toTop js-toTop to-top" onclick="topFunction();" style="display: inline-block;"><i
+                class="fa-solid fa-chevron-up"></i></button>
+
+    </footer>
+    {{-- FOOTER END  --}}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    @yield('script')
+
+    <script>
+        // navbar
+        document.addEventListener("DOMContentLoaded", function() {
+            window.addEventListener("scroll", function() {
+                if (window.scrollY > 200) {
+                    document.getElementById("sec-nav").classList.add("fixed-top");
+
+                    navbar_height = document.querySelector(".navbar").offsetHeight;
+                    document.body.style.paddingTop = navbar_height + "px";
+                } else {
+                    document.getElementById("sec-nav").classList.remove("fixed-top");
+
+                    document.body.style.paddingTop = "0";
+                }
+            });
+        });
+        // navbar end
+        // scroll-to-top
+        let mybutton = document.getElementById("myBtn");
+
+        window.onscroll = function() {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+        // scroll-to-top end
+    </script>
+</body>
+
 </html>
