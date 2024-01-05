@@ -146,7 +146,7 @@ a:hover {
 /* home end */
 /* footer */
 #footer {
-    background-color: #00a0e3;
+    background-color: #009fe377;
 }
 #footer a {
     color: #fff;
@@ -174,11 +174,9 @@ a:hover {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    opacity: 0.9;
+    /* opacity: 0.8; */
 }
-.sec-footer {
-    opacity: 0.9;
-}
+
 
 .sec-footer {
     background-color: #00a0e3;
