@@ -12,6 +12,8 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $appends      =   ['profile_image_url', 'status_view'];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -20,8 +22,29 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'mobile',
+        'dealer_id',
+        'profile_image',
         'password',
+        'status'
     ];
+
+
+    # Scope
+    public function scopeActive($query){
+        return $query->whereStatus(1);
+    }
+    # End Scope
+
+    # Attributes
+    public function getProfileImageUrlAttribute(){
+        return asset('storage/users/profile-images/'.$this->profile_image);
+    }
+
+    public function getStatusViewAttribute(){
+        return $this->status ? "<div class='btn btn-sm btn-success'>Active</div>" : "<div class='btn btn-sm btn-danger'>Deactive</div>";
+    }
+    # End Attributes
 
     /**
      * The attributes that should be hidden for serialization.

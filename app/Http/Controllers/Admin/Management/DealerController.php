@@ -80,8 +80,6 @@ class DealerController extends Controller
     {
 
         $this->authorize('permissions', [$this->permission_key, 'create']);
-        $custom_errors                              =   [];
-
         $back_msg                       =   "";
         $id                             =   request()->id ?? 0;
 
