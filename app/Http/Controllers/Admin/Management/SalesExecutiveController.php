@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Management;
 
 use App\Http\Controllers\Controller;
 use App\Models\SalesExecutive;
+use Illuminate\Support\Facades\Hash;
 
 class SalesExecutiveController extends Controller
 {
@@ -82,6 +83,10 @@ class SalesExecutiveController extends Controller
         $back_msg                       =   "";
         $id                             =   request()->id ?? 0;
 
+        if(!request()->id && !request()->password):
+            return back()->withErrors(['password' => ['Please enter password']]);
+        endif;
+
         request()->validate([
                             'name'                  =>  "required|max:225|unique:$this->table_name,name,".request()->id,
                             'email'                 =>  "required|max:225|unique:$this->table_name,email,".request()->id,
@@ -94,19 +99,25 @@ class SalesExecutiveController extends Controller
         $profile_image                 =   uploadFile(request(), 'profile_image', 'sales-executive/profile-images');
         # End Media
 
+        $inputs                                     =   [
+                                                            'employee_id'           => request()->id ? request()->employee_id : str()->upper(uniqid('EMP_')),
+                                                            'name'                  => request()->name,
+                                                            'email'                 => request()->email,
+                                                            'mobile'                => request()->mobile,
+                                                            'profile_image'         => $profile_image,
+                                                            'joining_date'          => request()->joining_date,
+                                                            'status'                => request()->status
+                                                        ];
+
+        if(request()->password):
+            $inputs['password']                         =    Hash::make(request()->password);
+        endif;
+
         $result                         =   $this->eloquentModel()->updateOrCreate(
                                                 [
                                                     'id'                    => request()->id
                                                 ],
-                                                [
-                                                    'employee_id'           => request()->id ? request()->employee_id : str()->upper(uniqid('EMP_')),
-                                                    'name'                  => request()->name,
-                                                    'email'                 => request()->email,
-                                                    'mobile'                => request()->mobile,
-                                                    'profile_image'         => $profile_image,
-                                                    'joining_date'          => request()->joining_date,
-                                                    'status'                => request()->status
-                                                ]
+                                                $inputs
                                             );
 
         if($result):

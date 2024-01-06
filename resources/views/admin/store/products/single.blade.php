@@ -21,11 +21,11 @@
 			<div class="card-header bg-primary">
 				<div class="row">
 					<div class="col-sm-6 text-left align-self-center">
-						<h5 class="m-0">Tour Package</h5>
+						<h5 class="m-0">{{ $title }}</h5>
 					</div>
-					@can('permissions', ['tour_packages', 'create'] ?: [])
+					@can('permissions', [$permission_key, 'create'])
 					<div class="col-sm-6 text-right">
-						<a class="btn btn-warning" href="{{ route('admin::tour-packages.index') }}">List</a>
+						<a class="btn btn-warning" href="{{ route($index_route) }}">List</a>
 					</div>
 					@endcan
 				</div>
@@ -38,12 +38,12 @@
 					<!-- left column -->
 					<div class="col-md-12">
 						<!-- form start -->
-						<form method="post" action="{{ route('admin::tour-packages.store') }}" enctype="multipart/form-data">
+						<form method="post" action="{{ route($store_route) }}" enctype="multipart/form-data">
 							@csrf
 							<input type="hidden" name="id" value="{{ $record->id ?? '' }}">
 							<div class="row">
-								<div class="col-md-12">
-									<details open class="my-2" style="padding: 12px; background: aliceblue;">
+								<div class="col-md-12 ">
+									<details open style="padding: 12px; background: aliceblue;">
 										<summary>Details</summary>
 										<div class="row p-3">
 
@@ -66,154 +66,96 @@
 												</div>
 											</div>
 											<!-- End Slug -->
-
-											<!-- Parent Category -->
+											
+											<!-- Sku -->
 											<div class="col-md-4">
 												<div class="form-group">
-													<label for="parent_id">Category</label>
+													<label for="sku">Sku <span class="text-danger">*</span></label>
+													<input type="text" class="form-control" id="sku" name="sku" placeholder="Enter sku" value="{{ old('sku', $record->sku ?? '') }}" required>
+													@error('sku') <div class="text-danger">{{ $message }}</div> @enderror
+												</div>
+											</div>
+											<!-- End Sku -->
+
+											<!-- Category -->
+											<div class="col-md-4">
+												<div class="form-group">
+													<label for="category_id">Category</label>
 													<br>
-													<select type="text" class="form-control select2" id="category_id" name="category_ids">
+													<select type="text" class="form-control select2" id="category_ids" name="category_ids" >
 														<option value="0">Select Category</option>
-														@foreach($categories ?? [] as $row)
-														<option value="{{ $row->id }}" {{ ( isset($record) && $record->parent_id == $row->id ) ? 'selected' : '' }}>{{ $row->name }} {{ $row->parent_id == 0 ? '( Main )' : '' }}</option>
+														@foreach(App\Models\Category::active()->get() ?? [] as $row)
+														<option value="{{ $row->id }}" {{ ( isset($record) && $record->category_id == $row->id ) ? 'selected' : '' }}>{{ $row->name }} {{ $row->parent_id == 0 ? '( Main )' : '' }}</option>
 														@endforeach
 													</select>
 												</div>
 											</div>
-											<!-- End Parent Category -->
-
-											<!-- Number of Day's -->
+											<!-- End Category -->
+											
+											<!-- Dimensions -->
 											<div class="col-md-4">
 												<div class="form-group">
-													<label for="number_of_days">No. of Day's</label>
-													<select type="text" class="form-control select2" id="number_of_days" name="number_of_days">
-														@foreach(range(1,30) as $day)
-														<option value="{{ $day }}"  {{ ( $day == ( $record->number_of_days ?? '' ) ? 'selected' : '') }}>{{ $day }}</option>
-														@endforeach
-													</select>
-													@error('slug') <div class="text-danger">{{ $message }}</div> @enderror
+													<label for="dimensions">Dimensions <span class="text-danger">*</span></label>
+													<input type="text" class="form-control" id="dimensions" name="dimensions" placeholder="Enter dimensions" value="{{ old('dimensions', $record->dimensions ?? '') }}" required>
+													@error('dimensions') <div class="text-danger">{{ $message }}</div> @enderror
 												</div>
 											</div>
-											<!--End Number of Day's -->
-
-											<!-- Number of Night's -->
+											<!-- End Dimensions -->
+											
+											<!-- Finishing -->
 											<div class="col-md-4">
 												<div class="form-group">
-													<label for="number-of-days">No. of Night's</label>
-													<select type="text" class="form-control select2" id="number_of_nights" name="number_of_nights">
-														@foreach(range(1,30) as $day)
-														<option value="{{ $day }}"  {{ ( $day == ( $record->number_of_nights ?? '' ) ? 'selected' : '') }}>{{ $day }}</option>
-														@endforeach
+													<label for="finishing">Finishing <span class="text-danger">*</span></label>
+													<select type="text" class="form-control" id="finishing" name="finishing">
+														<option value="1" {{ ( isset($record) && $record->finishing == 'Dark Grey' ) ? 'selected' : '' }}>Dark Grey</option>
 													</select>
-													@error('slug') <div class="text-danger">{{ $message }}</div> @enderror
+													@error('finishing') <div class="text-danger">{{ $message }}</div> @enderror
 												</div>
 											</div>
-											<!--End Number of Night's -->
+											<!-- End Finishing -->
 
-											<!-- Duration -->
+											<!-- MRP -->
 											<div class="col-md-4">
 												<div class="form-group">
-													<label for="duration">Duration</label>
-													<input type="text" name="duration" class="form-control" id="duration" placeholder="Example - 10 days and 5 night" value="{{ $record->duration ?? '' }}" readonly>
-													@error('duration') <div class="text-danger">{{ $message }}</div> @enderror
+													<label for="mrp">MRP <span class="text-danger">*</span></label>
+													<input type="text" class="form-control" id="mrp" name="mrp" placeholder="Enter mrp" value="{{ old('mrp', $record->mrp ?? '') }}" required>
+													@error('mrp') <div class="text-danger">{{ $message }}</div> @enderror
 												</div>
 											</div>
-											<!--End Duration -->
-
-											<!-- Short Description -->
-											<div class="col-md-12">
-												<div class="form-group">
-													<label for="short_description">Short Description</label>
-													<textarea name="short_description" class="form-control" placeholder="Enter short description">{{ $record->short_description ?? '' }}</textarea>
-													@error('short_description') <div class="text-danger">{{ $message }}</div> @enderror
-												</div>
-											</div>
-											<!--End Short Description -->
-
-											<!-- Major Attraction -->
-											<div class="col-md-12">
-												<div class="form-group">
-													<label for="major_attraction">Major Attraction</label>
-													<textarea name="major_attraction" class="form-control" placeholder="Enter major attraction">{{ $record->major_attraction ?? '' }}</textarea>
-													@error('major_attraction') <div class="text-danger">{{ $message }}</div> @enderror
-												</div>
-											</div>
-											<!--End Major Attraction -->
-
-											<!-- Destinations -->
-											<div class="col-md-6">
-												<div class="form-group">
-													<label for="destination">Destination</label>
-													<select type="text" class="form-control select2" id="destination" name="destination">
-														<option value="" selected disabled>Choose..</option>
-														@foreach(range(1,30) as $destination)
-														<option value="{{ $destination }}">{{ $destination }}</option>
-														@endforeach
-													</select>
-													@error('slug') <div class="text-danger">{{ $message }}</div> @enderror
-												</div>
-											</div>
-											<!--End Destinations -->
-
-											<!-- Tags -->
-											<div class="col-md-6">
-												<div class="form-group">
-													<label for="tags">Tags</label>
-													<select type="text" class="form-control select2" id="tags" name="tags">
-														<option value="" selected disabled>Choose..</option>
-														@foreach(range(1,30) as $tags)
-														<option value="{{ $tags }}">{{ $tags }}</option>
-														@endforeach
-													</select>
-													@error('slug') <div class="text-danger">{{ $message }}</div> @enderror
-												</div>
-											</div>
-											<!--End Tags -->
-
-											<!-- Featured -->
+											<!-- End MRP -->
+											
+											<!-- Sale Price -->
 											<div class="col-md-4">
 												<div class="form-group">
-													<label for="is_featured">Featured</label>
-													<select type="text" class="form-control" id="is_featured" name="is_featured">
-														<option value="0" {{ ( isset($record) && $record->is_featured == 0 ) ? 'selected' : '' }}>No</option>
-														<option value="1" {{ ( isset($record) && $record->is_featured == 1 ) ? 'selected' : '' }}>Yes</option>
-													</select>
+													<label for="sale_price">Sale Price <span class="text-danger">*</span></label>
+													<input type="text" class="form-control" id="sale_price" name="sale_price" placeholder="Enter sale price" value="{{ old('sale_price', $record->sale_price ?? '') }}" required>
+													@error('mrp') <div class="text-danger">{{ $message }}</div> @enderror
 												</div>
 											</div>
-											<!-- End Featured -->
+											<!-- End Sale Price -->
 
-											<!-- Popular -->
+											<!-- Packing -->
 											<div class="col-md-4">
 												<div class="form-group">
-													<label for="is_popular">Popular</label>
-													<select type="text" class="form-control" id="is_popular" name="is_popular">
-														<option value="0" {{ ( isset($record) && $record->is_popular == 0 ) ? 'selected' : '' }}>No</option>
-														<option value="1" {{ ( isset($record) && $record->is_popular == 1 ) ? 'selected' : '' }}>Yes</option>
+													<label for="packing">Packing <span class="text-danger">*</span></label>
+													<select type="text" class="form-control" id="packing" name="packing">
+														<option value="1" {{ ( isset($record) && $record->packing == 'Set' ) ? 'selected' : '' }}>Set</option>
 													</select>
+													@error('packing') <div class="text-danger">{{ $message }}</div> @enderror
 												</div>
 											</div>
-											<!-- End Popular -->
+											<!-- End Packing -->
 
-											<!-- Status -->
+											<!-- Points -->
 											<div class="col-md-4">
 												<div class="form-group">
-													<label for="status">Status</label>
-													<select type="text" class="form-control" id="status" name="status">
-														<option value="1" {{ ( isset($record) && $record->status == 1 ) ? 'selected' : '' }}>Active</option>
-														<option value="0" {{ ( isset($record) && $record->status == 0 ) ? 'selected' : '' }}>Deactive</option>
-													</select>
+													<label for="points">Points <span class="text-danger">*</span></label>
+													<input type="text" class="form-control" id="points" name="points" placeholder="Enter points" value="{{ old('points', $record->points ?? '') }}" required>
+													@error('mrp') <div class="text-danger">{{ $message }}</div> @enderror
 												</div>
 											</div>
-											<!-- End Status -->
+											<!-- End Points -->
 
-										</div>
-									</details>
-								</div>
-
-								<div class="col-md-12">
-									<details open class="my-2" style="padding: 12px; background: aliceblue;">
-										<summary>Media</summary>
-										<div class="row p-4">
 											<!-- Icon -->
 											<div class="col-md-4">
 												<div class="form-group">
@@ -256,102 +198,6 @@
 											</div>
 											<!-- End Featured Image -->
 
-										</div>
-										<!-- Gallery Images -->
-										<x-gallery-images :gallery_images="$gallery_images ?? []" />
-										<!-- End Gallery Images -->
-									</details>
-								</div>
-
-
-								<!-- Itinerary Tab -->
-								<div class="col-md-12">
-									<details {{ isset($record->id) ? 'open' : '' }} class="my-2" style="padding:12px; background:aliceblue;">
-										<summary>Itinerary</summary>
-										<!-- Itinerary - Functionality -->
-										<div class="row p-4 itinerary-content-container">
-											<div class="col-md-12">
-												<x-admin.itinerary :items='$record->itinerary ?? []' />
-
-												<div class="col-md-12 text-right">
-													<button type="button" class="btn btn-warning btn-sm text-white" onclick="add_more(this, 'itinerary' ,'.itinerary-content-container')">Add More</button>
-												</div>
-											</div>
-										</div>
-										<!-- End  Itinerary - Functionality -->
-									</details>
-								</div>
-								<!-- End Itinerary Tab -->
-
-								<!-- Inclusion and Exclusion Tab -->
-								<div class="col-md-12">
-									<details {{ isset($record->id) ? 'open' : '' }} class="my-2" style="padding:12px; background:aliceblue;">
-										<summary>Inclusion and Exclusion</summary>
-										<!-- Inclusion and Exclusion - Functionality -->
-										<div class="row p-4 dynamic-content-container">
-											<div class="col-md-12">
-												<label>Inclusion</label>
-												<textarea name="inclusion" class="form-control ckeditor" placeholder="Enter Inclusion">
-													{{ $record->inclusion ?? '' }}
-												</textarea>
-											</div>
-											<div class="col-md-12 mt-4">
-												<label>Exclusion</label>
-												<textarea name="exclusion" class="form-control ckeditor" placeholder="Enter exclusion">
-												{{ $record->exclusion ?? '' }}
-												</textarea>
-											</div>
-										</div>
-										<!-- End  Inclusion and Exclusion - Functionality -->
-									</details>
-								</div>
-								<!-- End Inclusion and Exclusion Tab -->
-
-								<!-- Dynamic Content Tab -->
-								<div class="col-md-12">
-									<details {{ isset($record->id) ? 'open' : '' }} class="my-2" style="padding:12px; background:aliceblue;">
-										<summary>Dynamic Content</summary>
-										<!-- Dynamic Content - Functionality -->
-										<div class="row p-4 dynamic-content-container">
-											<div class="col-md-12">
-												<x-admin.dynamic-contents :dynamicContents='$record->dynamic_content ?? []' />
-
-												<div class="col-md-12 text-right">
-													<button type="button" class="btn btn-warning btn-sm text-white" onclick="add_more(this, 'dynamic-content' ,'.dynamic-content-container')">Add More</button>
-												</div>
-											</div>
-										</div>
-										<!-- End  Dynamic Content - Functionality -->
-									</details>
-								</div>
-								<!-- End Dynamic Content Tab -->
-
-								<!-- Faq -->
-								<div class="col-md-12">
-									<details {{ isset($record->id) ? 'open' : '' }} class="my-2" style="padding:12px; background:aliceblue;">
-										<summary>Faq</summary>
-										<!-- Faq - Functionality -->
-										<div class="row p-4 faq-container">
-											<div class="col-md-12">
-
-												<x-admin.faqs :items='$record->faq ?? []' />
-
-												<div class="col-md-12 text-right">
-													<button type="button" class="btn btn-warning btn-sm text-white" onclick="add_more(this, 'faq' ,'.faq-container')">Add More</button>
-												</div>
-											</div>
-										</div>
-										<!-- End Faq - Functionality -->
-									</details>
-								</div>
-								<!-- End Faq -->
-
-								<!-- Additional Tab -->
-								<div class="col-md-12">
-									<details {{ isset($record->id) ? 'open' : '' }} class="my-2" style="padding:12px; background:aliceblue;">
-										<summary>Additional</summary>
-										<!-- Additional - Functionality -->
-										<div class="row p-4 additional-container">
 											<!-- Show on Menu -->
 											<div class="col-md-4">
 												<div class="form-group">
@@ -388,15 +234,78 @@
 											</div>
 											<!-- End Show on Footer -->
 
+											<!-- Featured -->
+											<div class="col-md-4">
+												<div class="form-group">
+													<label for="is_featured">Featured</label>
+													<select type="text" class="form-control" id="is_featured" name="is_featured">
+														<option value="0" {{ ( isset($record) && $record->is_featured == 0 ) ? 'selected' : '' }}>No</option>
+														<option value="1" {{ ( isset($record) && $record->is_featured == 1 ) ? 'selected' : '' }}>Yes</option>
+													</select>
+												</div>
+											</div>
+											<!-- End Featured -->
+
+											<!-- Popular -->
+											<div class="col-md-4">
+												<div class="form-group">
+													<label for="is_popular">Popular</label>
+													<select type="text" class="form-control" id="is_popular" name="is_popular">
+														<option value="0" {{ ( isset($record) && $record->is_popular == 0 ) ? 'selected' : '' }}>No</option>
+														<option value="1" {{ ( isset($record) && $record->is_popular == 1 ) ? 'selected' : '' }}>Yes</option>
+													</select>
+												</div>
+											</div>
+											<!-- End Popular -->
+
+											<!-- Status -->
+											<div class="col-md-4">
+												<div class="form-group">
+													<label for="status">Status</label>
+													<select type="text" class="form-control" id="status" name="status">
+														<option value="1" {{ ( isset($record) && $record->status == 1 ) ? 'selected' : '' }}>Active</option>
+														<option value="0" {{ ( isset($record) && $record->status == 0 ) ? 'selected' : '' }}>Deactive</option>
+													</select>
+												</div>
+											</div>
+											<!-- End Status -->
 										</div>
-										<!-- End Additional - Functionality -->
 									</details>
 								</div>
-								<!-- End Additional Tab -->
 
-								<!-- Meta Tab -->
+								<div class="col-md-12 mt-3">
+									<details open style="padding: 12px; background: aliceblue;">
+										<summary>Gallery</summary>
+										<!-- Gallery Images -->
+										<x-gallery-images :gallery_images="$gallery_images ?? []"/>
+										<!-- End Gallery Images -->
+									</details>
+								</div>
+
+								<!-- Description Section -->
+								<div class="col-md-12 my-3">
+									<details {{ isset($record->id) ? 'open' : '' }} style="padding: 12px; background: aliceblue;">
+										<summary>Description</summary>
+										<div class="col-md-12 mt-4">
+											<div class="form-group">
+												<label for="name">Short Description</label>
+												<textarea type="text" class="form-control ckeditor" id="short_description" name="short_description" placeholder="Enter short description"  value="{{ old('short_description', $record->short_description ?? '') }}">{{ old('short_description', $record->short_description ?? '') }}</textarea>
+											</div>
+										</div>
+
+										<div class="col-md-12">
+											<div class="form-group">
+												<label for="name">Long Description</label>
+												<textarea type="text" class="form-control ckeditor" id="long_description" name="long_description" placeholder="Enter long description">{{ old('long_description', $record->long_description ?? '') }}</textarea>
+											</div>
+										</div>
+									</details>
+								</div>
+								<!-- End Description Section -->
+
+
 								<div class="col-md-12 ">
-									<details  {{ isset($record->id) ? 'open' : '' }} style="padding: 12px; background: aliceblue;">
+									<details {{ isset($record->id) ? 'open' : '' }} style="padding: 12px; background: aliceblue;">
 										<summary>Meta</summary>
 										<div class="col-md-12 mt-4">
 											<div class="form-group">
@@ -413,8 +322,6 @@
 										</div>
 									</details>
 								</div>
-								<!-- End Meta Tab -->
-
 								<div class="col-md-12 mt-4">
 									<button type="submit" class="btn-dm-sm btn-dm-primary btn-lg">Submit</button>
 								</div>
@@ -433,29 +340,3 @@
 
 @endsection
 
-@section('script')
-<script>
-	$('#number_of_days, #number_of_nights').on('change', function(){
-		var duration    		= "";
-		var number_of_days   	= $('#number_of_days').val();
-		var number_of_nights   	= $('#number_of_nights').val();
-
-		if(number_of_days && number_of_nights){
-			duration			=	`${number_of_days} day's and ${number_of_nights} night's`;
-		}
-		
-		if(number_of_days && !number_of_nights){
-			duration			=	`${number_of_days} day's `;
-		}
-		
-		if(!number_of_days && number_of_nights){
-			duration			=	`${number_of_nights} night's `;
-		}
-
-		$('#duration').val(duration);
-	});
-	
-
-
-</script>
-@endsection

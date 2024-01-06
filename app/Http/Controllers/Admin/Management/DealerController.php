@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Management;
 use App\Http\Controllers\Controller;
 use App\Models\Dealer;
 use App\Models\SalesExecutive;
+use Illuminate\Support\Facades\Hash;
 
 class DealerController extends Controller
 {
@@ -79,10 +80,16 @@ class DealerController extends Controller
     public function store()
     {
 
+
         $this->authorize('permissions', [$this->permission_key, 'create']);
         $back_msg                       =   "";
         $id                             =   request()->id ?? 0;
 
+        
+        if(!request()->id && !request()->password):
+            return back()->withErrors(['password' => ['Please enter password']]);
+        endif;
+        
         request()->validate([
                             'sales_executive_id'    =>  "required",
                             'name'                  =>  "required|max:225|unique:$this->table_name,name,".request()->id,
@@ -99,24 +106,30 @@ class DealerController extends Controller
         $profile_image                 =   uploadFile(request(), 'profile_image', 'dealer/profile-images');
         # End Media
 
+        $inputs                                         =   [
+                                                                'sales_executive_id'    => request()->sales_executive_id,
+                                                                'name'                  => request()->name,
+                                                                'email'                 => request()->email,
+                                                                'mobile'                => request()->mobile,
+                                                                'profile_image'         => $profile_image,
+                                                                'business_id'           => request()->business_id,
+                                                                'business_name'         => request()->business_name,
+                                                                'business_email'        => request()->business_email,
+                                                                'business_mobile'       => request()->business_mobile,
+                                                                'business_address'      => request()->business_address,
+                                                                'business_gst_number'   => request()->business_gst_number,
+                                                                'status'                => request()->status
+                                                            ];
+
+        if(request()->password):
+            $inputs['password']                         =    Hash::make(request()->password);
+        endif;
+
         $result                         =   $this->eloquentModel()->updateOrCreate(
                                                 [
                                                     'id'                    => request()->id
                                                 ],
-                                                [
-                                                    'sales_executive_id'    => request()->sales_executive_id,
-                                                    'name'                  => request()->name,
-                                                    'email'                 => request()->email,
-                                                    'mobile'                => request()->mobile,
-                                                    'profile_image'         => $profile_image,
-                                                    'business_id'           => request()->business_id,
-                                                    'business_name'         => request()->business_name,
-                                                    'business_email'        => request()->business_email,
-                                                    'business_mobile'       => request()->business_mobile,
-                                                    'business_address'      => request()->business_address,
-                                                    'business_gst_number'   => request()->business_gst_number,
-                                                    'status'                => request()->status
-                                                ]
+                                                $inputs
                                             );
 
         if($result):

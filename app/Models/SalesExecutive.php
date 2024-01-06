@@ -23,6 +23,7 @@ class SalesExecutive extends Model
                                     'profile_image',
                                     'joining_date',
                                     'status',
+                                    'password'
                                 ];
     
     # Scope
@@ -41,4 +42,7 @@ class SalesExecutive extends Model
     }
     # End Attributes
      
+    protected $hidden = [
+        'password'
+    ];
 }

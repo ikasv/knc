@@ -11,12 +11,12 @@
 
 			<div class="card-header bg-primary">
 				<div class="row">
-					<div class="col-sm-6 text-left">
-						<h5 class="m-0">Tour Package List</h5>
+					<div class="col-sm-6 align-self-center">
+						<h5 class="m-0">{{ $title ?? 'Records' }}</h5>
 					</div>
-					@can('permissions', ['tour_packages', 'create'])
+					@can('permissions', [$permission_key, 'create'])
 					<div class="col-sm-6 text-right">
-						<a class="btn btn-warning" href="{{ route('admin::tour-packages.create') }}">Add</a>
+						<a class="btn btn-warning btn-sm" href="{{ route($create_route) }}">Add</a>
 					</div>
 					@endcan
 				</div>
@@ -52,19 +52,27 @@
 									<tr>
 										<td class="text-center">{{ $loop->iteration }}</td>
 										<td>{{ $record->name }}</td>
-										<td>{!! $record->status_label_view !!}</td>
+										<td>{!! $record->status_view !!}</td>
 										<td class="text-center">
-											@can('permissions', ['tour_packages', 'edit'])
-											<a href="{{ route('admin::tour-packages.edit',$record->id) }}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-											@endcan
+											@if($record->deleted_at)
+												<form action="{{ route($restore_route, $record->id) }}" method="post" class="d-inline">
+													@csrf
+													@method('PATCH')
+													<button type="button" class="btn btn-success btn-sm ml-2" onclick="retoreRecord(this)"><i class="fa fa-trash-restore f-12"></i></button>
+												</form>
+											@else
+												@can('permissions', [$permission_key, 'edit'])
+													<a href="{{ route($edit_route, $record->id) }}" class="btn btn-success btn-sm"><i class="fa fa-edit f-12"></i></a>
+												@endcan
 
-											@can('permissions', ['tour_packages', 'delete'])
-											<form action="{{ route('admin::tour-packages.destroy',$record->id) }}" method="post" class="d-inline">
-												@csrf
-												@method('DELETE')
-												<button type="button" class="btn btn-danger btn-sm ml-2" onclick="deleteRecord(this)"><i class="fa fa-trash"></i></button>
-											</form>
-											@endcan
+												@can('permissions', [$permission_key, 'delete'])
+												<form action="{{ route($destroy_route, $record->id) }}" method="post" class="d-inline">
+													@csrf
+													@method('DELETE')
+													<button type="button" class="btn btn-danger btn-sm ml-2" onclick="deleteRecord(this)"><i class="fa fa-trash f-12"></i></button>
+												</form>
+												@endcan
+											@endif
 										</td>
 									</tr>
 								@endforeach
@@ -108,6 +116,23 @@
 			confirmButtonColor: '#3085d6',
 			cancelButtonColor: '#d33',
 			confirmButtonText: 'Yes, delete it!'
+		}).then((result) => {
+			if (result.value == 1) {
+				$(th).parent().submit();
+			}
+		});
+	}
+	
+	function retoreRecord(th) {
+		Swal.fire({
+			title: 'Are you sure?',
+			text: "You restoring this record !",
+			icon: 'warning',
+			showCancelButton: true,
+			showConfirmButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Yes, restore it!'
 		}).then((result) => {
 			if (result.value == 1) {
 				$(th).parent().submit();

@@ -498,8 +498,7 @@
                 <!-- Product -->
                 @can('permissions', ['products', 'view'])
                 <li class="nav-item">
-                  {{-- <a href="{{ route('admin::products.index') }}" class="nav-link"> --}}
-                  <a href="#" class="nav-link">
+                  <a href="{{ route('admin::products.index') }}" class="nav-link">
                     <i class="nav-icon fas fa-list"></i>
                     <p>Products</p>
                   </a>

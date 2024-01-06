@@ -114,6 +114,13 @@
 											</div>
 											<!-- End Joining Date -->
 
+											<!-- Password -->
+											<div class="form-group col-md-4">
+												<label for="password">Password</label>
+												<input type="text" class="form-control" id="password" name="password" placeholder="Enter password" value="{{ old('password') }}">
+												@error('password') <div class="text-danger">{{ $message }}</div> @enderror
+											</div>
+											<!-- Password -->
 
 											<!-- Status -->
 											<div class="col-md-4">
