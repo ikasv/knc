@@ -73,7 +73,7 @@ class UserController extends Controller
 
         $request->validate([
                                 'name'          =>  'required',
-                                'email'         =>  "required|email|unique:users,email,$id",
+                                // 'email'         =>  "required|email|unique:users,email,$id",
                                 'mobile'        =>  "required|digits:10|unique:users,mobile,$id",
                                 'dealer_id'     =>  'required'
                             ]);

@@ -93,7 +93,7 @@ class DealerController extends Controller
         request()->validate([
                             'sales_executive_id'    =>  "required",
                             'name'                  =>  "required|max:225|unique:$this->table_name,name,".request()->id,
-                            'email'                 =>  "required|max:225|unique:$this->table_name,email,".request()->id,
+                            // 'email'                 =>  "required|max:225|unique:$this->table_name,email,".request()->id,
                             'mobile'                =>  "required|max:225|digits:10|unique:$this->table_name,mobile,".request()->id,
                             'profile_image'         =>  "image|mimes:jpeg,png,jpg|max:2048",
                             'business_id'           =>  "required",
