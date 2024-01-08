@@ -475,7 +475,7 @@
 
             <!-- Store Management -->
             @can('permissions', ['store', 'view'])
-            <li class="nav-item">
+            <li class="nav-item {{ request()->segment(2) == 'categories' || request()->segment(2) == 'products' ? 'menu-is-opening menu-open' : '' }}">
               <a href="{{ url('admin/sliders') }}" class="nav-link">
                 <i class="nav-icon fas fa-store"></i>
                 <p>
