@@ -383,6 +383,18 @@ li::marker{
     height: 100px !important; 
     border: 2px solid #00437a !important;
 }
+#product-preview .zoomWrapper{
+    width: 100% !important;
+    height: auto !important;
+    max-height: 600px;
+    max-width: 100%;
+}
+#product-preview .zoomWrapper img{
+    width: 100% !important;
+    position: relative !important;
+    max-height: 600px;
+    max-width: 100%;
+}
 
 /* 
 .zoom-left {

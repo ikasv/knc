@@ -42,13 +42,13 @@
     </section>
     <div class="container">
         <div class="row pb-5">
-            <div class="col-md-7" id="product-preview">
+            <div class="col-md-6" id="product-preview">
                 {{-- <img src="{{ url('storage/front_images/trust.jpg') }}" class="img-fluid w-100" alt="" srcset=""> --}}
-                <div >
-                    <img class="img-fluid" id="zoom_03"
-                        src="{{ url('storage/front_images/trust.jpg') }}"
-                        data-zoom-image="{{ url('storage/front_images/trust.jpg') }} "
-                        width="411" />
+                {{-- <div > --}}
+                    <img id="zoom_03"
+                        src="{{ url('storage/front_images/468.jpg') }}"
+                        data-zoom-image="{{ url('storage/front_images/468.jpg') }} "
+                        >
 
                     {{-- <div class="clearfix"></div> --}}
 
@@ -86,9 +86,9 @@
                                 width="100" /></a>
 
                     </div> --}}
-                </div>
+                {{-- </div> --}}
             </div>
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <div>
                     <p class="text-heading">Thick Door Auto Soft-Close Concealed Hinge</p>
                     <p class="text-small">( Concealed Hinge )</p>
@@ -231,12 +231,14 @@
                     galleryActiveClass: 'active',
                     imageCrossfade: true,
                     lensOpacity: 0.2,
-                    zoomWindowWidth: 400,
-                    zoomWindowHeight: 300,
+                    zoomWindowWidth: 500,
+                    zoomWindowHeight: 500,
                     lensBorderColour:"#00437a",
-                    lensSize: 300,
+                    // lensSize: 400,
                     borderColour: "transparent",
                     lensBorderSize: 2,
+                    // lenszoom: true,
+                    scrollZoom: true,
                     loadingIcon: 'https://www.elevateweb.co.uk/spinner.gif'
                 });
 
