@@ -72,8 +72,8 @@
 											<!-- Email -->
 											<div class="col-md-4">
 												<div class="form-group">
-													<label for="email">Email <span class="text-danger">*</span></label>
-													<input type="text" class="form-control" id="email" name="email" placeholder="Enter email" value="{{ old('email', $record->email ?? '') }}" required>
+													<label for="email">Email</label>
+													<input type="text" class="form-control" id="email" name="email" placeholder="Enter email" value="{{ old('email', $record->email ?? '') }}">
 													@error('email') <div class="text-danger">{{ $message }}</div> @enderror
 												</div>
 											</div>
