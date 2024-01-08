@@ -68,7 +68,7 @@
             <a href="{{ route('product') }}" target="_blank" >
                 <div class="category-box d-flex justify-content-center flex-column align-items-center rounded">
                     <div class=" d-flex align-items-end back-image img-fluid rounded-top"
-                        style="background-image: url({{ url('storage/front_images/banner.jpg') }});">
+                        style="background-image: url(https://www.ozone-india.com/DMS/Images/hm-ctg-cabinet-hinges.jpg);">
                     </div>
                     <div class="w-100 bg-light py-2 px-3 rounded">
                         <p>OEC-451-A2S-SC (0°)</p>
