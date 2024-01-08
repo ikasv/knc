@@ -33,7 +33,7 @@ class GalleryImage extends Model
 
     public function getFullUrlAttribute(){
 
-        return  $this->type == 'category' ? asset('storage/category/gallery_images').'/'.$this->name : asset('storage/tour_packages/gallery_images').'/'.$this->name;
+        return  $this->type == 'category' ? asset('storage/category/gallery_images').'/'.$this->name : asset('storage/product/gallery_images').'/'.$this->name;
     }
 
     public function scopeType($query, $val){

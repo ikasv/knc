@@ -26,6 +26,7 @@ class Dealer extends Model
                                     'business_gst_number',
                                     'business_address',
                                     'status',
+                                    'password'
                                 ];
     
     # Scope
@@ -43,5 +44,9 @@ class Dealer extends Model
         return $this->status ? "<div class='btn btn-sm btn-success'>Active</div>" : "<div class='btn btn-sm btn-danger'>Deactive</div>";
     }
     # End Attributes
+
+    protected $hidden = [
+        'password'
+    ];
      
 }

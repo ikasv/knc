@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ModuleController;
 use App\Http\Controllers\Admin\Management\MemberController;
 use App\Http\Controllers\Admin\Management\SalesExecutiveController;
+use App\Http\Controllers\Admin\Store\ProductController;
 use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TourPackageController;
@@ -33,6 +34,7 @@ Route::group(['as' => 'admin::', 'middleware' => 'auth:admin'], function(){
 			'roles' 					=>  RoleController::class,
 			'modules' 					=>  ModuleController::class,
 			'categories' 				=>  CategoryController::class,
+			'products' 					=>  ProductController::class,
 			'sitesettings' 				=>  SiteSettingController::class,
 			'sliders' 					=>  SliderController::class,
 			'users' 					=>  UserController::class,			

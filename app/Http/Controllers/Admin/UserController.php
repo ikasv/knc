@@ -53,7 +53,7 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::get();
-        return view("admin.users.create",compact('roles'));
+        return view("admin.users.single",compact('roles'));
     }
 
     /**
@@ -64,23 +64,40 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        
+        if(!request()->id && !request()->password):
+            return back()->withErrors(['password' => ['Please enter password']]);
+        endif;
+
+        $id                 =   request()->id ?? 0;
 
         $request->validate([
-            'first_name'=>'required',
-            'last_name'=>'required',
-            'email'=>'required',
-            'mobile'=>'required',
-            'password'=>'required',
-            'role_id'=>'required'
-        ]);
+                                'name'          =>  'required',
+                                'email'         =>  "required|email|unique:users,email,$id",
+                                'mobile'        =>  "required|digits:10|unique:users,mobile,$id",
+                                'dealer_id'     =>  'required'
+                            ]);
 
-        $user  = $request->all();
+         # Media
+         $profile_image                 =   uploadFile(request(), 'profile_image', 'users/profile-images');
+         # End Media
 
-        $user['name'] = $request->input('first_name').' '.$request->input('last_name');
+        $inputs                         =   [
+                                                'name'              => request()->name,
+                                                'email'             => request()->email,
+                                                'mobile'            => request()->mobile,
+                                                'dealer_id'         => request()->dealer_id,
+                                                'profile_image'     => $profile_image
+                                            ];
+        
+        if(request()->password):
+            $inputs['password']                         =    Hash::make(request()->password);
+        endif;
 
-        $user['password'] = Hash::make($request->input('password'));
-
-        User::create($user);
+        User::updateOrCreate([
+                                    'id'        => request()->id,
+                                ],
+                                $inputs);
 
         return redirect()->route('admin::users.index')->with('success','User created successfully.');
     }
@@ -105,11 +122,9 @@ class UserController extends Controller
     public function edit($id)
     {
         try {
-            $user = User::findOrFail($id);
+            $record = User::findOrFail($id);
 
-            $roles = Role::get();
-
-            return view("admin.users.edit",compact('user', 'roles'));
+            return view("admin.users.single",compact('record'));
         }
         catch (ModelNotFoundException $e)
         {

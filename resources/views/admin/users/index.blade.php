@@ -1,38 +1,38 @@
 @extends('admin.app')
 
 @section('content')
-<!-- Content Header (Page header) -->
-<div class="content-header">
-  <div class="container-fluid">
-    <div class="row mb-2">
-      <div class="col-sm-6">
-        <h1 class="m-0">User List</h1>
-      </div><!-- /.col -->
-    </div><!-- /.row -->
-  </div><!-- /.container-fluid -->
-</div>
-<!-- /.content-header -->
 
 <!-- Main content -->
-<section class="content">
+<section class="content pt-5">
 	<div class="container-fluid">
-
 		<div class="row">
 	          <div class="col-12">
-
 	            <div class="card">
 
-	              <div class="card-body">
+				<div class="card-header bg-primary">
+					<div class="row">
+						<div class="col-sm-6 align-self-center">
+							<h5 class="m-0">{{ $title ?? 'Records' }}</h5>
+						</div>
+						@can('permissions', ['users', 'create'])
+						<div class="col-sm-6 text-right">
+							<a class="btn btn-warning btn-sm" href="{{ route('admin::users.create') }}">Add</a>
+						</div>
+						@endcan
+					</div>
+				</div>
 
-	              	@if($message = Session::get('success'))
-	              	<div class="alert alert-success">
-	              		{{ $message }}
-	              	</div>
-	              	@elseif($message = Session::get('error'))
-	              	<div class="alert alert-danger">
-	              		{{ $message }}
-	              	</div>
-	              	@endif
+	    	          <div class="card-body">
+
+						@if($message = Session::get('success'))
+							<div class="alert alert-success">
+								{{ $message }}
+							</div>
+						@elseif($message = Session::get('error'))
+							<div class="alert alert-danger">
+								{{ $message }}
+							</div>
+						@endif
 
 	                <table id="example2" class="table table-bordered table-hover">
 	                  <thead>
