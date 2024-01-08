@@ -1,5 +1,6 @@
 body {
     color: #5a5a5a;
+    ;
 }
 h2,
 h4 {
@@ -19,8 +20,25 @@ hr {
 }
 .button-primary:hover {
     color: #fff;
-    border-color: #4cb27f;
-    background-color: #4cb27f;
+    border-color: #00437a;
+    background-color: #00437a;
+}
+.text-heading{
+    font-size: 20px;
+    font-weight: 600;
+}
+.text-small{
+    font-size: 10px;
+    font-weight: 600;
+}
+.text-sub-heading{
+    font-size: 15px;
+    font-weight: 600;
+}
+.detail-text{
+    font-size: 15px;
+    font-weight: 400;
+    color: #838383;
 }
 
 a {
@@ -33,7 +51,7 @@ a:hover {
 #top-nav {
     width: 100%;
     background: #00a0e3;
-    height: 50px;
+    /* height: 50px; */
     font-size: 15px;
 }
 #top-nav h1 {
@@ -50,7 +68,7 @@ a:hover {
     text-align: right;
 }
 #sec-nav {
-    height: 80px;
+    /* height: 80px; */
     background-color: #fff !important;
 }
 #sec-nav li {
@@ -135,18 +153,79 @@ a:hover {
 }
 .toTop:hover {
     transition: 0.3s ease all;
-    background: #4cb27f;
+    background: #00437a;
 }
-.product-list .slick-prev:before,
-.product-list .slick-next:before {
+
+
+.popular-categories .slick-prev:before,
+.popular-categories .slick-next:before,
+.releated-product .slick-prev:before,
+.releated-product .slick-next:before {
     color: #00a0e3;
     background-color: white;
     font-size: 27px;
 }
+.popular-categories a, .product-listing a, .releated-product a{
+    color: #00a0e3;
+    transition: 0.3s ease all;
+}
+
+.popular-categories a:hover, .product-listing a:hover, .releated-product a:hover{
+    color: #00437a;
+    transition: 0.3s ease all;
+}
+.category-box{
+    box-shadow: 0px 0px 0px 0px #00437a00;
+    transition: 0.3s ease all;
+}
+.popular-categories a:hover .category-box , .product-listing a:hover .category-box, .releated-product a:hover .category-box {
+    box-shadow: 2px 2px 5px 1px #00437a;
+    transition: 0.3s ease all;
+}
 /* home end */
+/* product listing */
+/* #product-section .banner-img{
+    background-size: cover;
+    height: 20rem;
+    background-position: center;
+    
+} */
+.product-listing p, .releated-product p{
+    margin-bottom: 5px;
+    font-size: 14px;
+}   
+.product-listing .back-image {
+    background-size: cover;
+    height: 19rem;
+    background-position: center;
+    aspect-ratio: 1/1;
+    width: 100%;
+}
+/* single */
+.releated-product .back-image {
+    background-size: cover;
+    height: 19rem;
+    background-position: center;
+    aspect-ratio: 1/1;
+    width: 100%;
+}
+.info-tabs button{
+    color: #5a5a5a;
+}
+.info-tabs button:hover{
+    color: #00437a;
+}
+.info-tabs .active{
+    color: #00a0e3 !important;
+}
+li::marker{
+    color: #00a0e3;
+}
+/* single end */
+/* product listing end */
 /* footer */
 #footer {
-    background-color: #00a0e3;
+    background-color: #009fe377;
 }
 #footer a {
     color: #fff;
@@ -174,11 +253,9 @@ a:hover {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    opacity: 0.9;
+    /* opacity: 0.8; */
 }
-.sec-footer {
-    opacity: 0.9;
-}
+
 
 .sec-footer {
     background-color: #00a0e3;
@@ -259,17 +336,17 @@ a:hover {
     }
 }
 @media (max-width: 640px) {
-    .product-list .slick-prev {
+    .popular-categories .slick-prev, .releated-product .slick-prev{
         left: 8px;
     }
-    .product-list .slick-next {
+    .popular-categories .slick-next, .releated-product .slick-next {
         right: 15px;
     }
     /* home slider */
-    .home-slider h1 {
+    .home-slider h1 ,#product-section h1{
         font-size: 15px;
     }
-    .home-slider p {
+    .home-slider p, #product-section p {
         font-size: 11px;
     }
     .button-primary {
@@ -286,3 +363,28 @@ a:hover {
     }
     /* home slider end */
 }
+/* test */
+/*set a border on the images to prevent shifting*/
+#gallery_01 img{
+    border:2px solid #00437a;
+}
+/*Change the colour*/
+.active img{
+    border:2px solid #00437a !important;
+}
+
+.clearfix {
+    display: block;
+    width: 100%;
+    float: left;
+}
+.zoomLens {
+    width: 100px !important; 
+    height: 100px !important; 
+    border: 2px solid #00437a !important;
+}
+
+/* 
+.zoom-left {
+    max-width: 412px;
+} */

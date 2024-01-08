@@ -110,7 +110,7 @@
                         <img src="{{ url('storage/front_images/banner.jpg') }}" width="140" height="140"
                             class="rounded-circle	" alt="" srcset="">
                     </div>
-                    <h2>Heading</h2>
+                    <h2>Trust</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid fuga nobis, ab veniam aut illo.</p>
                     <p><a class="btn btn-secondary button-primary" href="#">View details &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
@@ -119,7 +119,7 @@
                         <img src="{{ url('storage/front_images/banner.jpg') }}" width="140" height="140"
                             class="rounded-circle	" alt="" srcset="">
                     </div>
-                    <h2>Heading</h2>
+                    <h2>Maximum quality</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid fuga nobis, ab veniam aut illo.</p>
                     <p><a class="btn btn-secondary button-primary" href="#">View details &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
@@ -128,7 +128,7 @@
                         <img src="{{ url('storage/front_images/banner.jpg') }}" width="140" height="140"
                             class="rounded-circle	" alt="" srcset="">
                     </div>
-                    <h2>Heading</h2>
+                    <h2>Aware</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid fuga nobis, ab veniam aut illo.</p>
                     <p><a class="btn btn-secondary button-primary" href="#">View details &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
@@ -141,21 +141,44 @@
             {{-- slider --}}
             <div class="row">
                 <div class="col-md-12  mb-4">
-                    <h2 class="featurette-heading mt-0 mb-4">Product's <span class="text-muted">List</span></h2>
+                    <h2 class="featurette-heading mt-0 mb-4">Popular <span class="text-muted"> Categories</span></h2>
                 </div>
-                <div class="slider product-list ">
-                    @for ($i = 1; $i < 6; $i++)
-                        <div class="col-md-3 d-flex justify-content-center">
-                            <div class=" for-mobile d-flex align-items-end back-image img-fluid rounded"
-                                style="background-image: url({{ url('storage/front_images/banner.jpg') }});">
-
-                            </div>
+                <div class="slider popular-categories ">
+                    {{-- @for ($i = 1; $i < 6; $i++)
+                        <div class="col-md-3">
+                            <a href="{{ route('products') }}" target="_blank">
+                                <div class="d-flex justify-content-center flex-column align-items-center">
+                                    <div class="category-box d-flex align-items-end back-image img-fluid rounded"
+                                        style="background-image: url({{ url('storage/front_images/banner.jpg') }});">
+                                    </div>
+                                    <div class="text-center py-2">
+                                        <h5>Ergotech drawer system</h5>
+                                    </div>
+    
+                                </div>
+                            </a>
                         </div>
+                    @endfor --}}
+                    @for ($i = 0; $i < 6; $i++)
+                        <div class="mb-4">
+                            <a href="{{ route('products') }}" target="_blank" >
+                                <div class="d-flex justify-content-center flex-column align-items-center px-3   ">
+                                    <div class="category-box rounded">
+                                        <div class=" d-flex align-items-end back-image img-fluid rounded-top"
+                                            style="background-image: url({{ url('storage/front_images/banner.jpg') }});">
+                                        </div>
+                                        <div class="w-100 bg-light py-2 px-3 rounded">
+                                            <p>Water<span class="text-muted"> Tap</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>            
                     @endfor
-
                 </div>
             </div>
             {{-- slider end --}}
+            
             <hr class="featurette-divider">
 
             <div class="row featurette">
@@ -226,15 +249,15 @@
 @section('script')
     <script>
         $(document).ready(function() {
-            $(".product-list").slick({
+            $(".popular-categories").slick({
                 slidesToShow: 4,
                 slidesToScroll: 1,
                 arrows: true,
                 dots: false,
-                autoplay: true,
+                //autoplay: true,
                 centerMode: false,
-                prevArrow: '<button type="button" data-role="none" class="slick-prev"><i class="bi bi-chevron-left"></i></button>',
-                nextArrow: '<button type="button" data-role="none" class="slick-next"><i class="bi bi-chevron-right"></i></button>',
+                prevArrow: '<button type="button" data-role="none" class="slick-prev"><i class="fa-solid fa-chevron-left"></i></button>',
+                nextArrow: '<button type="button" data-role="none" class="slick-next"><i class="fa-solid fa-chevron-right"></i></button>',
                 autoplaySpeed: 2000,
                 responsive: [{
                         breakpoint: 1249,
