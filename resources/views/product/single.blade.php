@@ -43,54 +43,22 @@
     <div class="container">
         <div class="row pb-5">
             <div class="col-md-6" id="product-preview">
-                {{-- <img src="{{ url('storage/front_images/trust.jpg') }}" class="img-fluid w-100" alt="" srcset=""> --}}
-                {{-- <div > --}}
-                    <img id="zoom_03"
-                        src="{{ url('storage/front_images/468.jpg') }}"
-                        data-zoom-image="{{ url('storage/front_images/468.jpg') }} "
-                        >
 
-                    {{-- <div class="clearfix"></div> --}}
-
-                    {{-- <a id="prev"> Previous </a>
-                    <a id="next"> Next </a> --}}
-
-                    {{-- <div class="clearfix"></div> --}}
-
-                    {{-- <div id="gallery_01">
-                                 
-                                    <a  href=" #" class="elevatezoom-gallery active" data-update=""
-                        data-image="https://www.elevateweb.co.uk/wp-content/themes/radial/zoom/images/small/image1.png"
-                        data-zoom-image="https://www.elevateweb.co.uk/wp-content/themes/radial/zoom/images/large/image1.jpg">
-                        <img src="https://www.elevateweb.co.uk/wp-content/themes/radial/zoom/images/small/image1.png"
-                            width="100" /></a>
-
-                        <a href="#" class="elevatezoom-gallery"
-                            data-image="https://www.elevateweb.co.uk/wp-content/themes/radial/zoom/images/small/image2.png"
-                            data-zoom-image="https://www.elevateweb.co.uk/wp-content/themes/radial/zoom/images/large/image2.jpg"><img
-                                src="https://www.elevateweb.co.uk/wp-content/themes/radial/zoom/images/small/image2.png"
-                                width="100" /></a>
-
-                        <a href="tester" class="elevatezoom-gallery"
-                            data-image="https://www.elevateweb.co.uk/wp-content/themes/radial/zoom/images/small/image3.png"
-                            data-zoom-image="https://www.elevateweb.co.uk/wp-content/themes/radial/zoom/images/large/image3.jpg">
-                            <img src="https://www.elevateweb.co.uk/wp-content/themes/radial/zoom/images/small/image3.png"
-                                width="100" />
-                        </a>
-
-                        <a href="tester" class="elevatezoom-gallery"
-                            data-image="https://www.elevateweb.co.uk/wp-content/themes/radial/zoom/images/small/image4.png"
-                            data-zoom-image="https://www.elevateweb.co.uk/wp-content/themes/radial/zoom/images/large/image4.jpg"
-                            class="slide-content"><img
-                                src="https://www.elevateweb.co.uk/wp-content/themes/radial/zoom/images/small/image4.png"
-                                width="100" /></a>
-
-                    </div> --}}
-                {{-- </div> --}}
+                <div class="img_producto_container" data-scale="1.6">
+                    <img src="{{ url('storage/front_images/468.jpg') }}" class="dslc-lightbox-image img_producto"
+                        alt="">
+                    {{-- <a
+                      class="dslc-lightbox-image img_producto"
+                      href="{{ url('storage/front_images/468.jpg') }}"
+                      target="_self"
+                      style="background-image:url({{ url('storage/front_images/468.jpg') }})"
+                    >
+                    </a> --}}
+                </div>
             </div>
             <div class="col-md-6">
                 <div>
-                    <p class="text-heading">Thick Door Auto Soft-Close Concealed Hinge</p>
+                    <h4 class="text-heading">Thick Door Auto Soft-Close Concealed Hinge</h4>
                     <p class="text-small">( Concealed Hinge )</p>
                     <p class="text-sub-heading"> SKU Code <span class="detail-text">: OEC-501-C2S-SC (15°)</span></p>
                     <p><a class="btn btn-secondary button-primary" href="#">View details »</a></p>
@@ -98,11 +66,11 @@
             </div>
 
 
-            
+
         </div>
 
         {{-- tabs --}}
-        <div class="row">
+        <div class="row pb-4">
             <div class="col-md-12">
                 <ul class="nav nav-tabs info-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
@@ -166,87 +134,87 @@
                 <h2 class="featurette-heading mt-0 mb-4">Releated <span class="text-muted"> Product</span></h2>
             </div>
             <div class="slider releated-product">
-                 @for ($i=0; $i < 6; $i++)
-                        <div class="mb-4">
-                            <a href="{{ route('product') }}" target="_blank">
-                                <div class="d-flex justify-content-center flex-column align-items-center px-3   ">
-                                    <div class="category-box rounded">
-                                        <div class=" d-flex align-items-end back-image img-fluid rounded-top"
-                                            style="background-image: url({{ url('storage/front_images/banner.jpg') }});">
-                                        </div>
-                                        <div class="w-100 bg-light py-2 px-3 rounded">
-                                            <p>OEC-451-A2S-SC (0°)</p>
-                                            <p class="text-dark">Auto Soft-Close Concealed Hinge</p>
-                                        </div>
+                @for ($i = 0; $i < 6; $i++)
+                    <div class="mb-4">
+                        <a href="{{ route('product') }}" target="_blank">
+                            <div class="d-flex justify-content-center flex-column align-items-center px-3   ">
+                                <div class="category-box rounded">
+                                    <div class=" d-flex align-items-end back-image img-fluid rounded-top"
+                                        style="background-image: url({{ url('storage/front_images/banner.jpg') }});">
+                                    </div>
+                                    <div class="w-100 bg-light py-2 px-3 rounded">
+                                        <p>OEC-451-A2S-SC (0°)</p>
+                                        <p class="text-dark">Auto Soft-Close Concealed Hinge</p>
                                     </div>
                                 </div>
-                            </a>
-                        </div>
-                        @endfor
+                            </div>
+                        </a>
                     </div>
-                </div>
-                {{-- related product end --}}
+                @endfor
             </div>
-        @endsection
-        @section('script')
-            <script>
-                $(document).ready(function() {
-                    $(".releated-product").slick({
-                        slidesToShow: 4,
-                        slidesToScroll: 1,
-                        arrows: true,
-                        dots: false,
-                        //autoplay: true,
-                        centerMode: false,
-                        prevArrow: '<button type="button" data-role="none" class="slick-prev"><i class="fa-solid fa-chevron-left"></i></button>',
-                        nextArrow: '<button type="button" data-role="none" class="slick-next"><i class="fa-solid fa-chevron-right"></i></button>',
-                        autoplaySpeed: 2000,
-                        responsive: [{
-                                breakpoint: 1249,
-                                settings: {
-                                    slidesToShow: 3,
-                                },
-                            },
-                            {
-                                breakpoint: 992,
-                                settings: {
-                                    slidesToShow: 2,
-                                },
-                            },
-                            {
-                                breakpoint: 767,
-                                settings: {
-                                    slidesToShow: 1,
-                                },
-                            },
-                        ],
+        </div>
+        {{-- related product end --}}
+    </div>
+@endsection
+@section('script')
+    <script>
+        $(document).ready(function() {
+            $(".releated-product").slick({
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                arrows: true,
+                dots: false,
+                //autoplay: true,
+                centerMode: false,
+                prevArrow: '<button type="button" data-role="none" class="slick-prev"><i class="fa-solid fa-chevron-left"></i></button>',
+                nextArrow: '<button type="button" data-role="none" class="slick-next"><i class="fa-solid fa-chevron-right"></i></button>',
+                autoplaySpeed: 2000,
+                responsive: [{
+                        breakpoint: 1249,
+                        settings: {
+                            slidesToShow: 3,
+                        },
+                    },
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 2,
+                        },
+                    },
+                    {
+                        breakpoint: 767,
+                        settings: {
+                            slidesToShow: 1,
+                        },
+                    },
+                ],
+            });
+        });
+     
+        $(".img_producto_container")
+            .on("mouseover", function() {
+                $(this)
+                    .children(".img_producto")
+                    .css({
+                        transform: "scale(" + $(this).attr("data-scale") + ")"
                     });
-                });
-                //test
-                //initiate the plugin and pass the id of the div containing gallery images
-                $("#zoom_03").elevateZoom({
-                    gallery: 'gallery_01',
-                    cursor: 'pointer',
-                    easing: true,
-                    galleryActiveClass: 'active',
-                    imageCrossfade: true,
-                    lensOpacity: 0.2,
-                    zoomWindowWidth: 500,
-                    zoomWindowHeight: 500,
-                    lensBorderColour:"#00437a",
-                    // lensSize: 400,
-                    borderColour: "transparent",
-                    lensBorderSize: 2,
-                    // lenszoom: true,
-                    scrollZoom: true,
-                    loadingIcon: 'https://www.elevateweb.co.uk/spinner.gif'
-                });
-
-                //pass the images to Fancybox
-                $("#zoom_03").bind("click", function(e) {
-                    var ez = $('#zoom_03').data('elevateZoom');
-                    $.fancybox(ez.getGalleryList());
-                    return false;
-                });
-            </script>
-        @endsection
+            })
+            .on("mouseout", function() {
+                $(this)
+                    .children(".img_producto")
+                    .css({
+                        transform: "scale(1)"
+                    });
+            })
+            .on("mousemove", function(e) {
+                $(this)
+                    .children(".img_producto")
+                    .css({
+                        "transform-origin": ((e.pageX - $(this).offset().left) / $(this).width()) * 100 +
+                            "% " +
+                            ((e.pageY - $(this).offset().top) / $(this).height()) * 100 +
+                            "%"
+                    });
+            });
+    </script>
+@endsection

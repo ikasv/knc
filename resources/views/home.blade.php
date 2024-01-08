@@ -38,7 +38,7 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="{{ url('storage/front_images/banner.jpg') }}" alt="" srcset="">
-                    <div class="container">
+                    <div class="container d-none">
                         <div class="carousel-caption text-start">
                             <h1>Example headline.</h1>
                             <p>Some representative placeholder content for the first slide of the carousel.</p>
@@ -49,7 +49,7 @@
                 <div class="carousel-item">
                     <img src="{{ url('storage/front_images/banner.jpg') }}" alt="" srcset="">
 
-                    <div class="container">
+                    <div class="container d-none">
                         <div class="carousel-caption">
                             <h1>Another example headline.</h1>
                             <p>Some representative placeholder content for the second slide of the carousel.</p>
@@ -59,7 +59,7 @@
                 </div>
                 <div class="carousel-item">
                     <img src="{{ url('storage/front_images/banner.jpg') }}" alt="" srcset="">
-                    <div class="container">
+                    <div class="container d-none">
                         <div class="carousel-caption text-end">
                             <h1>One more for good measure.</h1>
                             <p>Some representative placeholder content for the third slide of this carousel.</p>
@@ -79,22 +79,24 @@
         </div>
 
         <div class="container marketing">
-            <div class="row featurette">
+            <div class="row featurette my-5">
                 <div class="col-lg-7 col-12 order-lg-1 order-md-1  ">
 
                     <div class="h-100 w-100 d-flex flex-column justify-content-center">
-                        <h2 class="featurette-heading mt-0 mb-4">Water <span class="text-muted">Taps</span></h2>
-                        <p class="content-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio ab numquam natus?
-                        Consequuntur saepe consequatur at non rem magni dolorem, perferendis quam adipisci sit!
-                        Quaerat dolorem odit repellendus iusto delectus molestiae dolorum tenetur distinctio quidem odio!
-                        Natus, aut inventore impedit sint commodi reiciendis nostrum perferendis quasi maxime eius.
-                        Aut commodi quas veritatis non minus praesentium fugiat itaque, cum voluptatibus similique?</p>
+                        <h2 class="featurette-heading mt-0 mb-4">Water Taps</h2>
+                        <p class="content-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio ab numquam
+                            natus?
+                            Consequuntur saepe consequatur at non rem magni dolorem, perferendis quam adipisci sit!
+                            Quaerat dolorem odit repellendus iusto delectus molestiae dolorum tenetur distinctio quidem
+                            odio!
+                            Natus, aut inventore impedit sint commodi reiciendis nostrum perferendis quasi maxime eius.
+                            Aut commodi quas veritatis non minus praesentium fugiat itaque, cum voluptatibus similique?</p>
                     </div>
 
                 </div>
                 <div class="col-lg-5 col-12 order-lg-2 order-md-2 ">
-                    <div class="shadow">
-                        <img src="{{ url('storage/front_images/banner.jpg') }}" class="img-fluid" srcset="">
+                    <div class="shadow rounded">
+                        <img src="https://www.ozone-india.com/PostImage/Image/1" class="img-fluid rounded" srcset="">
                     </div>
                 </div>
             </div>
@@ -102,37 +104,74 @@
             <hr class="featurette-divider">
             <!-- Three columns of text below the carousel -->
             <div class="row">
-                <div class="col-md-12  mb-4 ">
-                    <h2 class="featurette-heading mt-0 mb-4">What We <span class="text-muted">Offer</span></h2>
+                <div class="col-md-12 mb-4">
+                    <h2 class="featurette-heading mt-0">What We Offer</h2>
                 </div>
-                <div class="col-lg-4">
-                    <div>
-                        <img src="{{ url('storage/front_images/banner.jpg') }}" width="140" height="140"
-                            class="rounded-circle	" alt="" srcset="">
+                {{-- <div class="col-lg-3 col-md-6 col-12">
+                    <div class="card d-flex justify-content-center align-items-center py-4">
+                        <div class="mb-2">
+                            <img src="{{ url('storage/front_images/banner.jpg') }}" width="140" height="140"
+                                class="rounded-circle" alt="" srcset="">
+                        </div>
+                        <h4>Trust</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid fuga nobis, ab veniam aut illo.</p>
+                        <p><a class="btn btn-secondary btn-sm button-primary" href="#">View details &raquo;</a></p>
                     </div>
-                    <h2>Trust</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid fuga nobis, ab veniam aut illo.</p>
-                    <p><a class="btn btn-secondary button-primary" href="#">View details &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
-                <div class="col-lg-4">
-                    <div>
-                        <img src="{{ url('storage/front_images/banner.jpg') }}" width="140" height="140"
-                            class="rounded-circle	" alt="" srcset="">
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="card d-flex justify-content-center align-items-center py-4">
+                        <div class="mb-2">
+                            <img src="{{ url('storage/front_images/banner.jpg') }}" width="140" height="140"
+                                class="rounded-circle" alt="" srcset="">
+                        </div>
+                        <h4>Maximum quality</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid fuga nobis, ab veniam aut illo.</p>
+                        <p><a class="btn btn-secondary btn-sm button-primary" href="#">View details &raquo;</a></p>
                     </div>
-                    <h2>Maximum quality</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid fuga nobis, ab veniam aut illo.</p>
-                    <p><a class="btn btn-secondary button-primary" href="#">View details &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
-                <div class="col-lg-4">
-                    <div>
-                        <img src="{{ url('storage/front_images/banner.jpg') }}" width="140" height="140"
-                            class="rounded-circle	" alt="" srcset="">
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="card d-flex justify-content-center align-items-center py-4">
+                        <div class="mb-2">
+                            <img src="{{ url('storage/front_images/banner.jpg') }}" width="140" height="140"
+                                class="rounded-circle" alt="" srcset="">
+                        </div>
+                        <h4>Aware</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid fuga nobis, ab veniam aut illo.</p>
+                        <p><a class="btn btn-secondary btn-sm button-primary" href="#">View details &raquo;</a></p>
                     </div>
-                    <h2>Aware</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid fuga nobis, ab veniam aut illo.</p>
-                    <p><a class="btn btn-secondary button-primary" href="#">View details &raquo;</a></p>
+
                 </div><!-- /.col-lg-4 -->
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="card d-flex justify-content-center align-items-center py-4">
+                        <div class="mb-2">
+                            <img src="{{ url('storage/front_images/banner.jpg') }}" width="140" height="140"
+                                class="rounded-circle" alt="" srcset="">
+                        </div>
+                        <h4>Aware</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid fuga nobis, ab veniam aut illo.</p>
+                        <p><a class="btn btn-secondary btn-sm button-primary" href="#">View details &raquo;</a></p>
+                    </div>
+
+                </div> --}}
+                @for ($i = 0; $i < 4; $i++)
+                    <div class="col-sm-6 col-md-6 col-lg-3 ">
+                        <div class="d-flex d-flex justify-content-center ">
+                            <div class="card p-0 " style="width: 25rem;">
+                                <img src="https://www.ozone-india.com/PostImage/Image/3" class="img-fluid rounded-top"
+                                    alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title card-heading ">Trust</h5>
+                                    <p class="card-text mx-0 two-line">Lorem ipsum dolor sit amet, consectetur adipisicing
+                                        elit. Aliquid fuga nobis, ab veniam aut illo.</p>
+                                    <a href="" class="">read more <i class="fas fa-arrow-right f-12"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endfor
             </div><!-- /.row -->
+
+
 
 
             <!-- START THE FEATURETTES -->
@@ -141,105 +180,99 @@
             {{-- slider --}}
             <div class="row">
                 <div class="col-md-12  mb-4">
-                    <h2 class="featurette-heading mt-0 mb-4">Popular <span class="text-muted"> Categories</span></h2>
+                    <h2 class="featurette-heading mt-0 ">Popular Categories</h2>
                 </div>
                 <div class="slider popular-categories ">
-                    {{-- @for ($i = 1; $i < 6; $i++)
-                        <div class="col-md-3">
-                            <a href="{{ route('products') }}" target="_blank">
-                                <div class="d-flex justify-content-center flex-column align-items-center">
-                                    <div class="category-box d-flex align-items-end back-image img-fluid rounded"
-                                        style="background-image: url({{ url('storage/front_images/banner.jpg') }});">
-                                    </div>
-                                    <div class="text-center py-2">
-                                        <h5>Ergotech drawer system</h5>
-                                    </div>
-    
-                                </div>
-                            </a>
-                        </div>
-                    @endfor --}}
                     @for ($i = 0; $i < 6; $i++)
                         <div class="mb-4">
-                            <a href="{{ route('products') }}" target="_blank" >
+                            <a href="{{ route('products') }}" target="_blank">
                                 <div class="d-flex justify-content-center flex-column align-items-center px-3   ">
                                     <div class="category-box rounded">
                                         <div class=" d-flex align-items-end back-image img-fluid rounded-top"
-                                            style="background-image: url({{ url('storage/front_images/banner.jpg') }});">
+                                            style="background-image: url('https://www.ozone-india.com/DMS/Images/hm-ctg-cabinet-hinges.jpg');">
                                         </div>
-                                        <div class="w-100 bg-light py-2 px-3 rounded">
-                                            <p>Water<span class="text-muted"> Tap</span></p>
+                                        <div class="w-100 bg-light py-3  rounded text-center ">
+                                            <h5 class="mb-0">3D Adjustable Hinge</h5>
                                         </div>
                                     </div>
                                 </div>
                             </a>
-                        </div>            
+                        </div>
                     @endfor
                 </div>
             </div>
             {{-- slider end --}}
-            
+
             <hr class="featurette-divider">
 
-            <div class="row featurette">
+            <div class="row featurette my-5">
                 <div class="col-lg-7 col-12 order-lg-2 order-md-1  ">
 
                     <div class="h-100 w-100 d-flex flex-column justify-content-center">
-                        <h2 class="featurette-heading mt-0 mb-4">Water <span class="text-muted">Taps</span></h2>
-                        <p class="content-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio ab numquam natus?
+                        <h2 class="featurette-heading mt-0 mb-4">Water Taps</h2>
+                        <p class="content-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio ab numquam
+                            natus?
                             Consequuntur saepe consequatur at non rem magni dolorem, perferendis quam adipisci sit!
-                            Quaerat dolorem odit repellendus iusto delectus molestiae dolorum tenetur distinctio quidem odio!
+                            Quaerat dolorem odit repellendus iusto delectus molestiae dolorum tenetur distinctio quidem
+                            odio!
                             Natus, aut inventore impedit sint commodi reiciendis nostrum perferendis quasi maxime eius.
                             Aut commodi quas veritatis non minus praesentium fugiat itaque, cum voluptatibus similique?</p>
                     </div>
 
                 </div>
                 <div class="col-lg-5 col-12 order-lg-1 order-md-2 ">
-                    <div class="shadow">
-                        <img src="{{ url('storage/front_images/banner.jpg') }}" class="img-fluid" srcset="">
+                    <div class="shadow rounded">
+                        <img src="https://www.ozone-india.com/PostImage/Image/7" class="img-fluid rounded"
+                            srcset="">
                     </div>
                 </div>
             </div>
 
             <hr class="featurette-divider">
 
-            <div class="row featurette">
+            <div class="row featurette my-5">
                 <div class="col-lg-7 col-12 order-lg-1 order-md-1  ">
 
                     <div class="h-100 w-100 d-flex flex-column justify-content-center">
-                        <h2 class="featurette-heading mt-0 mb-4">Water <span class="text-muted">Taps</span></h2>
-                        <p class="content-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio ab numquam natus?
+                        <h2 class="featurette-heading mt-0 mb-4">Water Taps</h2>
+                        <p class="content-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio ab numquam
+                            natus?
                             Consequuntur saepe consequatur at non rem magni dolorem, perferendis quam adipisci sit!
-                            Quaerat dolorem odit repellendus iusto delectus molestiae dolorum tenetur distinctio quidem odio!
+                            Quaerat dolorem odit repellendus iusto delectus molestiae dolorum tenetur distinctio quidem
+                            odio!
                             Natus, aut inventore impedit sint commodi reiciendis nostrum perferendis quasi maxime eius.
                             Aut commodi quas veritatis non minus praesentium fugiat itaque, cum voluptatibus similique?</p>
                     </div>
 
                 </div>
                 <div class="col-lg-5 col-12 order-lg-2 order-md-2 ">
-                    <div class="shadow">
-                        <img src="{{ url('storage/front_images/banner.jpg') }}" class="img-fluid" srcset="">
+                    <div class="shadow rounded">
+                        <img src="https://www.ozone-india.com/PostImage/Image/1" class="img-fluid rounded"
+                            srcset="">
                     </div>
                 </div>
             </div>
 
-            <hr class="featurette-divider">
+            <hr class="featurette-divider my-5">
 
             <div class="row featurette pb-5">
                 <div class="col-lg-7 col-12 order-lg-2 order-md-1  ">
                     <div class="h-100 w-100 d-flex flex-column justify-content-center">
-                        <h2 class="featurette-heading mt-0 mb-4">Water <span class="text-muted">Taps</span></h2>
-                        <p class="content-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio ab numquam natus?
+                        <h2 class="featurette-heading mt-0 mb-4">Water Taps</h2>
+                        <p class="content-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio ab numquam
+                            natus?
                             Consequuntur saepe consequatur at non rem magni dolorem, perferendis quam adipisci sit!
-                            Quaerat dolorem odit repellendus iusto delectus molestiae dolorum tenetur distinctio quidem odio!
+                            Quaerat dolorem odit repellendus iusto delectus molestiae dolorum tenetur distinctio quidem
+                            odio!
                             Natus, aut inventore impedit sint commodi reiciendis nostrum perferendis quasi maxime eius.
                             Aut commodi quas veritatis non minus praesentium fugiat itaque, cum voluptatibus similique?</p>
                     </div>
 
                 </div>
                 <div class="col-lg-5 col-12 order-lg-1 order-md-2 ">
-                    <div class="shadow">
-                        <img src="{{ url('storage/front_images/banner.jpg') }}" class="img-fluid" srcset="">
+                    <div class="shadow rounded">
+                        <img src="https://www.ozone-india.com/PostImage/Image/7" class="img-fluid rounded"
+                            srcset="">
                     </div>
                 </div>
             </div>
@@ -260,7 +293,7 @@
                 nextArrow: '<button type="button" data-role="none" class="slick-next"><i class="fa-solid fa-chevron-right"></i></button>',
                 autoplaySpeed: 2000,
                 responsive: [{
-                        breakpoint: 1249,
+                        breakpoint: 1421,
                         settings: {
                             slidesToShow: 3,
                         },
@@ -282,4 +315,3 @@
         });
     </script>
 @endsection
-
