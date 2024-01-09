@@ -37,7 +37,7 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{ url('storage/front_images/banner.jpg') }}" alt="" srcset="">
+                    <img src="https://www.ozone-india.com/BannerImage/124/small" alt="" srcset="">
                     <div class="container d-none">
                         <div class="carousel-caption text-start">
                             <h1>Example headline.</h1>
@@ -47,7 +47,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ url('storage/front_images/banner.jpg') }}" alt="" srcset="">
+                    <img src="https://www.ozone-india.com/BannerImage/121/small" alt="" srcset="">
 
                     <div class="container d-none">
                         <div class="carousel-caption">
@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ url('storage/front_images/banner.jpg') }}" alt="" srcset="">
+                    <img src="https://www.ozone-india.com/BannerImage/124/small" alt="" srcset="">
                     <div class="container d-none">
                         <div class="carousel-caption text-end">
                             <h1>One more for good measure.</h1>
@@ -96,16 +96,16 @@
                 </div>
                 <div class="col-lg-5 col-12 order-lg-2 order-md-2 ">
                     <div class="shadow rounded">
-                        <img src="https://www.ozone-india.com/PostImage/Image/1" class="img-fluid rounded" srcset="">
+                        <img src="{{ url('storage/front_images/bath-decoration-with-soap-bottle-towel.jpg') }}" class="img-fluid rounded" srcset="">
                     </div>
                 </div>
             </div>
 
             <hr class="featurette-divider">
             <!-- Three columns of text below the carousel -->
-            <div class="row">
+            <div class="row mt-5">
                 <div class="col-md-12 mb-4">
-                    <h2 class="featurette-heading mt-0">What We Offer</h2>
+                    <h2 class="featurette-heading mt-0 ">What We Offer</h2>
                 </div>
                 {{-- <div class="col-lg-3 col-md-6 col-12">
                     <div class="card d-flex justify-content-center align-items-center py-4">
@@ -157,7 +157,7 @@
                     <div class="col-sm-6 col-md-6 col-lg-3 ">
                         <div class="d-flex d-flex justify-content-center ">
                             <div class="card p-0 " style="width: 25rem;">
-                                <img src="https://www.ozone-india.com/PostImage/Image/3" class="img-fluid rounded-top"
+                                <img src="{{ url('storage/front_images/what_we_offer.jpg') }}" class="img-fluid rounded-top"
                                     alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title card-heading ">Trust</h5>
@@ -178,7 +178,7 @@
 
             <hr class="featurette-divider">
             {{-- slider --}}
-            <div class="row">
+            <div class="row mt-5">
                 <div class="col-md-12  mb-4">
                     <h2 class="featurette-heading mt-0 ">Popular Categories</h2>
                 </div>
@@ -189,7 +189,7 @@
                                 <div class="d-flex justify-content-center flex-column align-items-center px-3   ">
                                     <div class="category-box rounded">
                                         <div class=" d-flex align-items-end back-image img-fluid rounded-top"
-                                            style="background-image: url('https://www.ozone-india.com/DMS/Images/hm-ctg-cabinet-hinges.jpg');">
+                                            style="background-image: url({{ url('storage/front_images/categories.jpg') }});">
                                         </div>
                                         <div class="w-100 bg-light py-3  rounded text-center ">
                                             <h5 class="mb-0">3D Adjustable Hinge</h5>
@@ -222,7 +222,7 @@
                 </div>
                 <div class="col-lg-5 col-12 order-lg-1 order-md-2 ">
                     <div class="shadow rounded">
-                        <img src="https://www.ozone-india.com/PostImage/Image/7" class="img-fluid rounded"
+                        <img src="{{ url('storage/front_images/bath-decoration-with-soap-bottle-towel.jpg') }}" class="img-fluid rounded"
                             srcset="">
                     </div>
                 </div>
@@ -247,7 +247,7 @@
                 </div>
                 <div class="col-lg-5 col-12 order-lg-2 order-md-2 ">
                     <div class="shadow rounded">
-                        <img src="https://www.ozone-india.com/PostImage/Image/1" class="img-fluid rounded"
+                        <img src="{{ url('storage/front_images/natural-elements-spa-with-candles.jpg') }}" class="img-fluid rounded"
                             srcset="">
                     </div>
                 </div>
@@ -271,7 +271,7 @@
                 </div>
                 <div class="col-lg-5 col-12 order-lg-1 order-md-2 ">
                     <div class="shadow rounded">
-                        <img src="https://www.ozone-india.com/PostImage/Image/7" class="img-fluid rounded"
+                        <img src="{{ url('storage/front_images/bath-decoration-with-soap-bottle-towel.jpg') }}" class="img-fluid rounded"
                             srcset="">
                     </div>
                 </div>

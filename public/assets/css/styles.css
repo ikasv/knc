@@ -10,7 +10,7 @@ body {
     color: #5a5a5a;
 }
 :root {
-    --primary: #00a0e3;
+    --primary: #00437ae0;
     --secondary: #00437a;
   }
 h1,h2,h3,h4,h5,h6 {
@@ -241,12 +241,9 @@ a:hover {
 } */
 /* home end */
 /* product listing */
-/* #product-section .banner-img{
-    background-size: cover;
-    height: 20rem;
-    background-position: center;
-    
-} */
+#product-section .banner-img img{
+    height: 22rem;
+}
 .product-listing p, .releated-product p{
     margin-bottom: 5px;
     font-size: 14px;
@@ -289,7 +286,7 @@ li::marker{
     transition: 0.5s ease all;
 }
 #footer a:hover {
-    color: #0061ab;
+   cursor: pointer;
     transition: 0.5s ease all;
 }
 .footer-menue {
@@ -331,14 +328,14 @@ li::marker{
 }
 
 .carousel-item {
-    height: 32rem;
+    height: 22rem;
 }
 .carousel-item > img {
     position: absolute;
     top: 0;
     left: 0;
     min-width: 100%;
-    height: 32rem;
+    height: 22rem;
 }
 
 .marketing .col-lg-3 {

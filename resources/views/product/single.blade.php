@@ -45,7 +45,7 @@
             <div class="col-md-6" id="product-preview">
 
                 <div class="img_producto_container" data-scale="1.6">
-                    <img src="https://www.ozone-india.com/DMS/Images/hm-ctg-cabinet-hinges.jpg" class="dslc-lightbox-image img_producto"
+                    <img src="{{ url('storage/front_images/bath-decoration-with-soap-bottle-towel.jpg') }}" class="dslc-lightbox-image img_producto"
                         alt="">
                     {{-- <a
                       class="dslc-lightbox-image img_producto"
@@ -136,11 +136,11 @@
             <div class="slider releated-product">
                 @for ($i = 0; $i < 6; $i++)
                     <div class="mb-4">
-                        <a href="{{ route('product') }}" target="_blank">
+                        <a href="" target="_blank">
                             <div class="d-flex justify-content-center flex-column align-items-center px-3   ">
                                 <div class="category-box rounded">
                                     <div class=" d-flex align-items-end back-image img-fluid rounded-top"
-                                        style="background-image: url(https://www.ozone-india.com/DMS/Images/hm-ctg-cabinet-hinges.jpg);">
+                                        style="background-image: url({{ url('storage/front_images/what_we_offer.jpg') }});">
                                     </div>
                                     <div class="w-100 bg-light py-2 px-3 rounded">
                                         <p>OEC-451-A2S-SC (0°)</p>
