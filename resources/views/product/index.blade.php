@@ -58,9 +58,9 @@
             </div>
         </div>
     </div> --}}
-    <div class="row my-4">
+    <div class="row my-5">
         <div class="h-100 w-100 d-flex flex-column justify-content-center">
-            <h2 class="featurette-heading mt-0 mb-4">Water <span class="text-muted">Taps</span></h2>
+            <h2 class="featurette-heading mt-0 mb-5">Water Taps</h2>
         </div>
 
         @for ($i = 0; $i < 10; $i++)
@@ -71,7 +71,7 @@
                         style="background-image: url({{ url('storage/front_images/categories.jpg') }});">
                     </div>
                     <div class="w-100 bg-light py-2 px-3 rounded">
-                        <p>OEC-451-A2S-SC (0°)</p>
+                        <p class="text-small">OEC-451-A2S-SC (0°)</p>
                         <p class="text-dark">Auto Soft-Close Concealed Hinge</p>
                     </div>
                 </div>

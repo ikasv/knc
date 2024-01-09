@@ -41,7 +41,7 @@
         </div>
     </section>
     <div class="container">
-        <div class="row pb-5">
+        <div class="row py-5">
             <div class="col-md-6" id="product-preview">
 
                 <div class="img_producto_container" data-scale="1.6">
@@ -131,7 +131,7 @@
         {{-- related product --}}
         <div class="row pb-4">
             <div class="col-md-12  mb-4">
-                <h2 class="featurette-heading mt-0 mb-4">Releated <span class="text-muted"> Product</span></h2>
+                <h2 class="featurette-heading mt-0 mb-4">Releated Product</h2>
             </div>
             <div class="slider releated-product">
                 @for ($i = 0; $i < 6; $i++)
@@ -143,7 +143,7 @@
                                         style="background-image: url({{ url('storage/front_images/what_we_offer.jpg') }});">
                                     </div>
                                     <div class="w-100 bg-light py-2 px-3 rounded">
-                                        <p>OEC-451-A2S-SC (0°)</p>
+                                        <p class="text-small">OEC-451-A2S-SC (0°)</p>
                                         <p class="text-dark">Auto Soft-Close Concealed Hinge</p>
                                     </div>
                                 </div>
