@@ -79,105 +79,7 @@
         </div>
 
         <div class="container marketing">
-            <div class="row featurette my-5">
-                <div class="col-lg-7 col-12 order-lg-1 order-md-1  ">
-
-                    <div class="h-100 w-100 d-flex flex-column justify-content-center">
-                        <h2 class="featurette-heading mt-0 mb-4">Water Taps</h2>
-                        <p class="content-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio ab numquam
-                            natus?
-                            Consequuntur saepe consequatur at non rem magni dolorem, perferendis quam adipisci sit!
-                            Quaerat dolorem odit repellendus iusto delectus molestiae dolorum tenetur distinctio quidem
-                            odio!
-                            Natus, aut inventore impedit sint commodi reiciendis nostrum perferendis quasi maxime eius.
-                            Aut commodi quas veritatis non minus praesentium fugiat itaque, cum voluptatibus similique?</p>
-                    </div>
-
-                </div>
-                <div class="col-lg-5 col-12 order-lg-2 order-md-2 ">
-                    <div class="shadow rounded">
-                        <img src="{{ url('storage/front_images/bath-decoration-with-soap-bottle-towel.jpg') }}" class="img-fluid rounded" srcset="">
-                    </div>
-                </div>
-            </div>
-
-            <hr class="featurette-divider">
-            <!-- Three columns of text below the carousel -->
-            <div class="row mt-5">
-                <div class="col-md-12 mb-4">
-                    <h2 class="featurette-heading mt-0 ">What We Offer</h2>
-                </div>
-                {{-- <div class="col-lg-3 col-md-6 col-12">
-                    <div class="card d-flex justify-content-center align-items-center py-4">
-                        <div class="mb-2">
-                            <img src="{{ url('storage/front_images/banner.jpg') }}" width="140" height="140"
-                                class="rounded-circle" alt="" srcset="">
-                        </div>
-                        <h4>Trust</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid fuga nobis, ab veniam aut illo.</p>
-                        <p><a class="btn btn-secondary btn-sm button-primary" href="#">View details &raquo;</a></p>
-                    </div>
-                </div><!-- /.col-lg-4 -->
-                <div class="col-lg-3 col-md-6 col-12">
-                    <div class="card d-flex justify-content-center align-items-center py-4">
-                        <div class="mb-2">
-                            <img src="{{ url('storage/front_images/banner.jpg') }}" width="140" height="140"
-                                class="rounded-circle" alt="" srcset="">
-                        </div>
-                        <h4>Maximum quality</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid fuga nobis, ab veniam aut illo.</p>
-                        <p><a class="btn btn-secondary btn-sm button-primary" href="#">View details &raquo;</a></p>
-                    </div>
-                </div><!-- /.col-lg-4 -->
-                <div class="col-lg-3 col-md-6 col-12">
-                    <div class="card d-flex justify-content-center align-items-center py-4">
-                        <div class="mb-2">
-                            <img src="{{ url('storage/front_images/banner.jpg') }}" width="140" height="140"
-                                class="rounded-circle" alt="" srcset="">
-                        </div>
-                        <h4>Aware</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid fuga nobis, ab veniam aut illo.</p>
-                        <p><a class="btn btn-secondary btn-sm button-primary" href="#">View details &raquo;</a></p>
-                    </div>
-
-                </div><!-- /.col-lg-4 -->
-                <div class="col-lg-3 col-md-6 col-12">
-                    <div class="card d-flex justify-content-center align-items-center py-4">
-                        <div class="mb-2">
-                            <img src="{{ url('storage/front_images/banner.jpg') }}" width="140" height="140"
-                                class="rounded-circle" alt="" srcset="">
-                        </div>
-                        <h4>Aware</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid fuga nobis, ab veniam aut illo.</p>
-                        <p><a class="btn btn-secondary btn-sm button-primary" href="#">View details &raquo;</a></p>
-                    </div>
-
-                </div> --}}
-                @for ($i = 0; $i < 4; $i++)
-                    <div class="col-sm-6 col-md-6 col-lg-3 ">
-                        <div class="d-flex d-flex justify-content-center ">
-                            <div class="card p-0 " style="width: 25rem;">
-                                <img src="{{ url('storage/front_images/what_we_offer.jpg') }}" class="img-fluid rounded-top"
-                                    alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title card-heading ">Trust</h5>
-                                    <p class="card-text mx-0 two-line">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                        elit. Aliquid fuga nobis, ab veniam aut illo.</p>
-                                    <a href="" class="">read more <i class="fas fa-arrow-right f-12"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endfor
-            </div><!-- /.row -->
-
-
-
-
-            <!-- START THE FEATURETTES -->
-
-            <hr class="featurette-divider">
-            {{-- slider --}}
+            {{-- popular categories --}}
             <div class="row mt-5">
                 <div class="col-md-12  mb-4">
                     <h2 class="featurette-heading mt-0 ">Popular Categories</h2>
@@ -201,9 +103,148 @@
                     @endfor
                 </div>
             </div>
-            {{-- slider end --}}
+            {{-- popular categories end --}}
 
             <hr class="featurette-divider">
+
+            <!-- Three columns of text below the carousel -->
+            <div class="row mt-5">
+                <div class="col-8 mb-4">
+                    <div class="">
+                        <h2 class="featurette-heading mt-0 ">Our Latest Products</h2>
+                    </div>
+                </div>
+                <div class="col-4 mb-4">
+                    <div class="text-end">
+                        <a href="" class="btn btn-secondary btn-sm button-primary rounded-pill">View
+                            All</a>
+                    </div>
+                </div>
+
+                <div class="slider latest-products ">
+                    @for ($i = 0; $i < 6; $i++)
+                        <div class="d-flex d-flex justify-content-center align-items-center px-2">
+                            <div class="card " style="width: 19rem;">
+                                <img src="{{ url('storage/front_images/what_we_offer.jpg') }}" class="img-fluid rounded-top"
+                                    alt="...">
+                                <div class="card-body text-center d-grid">
+                                    <h5 class="card-title card-heading ">3D Adjustable Hinge</h5>
+                                    <a href="" class="btn btn-secondary btn-sm button-primary rounded-pill ">View
+                                        details</a>
+                                </div>
+                            </div>
+                        </div>
+                    @endfor
+                </div>
+            </div>
+
+
+
+            <!-- START THE FEATURETTES -->
+
+            <hr class="featurette-divider">
+            <div class="row mt-5">
+                <div class="col-8 mb-4">
+                    <div class="">
+                        <h2 class="featurette-heading mt-0 ">Most Selling Products</h2>
+                    </div>
+                </div>
+                <div class="col-4 mb-4">
+                    <div class="text-end">
+                        <a href="" class="btn btn-secondary btn-sm button-primary rounded-pill">View
+                            All</a>
+                    </div>
+                </div>
+
+                <div class="slider latest-products ">
+                    @for ($i = 0; $i < 6; $i++)
+                        <div class="d-flex d-flex justify-content-center align-items-center px-2">
+                            <div class="card " style="width: 19rem;">
+                                <img src="{{ url('storage/front_images/what_we_offer.jpg') }}" class="img-fluid rounded-top"
+                                    alt="...">
+                                <div class="card-body text-center d-grid">
+                                    <h5 class="card-title card-heading ">3D Adjustable Hinge</h5>
+                                    <a href="" class="btn btn-secondary btn-sm button-primary rounded-pill ">View
+                                        details</a>
+                                </div>
+                            </div>
+                        </div>
+                    @endfor
+                </div>
+            </div>
+
+
+
+            <!-- START THE FEATURETTES -->
+
+            <hr class="featurette-divider">
+            <div class="row mt-5">
+                <div class="col-8 mb-4">
+                    <div class="">
+                        <h2 class="featurette-heading mt-0 ">New Arrival</h2>
+                    </div>
+                </div>
+                <div class="col-4 mb-4">
+                    <div class="text-end">
+                        <a href="" class="btn btn-secondary btn-sm button-primary rounded-pill">View
+                            All</a>
+                    </div>
+                </div>
+
+                <div class="slider latest-products ">
+                    @for ($i = 0; $i < 6; $i++)
+                        <div class="d-flex d-flex justify-content-center align-items-center px-2">
+                            <div class="card " style="width: 19rem;">
+                                <img src="{{ url('storage/front_images/what_we_offer.jpg') }}" class="img-fluid rounded-top"
+                                    alt="...">
+                                <div class="card-body text-center d-grid">
+                                    <h5 class="card-title card-heading ">3D Adjustable Hinge</h5>
+                                    <a href="" class="btn btn-secondary btn-sm button-primary rounded-pill ">View
+                                        details</a>
+                                </div>
+                            </div>
+                        </div>
+                    @endfor
+                </div>
+            </div>
+
+
+
+            <!-- START THE FEATURETTES -->
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette my-5">
+                <div class="col-lg-7 col-12 order-lg-1 order-md-1  ">
+
+                    <div class="h-100 w-100 d-flex flex-column justify-content-center">
+                        <h5 class="text-sub-heading">About Us</h5>
+                        <h2 class="featurette-heading mt-0 mb-2">Welcome To K. N. C.</h2>
+                        <p class="content-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio ab numquam
+                            natus?
+                            Consequuntur saepe consequatur at non rem magni dolorem, perferendis quam adipisci sit!
+                            Quaerat dolorem odit repellendus iusto delectus molestiae dolorum tenetur distinctio quidem
+                            odio!
+                            Natus, aut inventore impedit sint commodi reiciendis nostrum perferendis quasi maxime eius.
+                            Aut commodi quas veritatis non minus praesentium fugiat itaque, cum voluptatibus similique?</p>
+                        <span class="pb-3">
+                            <a href="" class="btn btn-secondary btn-sm button-primary rounded-pill ">View
+                                details <i class="fa-solid fa-angle-right ps-1"></i></a>
+                        </span>
+                    </div>
+
+                </div>
+                <div class="col-lg-5 col-12 order-lg-2 order-md-2 ">
+                    <div class="shadow rounded">
+                        <img src="{{ url('storage/front_images/bath-decoration-with-soap-bottle-towel.jpg') }}"
+                            class="img-fluid rounded" srcset="">
+                    </div>
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+
 
             <div class="row featurette my-5">
                 <div class="col-lg-7 col-12 order-lg-2 order-md-1  ">
@@ -222,8 +263,8 @@
                 </div>
                 <div class="col-lg-5 col-12 order-lg-1 order-md-2 ">
                     <div class="shadow rounded">
-                        <img src="{{ url('storage/front_images/bath-decoration-with-soap-bottle-towel.jpg') }}" class="img-fluid rounded"
-                            srcset="">
+                        <img src="{{ url('storage/front_images/bath-decoration-with-soap-bottle-towel.jpg') }}"
+                            class="img-fluid rounded" srcset="">
                     </div>
                 </div>
             </div>
@@ -247,8 +288,8 @@
                 </div>
                 <div class="col-lg-5 col-12 order-lg-2 order-md-2 ">
                     <div class="shadow rounded">
-                        <img src="{{ url('storage/front_images/natural-elements-spa-with-candles.jpg') }}" class="img-fluid rounded"
-                            srcset="">
+                        <img src="{{ url('storage/front_images/natural-elements-spa-with-candles.jpg') }}"
+                            class="img-fluid rounded" srcset="">
                     </div>
                 </div>
             </div>
@@ -271,8 +312,8 @@
                 </div>
                 <div class="col-lg-5 col-12 order-lg-1 order-md-2 ">
                     <div class="shadow rounded">
-                        <img src="{{ url('storage/front_images/bath-decoration-with-soap-bottle-towel.jpg') }}" class="img-fluid rounded"
-                            srcset="">
+                        <img src="{{ url('storage/front_images/bath-decoration-with-soap-bottle-towel.jpg') }}"
+                            class="img-fluid rounded" srcset="">
                     </div>
                 </div>
             </div>
@@ -308,6 +349,38 @@
                         breakpoint: 767,
                         settings: {
                             slidesToShow: 1,
+                        },
+                    },
+                ],
+            });
+        });
+        $(document).ready(function() {
+            $(".latest-products").slick({
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                arrows: true,
+                dots: false,
+                autoplay: true,
+                centerMode: false,
+                prevArrow: '<button type="button" data-role="none" class="slick-prev"><i class="fa-solid fa-chevron-left"></i></button>',
+                nextArrow: '<button type="button" data-role="none" class="slick-next"><i class="fa-solid fa-chevron-right"></i></button>',
+                autoplaySpeed: 2000,
+                responsive: [{
+                        breakpoint: 1421,
+                        settings: {
+                            slidesToShow: 4,
+                        },
+                    },
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 3,
+                        },
+                    },
+                    {
+                        breakpoint: 767,
+                        settings: {
+                            slidesToShow: 2,
                         },
                     },
                 ],

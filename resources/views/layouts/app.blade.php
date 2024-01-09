@@ -128,39 +128,63 @@
         </nav>
         {{-- sec nav --}}
         <nav id="sec-nav" class="navbar navbar-expand-lg navbar-light ">
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <div>
-                        <img src="https://www.ozonstar.com/img/logo.png" class="logo" alt="" srcset="">
+            <div class="container d-inline">
+                <div class="row align-items-center justify-content-between">
+                    <div class=" col-xl-3 col-lg-3 col-md-3 col-5">
+                        <a class="navbar-brand d-flex" href="#">
+                            <div>
+                                <img src="https://www.ozonstar.com/img/logo.png" class="logo img-fluid" alt=""
+                                    srcset="">
+                            </div>
+                        </a>
                     </div>
-                </a>
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end drop-menue" id="navbarNav">
-                    <ul class="navbar-nav gap-lg-3 gap-0">
-                        <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Our company</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Medium</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link pe-0" href="#">Contact</a>
-                        </li>
-                    </ul>
+                    <div class="d-none search-bar col-xl-4 col-lg-3 col-md-6 col-6">
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success button-primary" type="submit"><i
+                                    class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                    {{-- <div class="col-md-4"> --}}
+                        <button class="col-md-2 col-sm-1 col-2 navbar-toggler border-0 text-end" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-between drop-menue col-xl-5 col-lg-6 col-3" id="navbarNav">
+                            <form class="d-flex search-bar">
+                                <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success button-primary" type="submit"><i
+                                        class="fas fa-search"></i></button>
+                            </form>
+                            <ul class="navbar-nav gap-lg-3">
+                                <li class="nav-item">
+                                    <a class="nav-link " aria-current="page" href="#">Home</a>
+                                </li>
+                                {{-- <li class="nav-item">
+                                <a class="nav-link" href="#">Our company</a>
+                            </li> --}}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About Us</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('products') }}">Our Products</a>
+                                </li>
+                                {{-- <li class="nav-item">
+                                <a class="nav-link" href="#">Blog</a>
+                            </li> --}}
+                                <li class="nav-item">
+                                    <a class="nav-link pe-0" href="#">Contact Us</a>
+                                </li>
+                            </ul>
+                            
+                        </div>
+                    {{-- </div> --}}
                 </div>
+
+
+
+
             </div>
         </nav>
     </section>
@@ -187,10 +211,11 @@
                     <div class="col-md-12">
                         <div class="text-center">
                             <span><a href="/">Home</a> </span>
-                            <span><a href="/">Our Cpmpany</a> </span>
+                            {{-- <span><a href="/">Our Cpmpany</a> </span> --}}
                             <span><a href="/">About Us</a> </span>
-                            <span><a href="/">Medium</a> </span>
-                            <span><a href="/">Blog</a> </span>
+                            <span><a href="/">Our Products</a> </span>
+                            {{-- <span><a href="/">Medium</a> </span>
+                            <span><a href="/">Blog</a> </span> --}}
                             <span><a href="/">Contact</a> </span>
                         </div>
                     </div>
@@ -300,6 +325,7 @@
             });
         });
         // scroll-to-top end
+        
     </script>
 </body>
 

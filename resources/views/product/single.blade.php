@@ -45,8 +45,8 @@
             <div class="col-md-6" id="product-preview">
 
                 <div class="img_producto_container" data-scale="1.6">
-                    <img src="{{ url('storage/front_images/bath-decoration-with-soap-bottle-towel.jpg') }}" class="dslc-lightbox-image img_producto"
-                        alt="">
+                    <img src="{{ url('storage/front_images/bath-decoration-with-soap-bottle-towel.jpg') }}"
+                        class="dslc-lightbox-image img_producto" alt="">
                     {{-- <a
                       class="dslc-lightbox-image img_producto"
                       href="{{ url('storage/front_images/468.jpg') }}"
@@ -190,7 +190,7 @@
                 ],
             });
         });
-     
+
         $(".img_producto_container")
             .on("mouseover", function() {
                 $(this)
