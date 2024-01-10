@@ -58,7 +58,7 @@
 									<label for="first_name">Dealer's</label>
 									<select class="form-control" name="dealer_id" id="dealer_id">
 										<option value="" disabled selected>Choose</option>
-										@foreach(App\Models\Dealer::active()->get() as $dealer)
+										@foreach(App\Models\Dealer::approved()->get() as $dealer)
 										<option value="{{ $dealer->id }}" {{ ( $record->dealer_id ?? 0 ) == $dealer->id ? 'selected' : '' }} @if(old('dealer_id')==$dealer->id) selected @endif >{{ $dealer->name }}</option>
 										@endforeach
 									</select>

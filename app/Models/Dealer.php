@@ -35,12 +35,17 @@ class Dealer extends Authenticatable
                                 ];
     
     # Scope
-        public function scopeActive($query){
+        public function scopeApproved($query){
             return $query->whereStatus(1);
         }
     # End Scope
 
     # Attributes
+
+    public function getCreatedAtAttribute($val){
+        return date('d F, Y', strtotime($val));
+    }
+
     public function getProfileImageUrlAttribute(){
         return asset('storage/demo/profile-images/'.$this->profile_image);
     }

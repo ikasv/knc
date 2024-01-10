@@ -41,6 +41,7 @@
 	                    <th>Name</th>
 	                    <th>Mobile</th>
 	                    <th>Email</th>
+	                    <th>Created Date</th>
 	                    <th>Status</th>
 	                    <th style="width: 100px;" class="text-center">Action</th>
 	                  </tr>
@@ -50,10 +51,10 @@
 	                  <?php foreach ($users as $row) { ?>
 	                  <tr>
 	                    <td>{{ $row->id }}</td>
-	                    <td>{{ $row->name }}
-	                    </td>
+	                    <td>{{ $row->name }}</td>
 	                    <td>{{ $row->mobile }}</td>
 	                    <td>{{ $row->email }}</td>
+	                    <td>{{ $row->created_at }}</td>
 	                    <td>{!! $row->status_view !!}</td>
 	                    <td class="text-center">
 	                    	@if(isset($permissions['users']) && $permissions['users']['rr_edit']==1)

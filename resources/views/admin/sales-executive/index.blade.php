@@ -43,6 +43,7 @@
 								<tr>
 									<th style="width: 50px;" class="text-center">#</th>
 									<th>Name</th>
+									<th>Created Date</th>
 									<th>Status</th>
 									<th style="width: 100px;" class="text-center">Action</th>
 								</tr>
@@ -52,6 +53,7 @@
 									<tr>
 										<td class="text-center">{{ $loop->iteration }}</td>
 										<td>{{ $record->name }}</td>
+										<td>{{ $record->created_at }}</td>
 										<td>{!! $record->status_view !!}</td>
 										<td class="text-center">
 											@if($record->deleted_at)

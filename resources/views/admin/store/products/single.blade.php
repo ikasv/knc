@@ -84,7 +84,7 @@
 													<br>
 													<select type="text" class="form-control select2" id="category_ids" name="category_ids" >
 														<option value="0">Select Category</option>
-														@foreach(App\Models\Category::active()->get() ?? [] as $row)
+														@foreach(App\Models\Category::approved()->get() ?? [] as $row)
 														<option value="{{ $row->id }}" {{ ( isset($record) && $record->category_id == $row->id ) ? 'selected' : '' }}>{{ $row->name }} {{ $row->parent_id == 0 ? '( Main )' : '' }}</option>
 														@endforeach
 													</select>

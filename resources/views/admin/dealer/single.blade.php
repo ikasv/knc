@@ -54,7 +54,7 @@
 													<label for="sales_executive_id">Sales Executive <span class="text-danger">*</span></label>
 													<select name="sales_executive_id" id="sales_executive_id" class="form-control" required>
 														<option value="" selected disabled>Chooose</option>
-														@foreach (App\Models\SalesExecutive::active()->get() ?? [] as $sales_executive)
+														@foreach (App\Models\SalesExecutive::approved()->get() ?? [] as $sales_executive)
 															<option value="{{ $sales_executive->id }}" {{ isset($record->sales_executive_id) && $record->sales_executive_id == $sales_executive->id ? 'selected' : ''   }}>{{ $sales_executive->name }}</option>
 														@endforeach
 													</select>
