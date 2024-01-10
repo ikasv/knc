@@ -479,6 +479,7 @@ if (!function_exists('updateTempCartItems')) {
 # OTP API
 if (!function_exists('sendOtp')) {
   function sendOtp($data){
+    return true;
     $curl = curl_init();
 
     curl_setopt_array($curl, array(

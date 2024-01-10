@@ -76,6 +76,8 @@ class UserController extends Controller
                                 // 'email'         =>  "required|email|unique:users,email,$id",
                                 'mobile'        =>  "required|digits:10|unique:users,mobile,$id",
                                 'dealer_id'     =>  'required'
+                            ],[
+                                'dealer_id'     =>  'Please choose dealer'
                             ]);
 
          # Media
