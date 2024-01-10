@@ -127,8 +127,9 @@
 												<div class="form-group">
 													<label for="status">Status</label>
 													<select type="text" class="form-control" id="status" name="status">
-														<option value="1" {{ ( isset($record) && $record->status == 1 ) ? 'selected' : '' }}>Active</option>
-														<option value="0" {{ ( isset($record) && $record->status == 0 ) ? 'selected' : '' }}>Deactive</option>
+														<option value="0" {{ ( isset($record) && $record->status == 0 ) ? 'selected' : '' }}>Pending</option>
+														<option value="1" {{ ( isset($record) && $record->status == 1 ) ? 'selected' : '' }}>Approve</option>
+														<option value="2" {{ ( isset($record) && $record->status == 2 ) ? 'selected' : '' }}>Reject</option>
 													</select>
 												</div>
 											</div>

@@ -23,6 +23,7 @@ class User extends Authenticatable
         'name',
         'email',
         'mobile',
+        'otp',
         'dealer_id',
         'profile_image',
         'password',
@@ -42,7 +43,23 @@ class User extends Authenticatable
     }
 
     public function getStatusViewAttribute(){
-        return $this->status ? "<div class='btn btn-sm btn-success'>Active</div>" : "<div class='btn btn-sm btn-danger'>Deactive</div>";
+        $status_view                            =   '';
+        
+        switch($this->status):
+            case 1:
+                $status_view                            =   "<div class='btn btn-sm btn-success'>Approved</div>";
+            break;
+            
+            case 2:
+                $status_view                            =   "<div class='btn btn-sm btn-danger'>Rejcted</div>";
+            break;
+
+            default:
+                $status_view                            =   "<div class='btn btn-sm btn-warning'>Pending</div>";
+            break;
+        endswitch;
+
+        return $status_view;
     }
     # End Attributes
 

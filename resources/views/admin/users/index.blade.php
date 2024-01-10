@@ -41,6 +41,7 @@
 	                    <th>Name</th>
 	                    <th>Mobile</th>
 	                    <th>Email</th>
+	                    <th>Status</th>
 	                    <th style="width: 100px;" class="text-center">Action</th>
 	                  </tr>
 	                  </thead>
@@ -53,6 +54,7 @@
 	                    </td>
 	                    <td>{{ $row->mobile }}</td>
 	                    <td>{{ $row->email }}</td>
+	                    <td>{!! $row->status_view !!}</td>
 	                    <td class="text-center">
 	                    	@if(isset($permissions['users']) && $permissions['users']['rr_edit']==1)
 	                    	<a href="{{ route('admin::users.edit',$row->id) }}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a> 

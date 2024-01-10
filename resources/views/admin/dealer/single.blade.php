@@ -121,8 +121,9 @@
 												<div class="form-group">
 													<label for="status">Status</label>
 													<select type="text" class="form-control" id="status" name="status">
-														<option value="1" {{ ( isset($record) && $record->status == 1 ) ? 'selected' : '' }}>Active</option>
-														<option value="0" {{ ( isset($record) && $record->status == 0 ) ? 'selected' : '' }}>Deactive</option>
+														<option value="0" {{ ( isset($record) && $record->status == 0 ) ? 'selected' : '' }}>Pending</option>
+														<option value="1" {{ ( isset($record) && $record->status == 1 ) ? 'selected' : '' }}>Approve</option>
+														<option value="2" {{ ( isset($record) && $record->status == 2 ) ? 'selected' : '' }}>Reject</option>
 													</select>
 												</div>
 											</div>
@@ -140,13 +141,15 @@
 										<div class="row p-3">
 
 											<!-- Business Id -->
-											<div class="col-md-4">
-												<div class="form-group">
-													<label for="business_id">Business Id <span class="text-danger">*</span></label>
-													<input type="text" class="form-control" id="business_id" name="business_id" placeholder="Enter business id" value="{{ old('business_id', $record->business_id ?? '') }}" required>
-													@error('business_id') <div class="text-danger">{{ $message }}</div> @enderror
+												@if($record->business_id ?? false)
+												<div class="col-md-4">
+													<div class="form-group">
+														<label for="business_id">Business Id <span class="text-danger">*</span></label>
+														<input type="text" class="form-control" id="business_id" name="business_id" placeholder="Enter business id" value="{{ old('business_id', $record->business_id ?? '') }}" required>
+														@error('business_id') <div class="text-danger">{{ $message }}</div> @enderror
+													</div>
 												</div>
-											</div>
+												@endif
 											<!-- End Business Id -->
 											
 											<!-- Business Name -->

@@ -3,12 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
-class SalesExecutive extends Model
+class SalesExecutive extends Authenticatable
 {
-    use HasFactory;
+    use HasApiTokens, HasFactory, Notifiable;
     use SoftDeletes;
 
     protected $table        =   'sales_executive';
@@ -20,6 +22,7 @@ class SalesExecutive extends Model
                                     'name',
                                     'email',
                                     'mobile',
+                                    'otp',
                                     'profile_image',
                                     'joining_date',
                                     'status',
@@ -38,7 +41,23 @@ class SalesExecutive extends Model
     }
 
     public function getStatusViewAttribute(){
-        return $this->status ? "<div class='btn btn-sm btn-success'>Active</div>" : "<div class='btn btn-sm btn-danger'>Deactive</div>";
+        $status_view                            =   '';
+        
+        switch($this->status):
+            case 1:
+                $status_view                            =   "<div class='btn btn-sm btn-success'>Approved</div>";
+            break;
+            
+            case 2:
+                $status_view                            =   "<div class='btn btn-sm btn-danger'>Rejcted</div>";
+            break;
+
+            default:
+                $status_view                            =   "<div class='btn btn-sm btn-warning'>Pending</div>";
+            break;
+        endswitch;
+
+        return $status_view;
     }
     # End Attributes
      

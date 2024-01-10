@@ -57,7 +57,7 @@
 							<div class="form-group col-md-6">
 									<label for="first_name">Dealer's</label>
 									<select class="form-control" name="dealer_id" id="dealer_id">
-										<option value="">Choose</option>
+										<option value="" disabled selected>Choose</option>
 										@foreach(App\Models\Dealer::active()->get() as $dealer)
 										<option value="{{ $dealer->id }}" {{ ( $record->dealer_id ?? 0 ) == $dealer->id ? 'selected' : '' }} @if(old('dealer_id')==$dealer->id) selected @endif >{{ $dealer->name }}</option>
 										@endforeach
@@ -98,6 +98,19 @@
 									<label for="password">Password</label>
 									<input type="text" class="form-control" id="password" name="password" placeholder="Enter password" value="{{ old('password') }}">
 								</div>
+
+								<!-- Status -->
+								<div class="col-md-4">
+									<div class="form-group">
+										<label for="status">Status</label>
+										<select type="text" class="form-control" id="status" name="status">
+											<option value="0" {{ ( isset($record) && $record->status == 0 ) ? 'selected' : '' }}>Pending</option>
+											<option value="1" {{ ( isset($record) && $record->status == 1 ) ? 'selected' : '' }}>Approve</option>
+											<option value="2" {{ ( isset($record) && $record->status == 2 ) ? 'selected' : '' }}>Reject</option>
+										</select>
+									</div>
+								</div>
+								<!-- End Status -->
 
 								<div class="col-md-12 mt-2">
 									<div class="text-center">

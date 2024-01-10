@@ -112,7 +112,7 @@ class DealerController extends Controller
                                                                 'email'                 => request()->email,
                                                                 'mobile'                => request()->mobile,
                                                                 'profile_image'         => $profile_image,
-                                                                'business_id'           => request()->business_id,
+                                                                'business_id'           => request()->id ? request()->business_id : str()->upper(uniqid('EMP_')),
                                                                 'business_name'         => request()->business_name,
                                                                 'business_email'        => request()->business_email,
                                                                 'business_mobile'       => request()->business_mobile,
