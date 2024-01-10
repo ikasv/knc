@@ -134,7 +134,7 @@
                 <h2 class="featurette-heading mt-0 mb-4">Releated Product</h2>
             </div>
             <div class="slider releated-product">
-                @for ($i = 0; $i < 6; $i++)
+                {{-- @for ($i = 0; $i < 6; $i++)
                     <div class="mb-4">
                         <a href="" target="_blank">
                             <div class="d-flex justify-content-center flex-column align-items-center px-3   ">
@@ -150,7 +150,25 @@
                             </div>
                         </a>
                     </div>
-                @endfor
+                @endfor --}}
+                @for ($i = 0; $i < 15; $i++)
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 ">
+                    <div class="d-flex d-flex justify-content-center align-items-center px-2">
+                        <div class="card " style="width: 19rem;">
+                            <img src="{{ url('storage/front_images/what_we_offer.jpg') }}" class="img-fluid rounded-top"
+                                alt="...">
+                            <div class="card-body p-3 pb-0">
+                                <h5 class="card-title card-heading mb-2">3D Adjustable Hinge</h5>
+                                <p class="mb-2 product-status">In-stock</p>
+                            </div>
+                            <div class="d-grid">
+                                <a href="" class="btn btn-secondary btn-sm button-primary border-0 ">View
+                                    details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endfor
             </div>
         </div>
         {{-- related product end --}}
@@ -160,11 +178,11 @@
     <script>
         $(document).ready(function() {
             $(".releated-product").slick({
-                slidesToShow: 4,
+                slidesToShow: 5,
                 slidesToScroll: 1,
                 arrows: true,
                 dots: false,
-                //autoplay: true,
+                autoplay: true,
                 centerMode: false,
                 prevArrow: '<button type="button" data-role="none" class="slick-prev"><i class="fa-solid fa-chevron-left"></i></button>',
                 nextArrow: '<button type="button" data-role="none" class="slick-next"><i class="fa-solid fa-chevron-right"></i></button>',
@@ -172,19 +190,19 @@
                 responsive: [{
                         breakpoint: 1249,
                         settings: {
-                            slidesToShow: 3,
+                            slidesToShow: 4,
                         },
                     },
                     {
                         breakpoint: 992,
                         settings: {
-                            slidesToShow: 2,
+                            slidesToShow: 3,
                         },
                     },
                     {
                         breakpoint: 767,
                         settings: {
-                            slidesToShow: 1,
+                            slidesToShow: 2,
                         },
                     },
                 ],

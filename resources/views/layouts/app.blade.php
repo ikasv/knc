@@ -86,7 +86,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
     <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
     <link rel="stylesheet" href="{{ asset('public/assets/css/styles.css') }}">
@@ -130,7 +132,7 @@
         <nav id="sec-nav" class="navbar navbar-expand-lg navbar-light ">
             <div class="container d-inline">
                 <div class="row align-items-center justify-content-between">
-                    <div class=" col-xl-3 col-lg-3 col-md-3 col-5">
+                    <div class=" col-xl-4 col-lg-3 col-md-3 col-5">
                         <a class="navbar-brand d-flex" href="#">
                             <div>
                                 <img src="https://www.ozonstar.com/img/logo.png" class="logo img-fluid" alt=""
@@ -146,39 +148,41 @@
                         </form>
                     </div>
                     {{-- <div class="col-md-4"> --}}
-                        <button class="col-md-2 col-sm-1 col-2 navbar-toggler border-0 text-end" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse justify-content-between drop-menue col-xl-5 col-lg-6 col-3" id="navbarNav">
-                            <form class="d-flex search-bar">
-                                <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-outline-success button-primary" type="submit"><i
-                                        class="fas fa-search"></i></button>
-                            </form>
-                            <ul class="navbar-nav gap-lg-3">
-                                <li class="nav-item">
-                                    <a class="nav-link " aria-current="page" href="#">Home</a>
-                                </li>
-                                {{-- <li class="nav-item">
+                    <button class="col-md-2 col-sm-1 col-2 navbar-toggler border-0 text-end" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between drop-menue col-xl-5 col-lg-6 col-3"
+                        id="navbarNav">
+                        <form class="d-flex search-bar">
+                            <input id="search" class="form-control me-2" type="search" placeholder="Search"
+                                aria-label="Search">
+                            <button class="btn btn-outline-success button-primary" type="submit"><i
+                                    class="fas fa-search"></i></button>
+                        </form>
+                        <ul class="navbar-nav gap-lg-3">
+                            <li class="nav-item">
+                                <a class="nav-link " aria-current="page" href="#">Home</a>
+                            </li>
+                            {{-- <li class="nav-item">
                                 <a class="nav-link" href="#">Our company</a>
                             </li> --}}
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">About Us</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('products') }}">Our Products</a>
-                                </li>
-                                {{-- <li class="nav-item">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('products') }}">Our products</a>
+                            </li>
+                            {{-- <li class="nav-item">
                                 <a class="nav-link" href="#">Blog</a>
                             </li> --}}
-                                <li class="nav-item">
-                                    <a class="nav-link pe-0" href="#">Contact Us</a>
-                                </li>
-                            </ul>
-                            
-                        </div>
+                            <li class="nav-item">
+                                <a class="nav-link pe-0" href="#">Contact us</a>
+                            </li>
+                        </ul>
+
+                    </div>
                     {{-- </div> --}}
                 </div>
 
@@ -212,11 +216,11 @@
                         <div class="text-center">
                             <span><a href="/">Home</a> </span>
                             {{-- <span><a href="/">Our Cpmpany</a> </span> --}}
-                            <span><a href="/">About Us</a> </span>
-                            <span><a href="/">Our Products</a> </span>
+                            <span><a href="/">About us</a> </span>
+                            <span><a href="/">Our products</a> </span>
                             {{-- <span><a href="/">Medium</a> </span>
                             <span><a href="/">Blog</a> </span> --}}
-                            <span><a href="/">Contact</a> </span>
+                            <span><a href="/">Contact us</a> </span>
                         </div>
                     </div>
                 </div>
@@ -325,7 +329,6 @@
             });
         });
         // scroll-to-top end
-        
     </script>
 </body>
 
