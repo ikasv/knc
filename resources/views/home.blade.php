@@ -27,7 +27,7 @@
 @endsection
 @section('content')
     <main>
-
+        {{-- home slider --}}
         <div id="myCarousel" class="carousel slide home-slider" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
@@ -77,6 +77,7 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
+        {{-- home slider end --}}
 
         <div class="container marketing">
 
@@ -114,6 +115,8 @@
                     <img src="{{ url('storage/front_images/divider.png') }}" class="img-fluid" alt="">
                 </div>
             </div>
+
+            {{-- service --}}
             <div class="row mt-5">
                 <div class="col-lg-3 col-md-6 mb-3">
                     <div class="single-feature">
@@ -152,8 +155,7 @@
                     </div>
                 </div>
             </div>
-
-
+            {{-- service end --}}
 
             {{-- <hr class="featurette-divider"> --}}
             <div class="row justify-content-center featurette-divider">
@@ -162,7 +164,7 @@
                 </div>
             </div>
 
-            <!-- Three columns of text below the carousel -->
+            {{-- latest products --}}
             <div class="row mt-5">
                 <div class="col-8 mb-4">
                     <div class="">
@@ -195,6 +197,8 @@
                     @endfor
                 </div>
             </div>
+            {{-- latest products end --}}
+
 
 
 
@@ -205,7 +209,7 @@
                     <img src="{{ url('storage/front_images/divider.png') }}" class="img-fluid" alt="">
                 </div>
             </div>
-
+            {{-- Most Selling Products --}}
             <div class="row mt-5">
                 <div class="col-8 mb-4">
                     <div class="">
@@ -240,16 +244,18 @@
                     @endfor
                 </div>
             </div>
+            {{-- Most Selling Products end --}}
 
 
 
-            <!-- START THE FEATURETTES -->
+
 
             <div class="row justify-content-center featurette-divider">
                 <div class="col-md-8 text-center">
                     <img src="{{ url('storage/front_images/divider.png') }}" class="img-fluid" alt="">
                 </div>
             </div>
+            {{-- New Arrival --}}
             <div class="row mt-5">
                 <div class="col-8 mb-4">
                     <div class="">
@@ -284,10 +290,12 @@
                     @endfor
                 </div>
             </div>
+            {{-- New Arrival --}}
 
 
 
-            <!-- START THE FEATURETTES -->
+
+
             <div class="row justify-content-center featurette-divider">
                 <div class="col-md-8 text-center">
                     <img src="{{ url('storage/front_images/divider.png') }}" class="img-fluid" alt="">
@@ -306,10 +314,9 @@
                 <div class="col-lg-6">
                     <div class="new_product">
                         <h5 class="text-uppercase">collection</h5>
-                        <h3 class="text-uppercase">Men’s summer t-shirt</h3>
+                        <h3 class="text-uppercase">Lorem ipsum dolor sit amet</h3>
                         <div class="product-img">
-                            <img class="img-fluid"
-                                src="https://preview.colorlib.com/theme/eiser/img/product/new-product/new-product1.png.webp"
+                            <img class="img-fluid" src="https://www.ozone-india.com/BannerImage/124/small"
                                 alt="">
                         </div>
 
@@ -321,14 +328,13 @@
                         <div class="col-lg-6 col-md-6">
                             <div class="single-product">
                                 <div class="product-img">
-                                    <img class="img-fluid w-100"
-                                        src="https://preview.colorlib.com/theme/eiser/img/product/new-product/n1.jpg.webp"
+                                    <img class="img-fluid w-100" src="{{ url('storage/front_images/categories.jpg') }}"
                                         alt="">
 
                                 </div>
                                 <div class="product-btm">
                                     <a href="#" class="d-block">
-                                        <h5>Nike latest sneaker</h5>
+                                        <h5>Lorem Ipsum Dolor</h5>
                                     </a>
                                 </div>
                             </div>
@@ -336,13 +342,12 @@
                         <div class="col-lg-6 col-md-6">
                             <div class="single-product">
                                 <div class="product-img">
-                                    <img class="img-fluid w-100"
-                                        src="https://preview.colorlib.com/theme/eiser/img/product/new-product/n1.jpg.webp"
+                                    <img class="img-fluid w-100" src="{{ url('storage/front_images/categories.jpg') }}"
                                         alt="">
                                 </div>
                                 <div class="product-btm">
                                     <a href="#" class="d-block">
-                                        <h5>Men’s denim jeans</h5>
+                                        <h5>Lorem Ipsum Dolor</h5>
                                     </a>
                                 </div>
                             </div>
@@ -350,13 +355,12 @@
                         <div class="col-lg-6 col-md-6">
                             <div class="single-product">
                                 <div class="product-img">
-                                    <img class="img-fluid w-100"
-                                        src="https://preview.colorlib.com/theme/eiser/img/product/new-product/n1.jpg.webp"
+                                    <img class="img-fluid w-100" src="{{ url('storage/front_images/categories.jpg') }}"
                                         alt="">
                                 </div>
                                 <div class="product-btm">
                                     <a href="#" class="d-block">
-                                        <h5>quartz hand watch</h5>
+                                        <h5>Lorem Ipsum Dolor</h5>
                                     </a>
                                 </div>
                             </div>
@@ -364,13 +368,12 @@
                         <div class="col-lg-6 col-md-6">
                             <div class="single-product">
                                 <div class="product-img">
-                                    <img class="img-fluid w-100"
-                                        src="https://preview.colorlib.com/theme/eiser/img/product/new-product/n1.jpg.webp"
+                                    <img class="img-fluid w-100" src="{{ url('storage/front_images/categories.jpg') }}"
                                         alt="">
                                 </div>
                                 <div class="product-btm">
                                     <a href="#" class="d-block">
-                                        <h5>adidas sport shoe</h5>
+                                        <h5>Lorem Ipsum Dolor</h5>
                                     </a>
                                 </div>
                             </div>
@@ -380,18 +383,19 @@
             </div>
             {{-- new product end --}}
 
+
             <div class="row justify-content-center featurette-divider">
                 <div class="col-md-8 text-center">
                     <img src="{{ url('storage/front_images/divider.png') }}" class="img-fluid" alt="">
                 </div>
             </div>
-
+            {{-- about us --}}
             <div class="row featurette my-5">
                 <div class="col-lg-7 col-12 order-lg-1 order-md-1  ">
 
                     <div class="h-100 w-100 d-flex flex-column justify-content-center">
                         <h5 class="text-sub-heading">About Us</h5>
-                        <h3 class="featurette-heading mt-0 mb-2">Welcome To K. N. C.</h3>
+                        <h3 class="featurette-heading mt-0 mb-4">Welcome To K. N. C.</h3>
                         <p class="content-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio ab numquam
                             natus?
                             Consequuntur saepe consequatur at non rem magni dolorem, perferendis quam adipisci sit!
@@ -400,8 +404,8 @@
                             Natus, aut inventore impedit sint commodi reiciendis nostrum perferendis quasi maxime eius.
                             Aut commodi quas veritatis non minus praesentium fugiat itaque, cum voluptatibus similique?</p>
                         <span class="pb-3">
-                            <a href="" class="btn btn-secondary btn-sm button-primary rounded-pill ">View
-                                details <i class="fa-solid fa-angle-right ps-1"></i></a>
+                            <a href="" class="btn btn-secondary btn-sm button-primary rounded-pill ">Learn More<i
+                                    class="fa-solid fa-angle-right ps-1"></i></a>
                         </span>
                     </div>
 
@@ -413,6 +417,8 @@
                     </div>
                 </div>
             </div>
+            {{-- about us end --}}
+
 
             <div class="row justify-content-center featurette-divider">
                 <div class="col-md-8 text-center">
@@ -420,40 +426,39 @@
                 </div>
             </div>
 
-
-
+            {{-- send enquiry --}}
             <div id="send-enquiry" class="row featurette my-5">
                 <div class="col-lg-7 col-12 order-lg-2 order-md-1  ">
 
                     <div class="h-100 w-100 d-flex flex-column justify-content-center">
-                        <h3 class="featurette-heading mt-0 mb-3">Send Enquiry</h3>
+                        <h3 class="featurette-heading mt-0 mb-4">Send Enquiry</h3>
                         <form id="enquiry">
                             {{-- <input type="text" name="" id=""> --}}
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-2 rounded-0" placeholder="Name"
+                                        <input type="text" class="form-control mb-2 " placeholder="Name"
                                             aria-label="">
 
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-2 rounded-0" placeholder="Phone"
+                                        <input type="text" class="form-control mb-2 " placeholder="Phone"
                                             aria-label="">
 
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-2 rounded-0" placeholder="Email"
+                                        <input type="text" class="form-control mb-2 " placeholder="Email"
                                             aria-label="">
 
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea name="" id="" class="form-control mb-2 rounded-0" cols="30" rows="5"
+                                        <textarea name="" id="" class="form-control mb-2 " cols="30" rows="5"
                                             placeholder="Message"></textarea>
 
                                     </div>
@@ -474,42 +479,71 @@
                     </div>
                 </div>
             </div>
+            {{-- send enquiry end --}}
+
 
             <div class="row justify-content-center featurette-divider">
                 <div class="col-md-8 text-center">
                     <img src="{{ url('storage/front_images/divider.png') }}" class="img-fluid" alt="">
                 </div>
             </div>
+            {{-- why choose us --}}
 
-            <div class="row featurette my-5">
-                <div class="col-lg-7 col-12 order-lg-1 order-md-1  ">
-
-                    <div class="h-100 w-100 d-flex flex-column justify-content-center">
-                        <h3 class="featurette-heading mt-0 mb-4">Water Taps</h3>
-                        <p class="content-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio ab numquam
-                            natus?
-                            Consequuntur saepe consequatur at non rem magni dolorem, perferendis quam adipisci sit!
-                            Quaerat dolorem odit repellendus iusto delectus molestiae dolorum tenetur distinctio quidem
-                            odio!
-                            Natus, aut inventore impedit sint commodi reiciendis nostrum perferendis quasi maxime eius.
-                            Aut commodi quas veritatis non minus praesentium fugiat itaque, cum voluptatibus similique?</p>
+            <div id="faq" class="row featurette my-5">
+                <div class="col-md-12 mb-4">
+                    <div>
+                        <h3 class="featurette-heading mt-0 ">Why Choose Us</h3>
                     </div>
-
                 </div>
-                <div class="col-lg-5 col-12 order-lg-2 order-md-2 ">
-                    <div class="shadow rounded">
-                        <img src="{{ url('storage/front_images/natural-elements-spa-with-candles.jpg') }}"
-                            class="img-fluid rounded" srcset="">
+                <div class="faq__accordian-main-wrapper" id="faq__accordian-main-wrapper">
+                    <div class="faq__accordion-wrapper">
+                        <a class="faq__accordian-heading rounded active" href="#">What is Lorem Ipsum</a>
+
+                        <div class="faq__accordion-content" style="display: block;">
+                            <p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,
+                                as opposed to using 'Content here, content here', making it look like readable English. Many
+                                desktop publishing packages and web page editors now use Lorem Ipsum as their default model
+                                text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy</p>
+                        </div>
+                    </div>
+                    <div class="faq__accordion-wrapper">
+                        <a class="faq__accordian-heading rounded " href="#">What is Lorem Ipsum</a>
+                        <div class="faq__accordion-content" style="display: none;">
+                            <p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,
+                                as opposed to using 'Content here, content here', making it look like readable English. Many
+                                desktop publishing packages and web page editors now use Lorem Ipsum as their default model
+                                text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy</p>
+                        </div>
+                    </div>
+                    <div class="faq__accordion-wrapper">
+                        <a class="faq__accordian-heading rounded" href="#">What is Lorem Ipsum</a>
+                        <div class="faq__accordion-content" style="display: none;">
+                            <p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,
+                                as opposed to using 'Content here, content here', making it look like readable English. Many
+                                desktop publishing packages and web page editors now use Lorem Ipsum as their default model
+                                text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy</p>
+                        </div>
+                    </div>
+                    <div class="faq__accordion-wrapper">
+                        <a class="faq__accordian-heading rounded" href="#">What is Lorem Ipsum</a>
+                        <div class="faq__accordion-content" style="display: none;">
+                            <p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,
+                                as opposed to using 'Content here, content here', making it look like readable English. Many
+                                desktop publishing packages and web page editors now use Lorem Ipsum as their default model
+                                text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy</p>
+                        </div>
                     </div>
                 </div>
             </div>
+            {{-- why choose us end --}}
+
 
             <div class="row justify-content-center featurette-divider">
                 <div class="col-md-8 text-center">
                     <img src="{{ url('storage/front_images/divider.png') }}" class="img-fluid" alt="">
                 </div>
             </div>
-
+            {{-- test --}}
             <div class="row featurette pb-5">
                 <div class="col-lg-7 col-12 order-lg-2 order-md-1  ">
                     <div class="h-100 w-100 d-flex flex-column justify-content-center">
@@ -531,6 +565,8 @@
                     </div>
                 </div>
             </div>
+            {{-- test --}}
+
         </div>
     </main>
 @endsection
@@ -542,7 +578,7 @@
                 slidesToScroll: 1,
                 arrows: true,
                 dots: false,
-                autoplay: true,
+                //autoplay: true,
                 centerMode: false,
                 prevArrow: '<button type="button" data-role="none" class="slick-prev"><i class="fa-solid fa-chevron-left"></i></button>',
                 nextArrow: '<button type="button" data-role="none" class="slick-next"><i class="fa-solid fa-chevron-right"></i></button>',
@@ -580,7 +616,7 @@
                 slidesToScroll: 1,
                 arrows: true,
                 dots: false,
-                autoplay: true,
+                // autoplay: true,
                 centerMode: false,
                 prevArrow: '<button type="button" data-role="none" class="slick-prev"><i class="fa-solid fa-chevron-left"></i></button>',
                 nextArrow: '<button type="button" data-role="none" class="slick-next"><i class="fa-solid fa-chevron-right"></i></button>',
@@ -605,6 +641,20 @@
                     },
                 ],
             });
+        });
+
+        // test
+        $('.faq__accordian-heading').click(function(e) {
+            e.preventDefault();
+            if (!$(this).hasClass('active')) {
+                $('.faq__accordian-heading').removeClass('active');
+                $('.faq__accordion-content').slideUp(500);
+                $(this).addClass('active');
+                $(this).next('.faq__accordion-content').slideDown(500);
+            } else if ($(this).hasClass('active')) {
+                $(this).removeClass('active');
+                $(this).next('.faq__accordion-content').slideUp(500);
+            }
         });
     </script>
 @endsection

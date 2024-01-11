@@ -134,10 +134,8 @@
                 <div class="row align-items-center justify-content-between">
                     <div class=" col-xl-4 col-lg-3 col-md-3 col-5">
                         <a class="navbar-brand d-flex" href="#">
-                            <div>
-                                <img src="https://www.ozonstar.com/img/logo.png" class="logo img-fluid" alt=""
-                                    srcset="">
-                            </div>
+                            <img src="https://www.ozonstar.com/img/logo.png" class="logo img-fluid" alt=""
+                                srcset="">
                         </a>
                     </div>
                     <div class="d-none search-bar col-xl-4 col-lg-3 col-md-6 col-6">
@@ -197,7 +195,7 @@
     </main>
 
     {{-- FOOTER  --}}
-    <footer id="footer">
+    {{-- <footer id="footer">
         <section id="first-footer" style="background-image: url({{ url('storage/front_images/banner.jpg') }})">
             <div class="container">
                 <div class="row pt-5 pb-4">
@@ -215,11 +213,9 @@
                     <div class="col-md-12">
                         <div class="text-center">
                             <span><a href="/">Home</a> </span>
-                            {{-- <span><a href="/">Our Cpmpany</a> </span> --}}
+                            
                             <span><a href="/">About us</a> </span>
                             <span><a href="/">Our products</a> </span>
-                            {{-- <span><a href="/">Medium</a> </span>
-                            <span><a href="/">Blog</a> </span> --}}
                             <span><a href="/">Contact us</a> </span>
                         </div>
                     </div>
@@ -282,8 +278,80 @@
         <button id="myBtn" type="button" class="toTop js-toTop to-top" onclick="topFunction();"><i
                 class="fa-solid fa-chevron-up"></i></button>
 
-    </footer>
+    </footer> --}}
     {{-- FOOTER END  --}}
+    {{-- test footer --}}
+    <section id="footer">
+        <div class="container">
+            <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 pt-5 ">
+                
+                <div class="col-lg-5 col-md-6 col-12 mb-3">
+                    <h5>Contact</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2 text-white"><i class="fa-solid fa-location-dot pe-2"></i>Plot No. 102, 103, 123 Pt. T. N Mishra Marg,
+                            Santosh Nagar, Gopalpura Bypass
+                            Jaipur 302015 Rajasthan India</li>
+                        <li class="nav-item mb-2 text-white"><i class="fa-solid fa-phone pe-2"></i>98745 61230</li>
+                        <li class="nav-item mb-2 text-white"><i class="fa-solid fa-envelope pe-2"></i>info@getpill.in</li>
+                       
+                    </ul>
+                </div>
+    
+                <div class="col-lg-2 col-md-6 col-12 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Home</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0">About us</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Our products</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Contact us</a></li>
+                        
+                    </ul>
+                </div>
+    
+                <div class="col-lg-2 col-md-6 col-12 mb-3">
+                    <h5>Category</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Home</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Features</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Pricing</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">FAQs</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">About</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 mb-3">
+                    <div class="row">
+                        <div class="col-12">
+                            <a href="/" class="d-flex align-items-center mb-3">
+                                <img src="https://www.ozonstar.com/img/logo.png" class="logo img-fluid" alt=""
+                                srcset="">
+                            </a>
+                        </div>
+                        <div class="col-12">
+                            <h5>Follow us:</h5>
+                            <ul id="footer-social" class="nav gap-3">
+                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0"><i class="fa-brands fa-facebook p-2"></i></a></li>
+                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0"><i class="fa-brands fa-instagram p-2"></i></a></li>
+                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0"><i class="fa-brands fa-twitter p-2"></i></a></li>
+                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0"><i class="fa-brands fa-linkedin p-2"></i></a></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <div class="row justify-content-center">
+                <div class="col-md-8 py-4">
+                    <div class="text-white text-center">
+                        <i class="fa-solid fa-copyright pe-2"></i>2024 K. N. C.  All Rights Reserved 
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    
+        
+    </section>
+    {{-- test footer end --}}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
