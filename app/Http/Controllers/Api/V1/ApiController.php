@@ -8,6 +8,7 @@ use App\Models\Dealer;
 use App\Models\Product;
 use App\Models\SalesExecutive;
 use App\Models\User;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -21,8 +22,15 @@ class ApiController extends Controller
     # 4. Category - List, Single
     # 5. Products - List, SIngle
 
+    # Home
+    public function home(){
+        
+        return response()->json(['status' => true, 'message' => __('messages.success')]);
+    }
+    # End Home
+
     # Login With Email or Mobile and Password
-    public function login_with_email_or_mobile_and_password()
+    public function login()
     {
         $arr                =   [];
         $validator          =   Validator::make(request()->all(), [
@@ -60,37 +68,6 @@ class ApiController extends Controller
             endif;
         else :
             $arr                    =   ['status' => false, 'message' => 'Record not found', 'access_token' => null, 'data' => null];
-        endif;
-
-
-        return response()->json($arr);
-    }
-    # End Login With Email or Mobile and Password
-
-    # Login With Mobile and Otp
-    public function login_with_mobile_and_otp()
-    {
-        $arr                =   [];
-        $validator          =   Validator::make(request()->all(), [
-            'mobile'                    => 'required',
-            'password'                  => 'required',
-            'role'                      => 'required'
-        ]);
-
-        if ($validator->failed()) :
-            return response()->json(['status' => false, 'message' => $validator->errors()->first()]);
-        endif;
-
-        $user                           =   $this->user(request()->role);
-        if ($user) :
-            if (Hash::check(request()->password, $user->password)) :
-                $accessToken            =   $user->createToken('KNC')->plainTextToken;
-                $arr                    =   ['status' => true, 'message' => 'Login successfully', 'role'   =>  request()->role, 'accessToken' => $accessToken, 'data' => $user];
-            else :
-                $arr                    =   ['status' => false, 'message' => 'Password Incorrect', 'accessToken' => null, 'data' => null];
-            endif;
-        else :
-            $arr                    =   ['status' => false, 'message' => 'Record not found', 'accessToken' => null, 'data' => null];
         endif;
 
 
@@ -309,22 +286,76 @@ class ApiController extends Controller
 
     public function categories()
     {
-        return Category::get();
+        $arr                        =   [];
+        
+        $records                    =   Category::select('id', 'name', 'slug', 'parent_id', 'icon', 'featured_image', 'banner_image')->get();
+
+        if (count($records)) :
+            $records->makeHidden(['icon', 'featured_image', 'banner_image', 'status_label', 'status_label_view']);
+
+            $arr                =   ['status' => true, 'message' => 'Successfully data fetched', 'data' => $records];
+        else :
+            $arr                =   ['status' => true, 'message' => 'No data available', 'data' => null];
+
+        endif;
+
+        return response()->json($arr);
     }
 
-    public function category($id)
+    public function category($id_or_slug)
     {
-        return Category::find($id);
+        $arr                        =   [];
+        
+        $record                    =   Category::select('id', 'name', 'slug', 'parent_id', 'icon', 'featured_image', 'banner_image', 'short_description', 'long_description')
+                                        ->whereId($id_or_slug)->orWhere('slug', $id_or_slug)->first();
+
+        if (count($record)) :
+            $record->makeHidden(['icon', 'featured_image', 'banner_image', 'status_label', 'status_label_view']);
+
+            $arr                =   ['status' => true, 'message' => 'Successfully data fetched', 'data' => $record];
+        else :
+            $arr                =   ['status' => true, 'message' => 'No data available', 'data' => null];
+
+        endif;
+
+        return response()->json($arr);
     }
 
     public function products()
     {
-        return Product::get();
+        $arr                        =   [];
+        
+        $records                    =   Product::select('id', 'name', 'slug', 'is_featured', 'is_popular','sku', 'dimensions', 'finishing', 'mrp', 'sale_price', 'packing', 'points', 'icon', 'featured_image', 'banner_image')->get();
+
+        if (count($records)) :
+            $records->makeHidden(['icon', 'featured_image', 'banner_image', 'status_label', 'status_label_view']);
+
+            $arr                =   ['status' => true, 'message' => 'Successfully data fetched', 'data' => $records];
+        else :
+            $arr                =   ['status' => true, 'message' => 'No data available', 'data' => null];
+
+        endif;
+
+        return response()->json($arr);
     }
 
-    public function product($id)
+    public function product($id_or_slug)
     {
-        return Product::find($id);
+        $arr                        =   [];
+        
+        $record                    =   Product::select('id', 'name', 'slug', 'short_description', 'long_description', 'is_featured', 'is_popular','sku', 'dimensions', 'finishing', 'mrp', 'sale_price', 'packing', 'points', 'icon', 'featured_image', 'banner_image')
+                                        ->whereId($id_or_slug)->orWhere('slug', $id_or_slug)->first();
+
+        if ($record) :
+            $record->makeHidden(['icon', 'featured_image', 'banner_image', 'status_label', 'status_label_view' , 'status_view']);
+
+            $arr                =   ['status' => true, 'message' => 'Successfully data fetched', 'data' => $record];
+        else :
+            $arr                =   ['status' => false, 'message' => 'No data available', 'data' => null];
+
+        endif;
+
+        return response()->json($arr);
     }
 
 
