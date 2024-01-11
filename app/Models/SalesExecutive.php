@@ -15,7 +15,7 @@ class SalesExecutive extends Authenticatable
 
     protected $table        =   'sales_executive';
 
-    protected $appends      =   ['profile_image_url', 'status_view'];
+    protected $appends      =   ['profile_image_url', 'status_view', 'role'];
 
     protected $fillable     =   [
                                     'employee_id',
@@ -63,6 +63,11 @@ class SalesExecutive extends Authenticatable
 
         return $status_view;
     }
+
+    public function getRoleAttribute(){
+        return 'sales_executive';
+    }
+
     # End Attributes
      
     protected $hidden = [

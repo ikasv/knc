@@ -12,7 +12,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $appends      =   ['profile_image_url', 'status_view'];
+    protected $appends      =   ['profile_image_url', 'status_view', 'role'];
 
     /**
      * The attributes that are mass assignable.
@@ -65,7 +65,15 @@ class User extends Authenticatable
 
         return $status_view;
     }
+
+    public function getRoleAttribute(){
+        return 'customer';
+    }
     # End Attributes
+
+    public function dealer(){
+        return $this->belongsTo(Dealer::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.

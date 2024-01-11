@@ -15,7 +15,7 @@ class Dealer extends Authenticatable
 
     protected $primaryKey = 'id';
 
-    protected $appends      =   ['profile_image_url', 'status_view'];
+    protected $appends      =   ['profile_image_url', 'status_view', 'role'];
 
     protected $fillable     =   [
                                     'sales_executive_id',
@@ -69,7 +69,19 @@ class Dealer extends Authenticatable
 
         return $status_view;
     }
+
+    public function getRoleAttribute(){
+        return 'dealer';
+    }
     # End Attributes
+
+    public function customers(){
+        return $this->hasMany(User::class);
+    }
+
+    public function sales_executive(){
+        return $this->belongsTo(SalesExecutive::class);
+    }
 
     protected $hidden = [
         'password'
