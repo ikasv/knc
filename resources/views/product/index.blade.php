@@ -59,123 +59,162 @@
             </div>
         </div>
     </div> --}}
-        <div class="row my-4 ">
-            {{-- <div id="filter" class="col-md-3">
-                <div class="row card mb-4">
-                    <div class="short-category p-3">
-                        <h4>Sort by Categories</h4>
-                        @for ($i = 0; $i < 10; $i++)
-                        <div class="form-check">
-                            <input id="filter_{{$i}}" name="filter_{{$i}}" type="checkbox" class="form-check-input" value="63">
-                            <label class="form-check-label" for="filter_{{$i}}" >
-                                ANTIHISTAMINE TREATMENT
-                            </label>
-                        </div>
-                        @endfor
+        <div class="row justify-content-center gap-2 my-4  ">
+            <div id="filter" class="col-xl-2 col-12 ">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a id="filter-toggler" class="navbar-toggler d-none" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#filter-by-category" aria-controls="filter-by-category" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <i class="fa-solid fa-filter pe-2 "></i> Filter
+                        </a>
                     </div>
                 </div>
-                <div class="row card mb-4">
-                    <div class="short-category p-3">
-                        <h4>Sort by Features</h4>
-                        @for ($i = 0; $i < 10; $i++)
-                        <div class="form-check">
-                            <input id="features_{{$i}}" name="features_{{$i}}" type="checkbox" class="form-check-input" value="63">
-                            <label class="form-check-label" for="features_{{$i}}" >
-                                ANTIHISTAMINE TREATMENT
-                            </label>
+                <div class="navbar-collapse" id="filter-by-category">
+                    <div class="row card mb-4">
+                        <div class=" px-0">
+                            <div class="border-bottom">
+                                <h5 class="p-2 mb-0">Sort by Categories</h5>
+                            </div>
+                            <div class=" short-category py-2">
+                                @for ($i = 0; $i < 10; $i++)
+                                    <div class="form-check gap-2">
+                                        <input id="filter_{{ $i }}" name="filter_{{ $i }}"
+                                            type="checkbox" class="form-check-input" value="">
+                                        <label class="form-check-label" for="filter_{{ $i }}">
+                                            ANTIHISTAMINE TREATMENT
+                                        </label>
+                                    </div>
+                                @endfor
+
+                            </div>
                         </div>
-                        @endfor
+                    </div>
+                    <div class="row card mb-4">
+                        <div class="px-0">
+                            <div class="border-bottom">
+                                <h5 class="p-2 mb-0">Sort by Sub-categories</h5>
+                            </div>
+                            <div class=" short-category py-2">
+                                @for ($i = 0; $i < 10; $i++)
+                                    <div class="form-check gap-2">
+                                        <input id="sub_category_{{ $i }}" name="sub_category_{{ $i }}"
+                                            type="checkbox" class="form-check-input" value="">
+                                        <label class="form-check-label" for="sub_category_{{ $i }}">
+                                            ANTIHISTAMINE TREATMENT
+                                        </label>
+                                    </div>
+                                @endfor
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div> --}}
-            {{-- <div class="col-md-8"> --}}
-            {{-- <div class="row"> --}}
-            <div class="col-6 mb-3">
-                <h2 class="featurette-heading mt-0 ">Water Taps</h2>
+
             </div>
-            <div class="col-6 text-end mb-3">
-                <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"><i
-                        class="fa-solid fa-filter pe-2"></i> Filter</a>
-            </div>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample"
-                aria-labelledby="offcanvasExampleLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Filter</h5>
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body" id="filter">
-                    <details>
-                        <summary class="pb-2">By Categories</summary>
-                        <div class="short-category card mb-3 p-3">
-                            @for ($i = 0; $i < 15; $i++)
-                                <div class="form-check">
-                                    <input id="category_{{ $i }}" name="category_{{ $i }}"
-                                        type="checkbox" class="form-check-input" value="63">
-                                    <label class="form-check-label" for="category_{{ $i }}">
-                                        ANTIHISTAMINE TREATMENT
-                                    </label>
+            <div class="col-xl-9 col-md-12">
+                <div class="row">
+                    <div class="col-xl-8 col-6 mb-3">
+                        <h3 class="featurette-heading mt-0 ">Water Taps</h3>
+                    </div>
+                    <div class="col-xl-4 col-6 text-end mb-3">
+                        {{-- <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+                            aria-controls="offcanvasExample"><i class="fa-solid fa-filter pe-2"></i> Filter</a> --}}
+                    </div>
+
+                    {{-- <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample"
+                        aria-labelledby="offcanvasExampleLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Filter</h5>
+                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body" id="filter">
+                            <details>
+                                <summary class="pb-2">By Categories</summary>
+                                <div class="short-category card mb-3 p-3">
+                                    @for ($i = 0; $i < 15; $i++)
+                                        <div class="form-check">
+                                            <input id="category_{{ $i }}" name="category_{{ $i }}"
+                                                type="checkbox" class="form-check-input" value="63">
+                                            <label class="form-check-label" for="category_{{ $i }}">
+                                                ANTIHISTAMINE TREATMENT
+                                            </label>
+                                        </div>
+                                    @endfor
                                 </div>
-                            @endfor
-                        </div>
-                    </details>
+                            </details>
 
-                    <details>
-                        <summary class="pb-2">By Material</summary>
-                        <div class="short-category card mb-3 p-3">
-                            @for ($i = 0; $i < 15; $i++)
-                                <div class="form-check">
-                                    <input id="material_{{ $i }}" name="material_{{ $i }}"
-                                        type="checkbox" class="form-check-input" value="63">
-                                    <label class="form-check-label" for="material_{{ $i }}">
-                                        ANTIHISTAMINE TREATMENT
-                                    </label>
+                            <details>
+                                <summary class="pb-2">By Material</summary>
+                                <div class="short-category card mb-3 p-3">
+                                    @for ($i = 0; $i < 15; $i++)
+                                        <div class="form-check">
+                                            <input id="material_{{ $i }}" name="material_{{ $i }}"
+                                                type="checkbox" class="form-check-input" value="63">
+                                            <label class="form-check-label" for="material_{{ $i }}">
+                                                ANTIHISTAMINE TREATMENT
+                                            </label>
+                                        </div>
+                                    @endfor
                                 </div>
-                            @endfor
-                        </div>
-                    </details>
+                            </details>
 
-                    <button class="btn btn-secondary btn-sm button-primary rounded-pill">Apply Filter</button>
+                            <button class="btn btn-secondary btn-sm button-primary rounded-pill">Apply Filter</button>
+                        </div>
+                    </div> --}}
+
+
+                    @for ($i = 0; $i < 15; $i++)
+                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 ">
+                            <div class="d-flex d-flex justify-content-center align-items-center mb-4">
+                                <div class="card " style="width: 19rem;">
+                                    <img src="{{ url('storage/front_images/what_we_offer.jpg') }}"
+                                        class="img-fluid rounded-top" alt="...">
+                                    <div class="card-body p-3 pb-0">
+                                        <h5 class="card-title card-heading mb-2">3D Adjustable Hinge</h5>
+                                        <p class="mb-2 product-status">In-stock</p>
+                                    </div>
+                                    <div class="d-grid">
+                                        <a href="" class="btn btn-secondary btn-sm button-primary border-0 ">View
+                                            details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endfor
                 </div>
             </div>
-
-            {{-- @for ($i = 0; $i < 10; $i++)
-                <div class="col-lg-3 col-md-6 col-12 product-listing mb-4">
-                    <a href="{{ route('product') }}" target="_blank">
-                        <div class="category-box d-flex justify-content-center flex-column align-items-center rounded">
-                            <div class=" d-flex align-items-end back-image img-fluid rounded-top"
-                                style="background-image: url({{ url('storage/front_images/categories.jpg') }});">
-                            </div>
-                            <div class="w-100 bg-light py-2 px-3 rounded">
-                                <p class="text-small">OEC-451-A2S-SC (0°)</p>
-                                <p class="text-dark">Auto Soft-Close Concealed Hinge</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endfor --}}
-            @for ($i = 0; $i < 15; $i++)
-                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 ">
-                    <div class="d-flex d-flex justify-content-center align-items-center mb-4">
-                        <div class="card " style="width: 19rem;">
-                            <img src="{{ url('storage/front_images/what_we_offer.jpg') }}" class="img-fluid rounded-top"
-                                alt="...">
-                            <div class="card-body p-3 pb-0">
-                                <h5 class="card-title card-heading mb-2">3D Adjustable Hinge</h5>
-                                <p class="mb-2 product-status">In-stock</p>
-                            </div>
-                            <div class="d-grid">
-                                <a href="" class="btn btn-secondary btn-sm button-primary border-0 ">View
-                                    details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endfor
-            {{-- </div> --}}
-            {{-- </div> --}}
         </div>
     </div>
 @endsection
 @section('script')
+    <script>
+        $(document).ready(function() {
+            if ($(window).width() > 1200) {
+                $('#filter-by-category').removeClass('collapse');
+                $('#filter-toggler').addClass('d-none');
+            }
+            if ($(window).width() < 1200) {
+                $('#filter-by-category').addClass('collapse');
+                $('#filter-toggler').removeClass('d-none');
+            }
+            // else{
+            //     $('#filter-by-category').removeClass('collapse');
+            //     $('#filter-toggler').addClass('d-none');
+            // }
+            $(window).resize(function() {
+                if ($(window).width() < 1200) {
+                    $('#filter-by-category').addClass('collapse');
+                    $('#filter-toggler').removeClass('d-none');
+                }
+            });
+            $(window).resize(function() {
+                if ($(window).width() > 1200) {
+                    $('#filter-by-category').removeClass('collapse');
+                    $('#filter-toggler').addClass('d-none');
+                }
+            });
+        });
+    </script>
 @endsection

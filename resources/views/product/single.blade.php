@@ -58,8 +58,8 @@
             </div>
             <div class="col-md-6">
                 <div>
-                    <h4 class="text-heading">Thick Door Auto Soft-Close Concealed Hinge</h4>
-                    <p class="text-small">( Concealed Hinge )</p>
+                    <h3 class="featurette-heading mt-0 ">Thick Door Auto Soft-Close Concealed Hinge</h3>
+                    <p>( Concealed Hinge )</p>
                     <p class="text-sub-heading"> SKU Code <span class="detail-text">: OEC-501-C2S-SC (15°)</span></p>
                     <p><a class="btn btn-secondary button-primary" href="#">View details »</a></p>
                 </div>
@@ -131,7 +131,7 @@
         {{-- related product --}}
         <div class="row pb-4">
             <div class="col-md-12  mb-4">
-                <h2 class="featurette-heading mt-0 mb-4">Releated Product</h2>
+                <h3 class="featurette-heading mt-0 mb-4">Releated Product</h3>
             </div>
             <div class="slider releated-product">
                 {{-- @for ($i = 0; $i < 6; $i++)
