@@ -25,7 +25,10 @@ Route::post('register', [ ApiController::class, 'register' ]);
 
 Route::group(['middleware' => 'auth:sanctum'], function(){
     Route::get('profile', [ ApiController::class, 'profile' ]);
+    Route::get('dealers', [ ApiController::class, 'dealers' ]);
+    Route::get('dealer/{id}', [ ApiController::class, 'dealer' ]);
+    Route::get('customers', [ ApiController::class, 'customers' ]);
+    Route::get('customer/{id}', [ ApiController::class, 'customer' ]);
     
 });
 
-Route::get('dealers', [ ApiController::class, 'dealers' ]);

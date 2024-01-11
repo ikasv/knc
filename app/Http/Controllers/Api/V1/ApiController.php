@@ -35,7 +35,7 @@ class ApiController extends Controller
             return response()->json(['status' => false, 'message' => $validator->errors()->first()]);
         endif;
 
-       
+
         switch (request()->role):
             case 'sales_executive':
                 $user               =   SalesExecutive::whereMobile(request()->email_or_mobile)->orWhere('email', request()->email_or_mobile)->first();
@@ -50,7 +50,7 @@ class ApiController extends Controller
                 break;
 
         endswitch;
-        
+
         if ($user) :
             if (Hash::check(request()->password, $user->password)) :
                 $access_token            =   $user->createToken('KNC')->plainTextToken;
@@ -164,7 +164,7 @@ class ApiController extends Controller
             return response()->json(['status' => false, 'message' => $validator->errors()->first()]);
         endif;
 
-        $input                   =   [
+        $input                          =   [
             'name'                       =>   request()->name,
             'email'                      =>   request()->email,
             'mobile'                     =>   request()->mobile,
@@ -172,17 +172,17 @@ class ApiController extends Controller
         ];
 
 
-        $user                   =   null;
+        $user                                   =   null;
 
         if (request()->role == 'customer') :
-            $user = User::create($input);
+            $user                              =    User::create($input);
         elseif (request()->role == 'dealer') :
-            $input['business_name']            = request()->business_name;
+            $input['business_name']            =    request()->business_name;
             $input['business_name']            =   str()->upper(uniqid('EMP_'));
             $user = Dealer::create($input);
         elseif (request()->role == 'sales_executive') :
-            $input['employee_id']            = str()->upper(uniqid('EMP_'));
-            $user = SalesExecutive::create($input);
+            $input['employee_id']               =   str()->upper(uniqid('EMP_'));
+            $user                               =   SalesExecutive::create($input);
         endif;
 
         if ($user) :
@@ -196,44 +196,115 @@ class ApiController extends Controller
     # End Register
 
     # Profile
-    public function profile(){
-        $validator          =   Validator::make(request()->all(), [
-            'role'                      => 'required'
-        ]);
-        
-        if ($validator->failed()) :
-            return response()->json(['status' => false, 'message' => $validator->errors()->first()]);
-        endif;
-        return 'd';
-
-        $user               = null;
-
-        switch (request()->role):
-            case 'sales_executive':
-                $user               =   SalesExecutive::first();
-                break;
-
-            case 'dealer':
-                $user               =   Dealer::whereMobile(request()->email_or_mobile)->orWhere('email', request()->email_or_mobile)->first();
-                break;
-
-            case 'customer':
-                $user               =   User::whereMobile(request()->email_or_mobile)->orWhere('email', request()->email_or_mobile)->first();
-                break;
-
-        endswitch;
+    public function profile()
+    {
+        return response()->json(['status' => true, 'message' => 'Successfully fetched', 'data' => auth()->user()]);
     }
     # End Profile
 
 
     public function dealers()
     {
-        return Dealer::get();
+        $arr                    =   [];
+        $records                =    Dealer::select(
+            'id',
+            'sales_executive_id',
+            'name',
+            'email',
+            'mobile',
+            'profile_image',
+            'business_id',
+            'business_name',
+            'business_email',
+            'business_mobile',
+            'business_gst_number',
+            'business_address'
+        )
+            ->with(
+                'sales_executive:id,employee_id,name,email,mobile,profile_image,joining_date',
+                'customers:dealer_id,id,name,mobile,email,profile_image'
+            )
+            ->whereSalesExecutiveId(auth()->user()->id)->get();
+
+        if (count($records)) :
+            $records->makeHidden(['profile_image', 'sales_executive_id', 'status_view']);
+            $arr                =   ['status' => true, 'message' => 'Successfully data fetched', 'data' => $records];
+        else :
+            $arr                =   ['status' => true, 'message' => 'No data available', 'data' => null];
+
+        endif;
+
+        return response()->json($arr);
+    }
+
+    public function dealer($id)
+    {
+        $arr                    =   [];
+        $record               =    Dealer::select(
+            'id',
+            'sales_executive_id',
+            'name',
+            'email',
+            'mobile',
+            'profile_image',
+            'business_id',
+            'business_name',
+            'business_email',
+            'business_mobile',
+            'business_gst_number',
+            'business_address'
+        )
+            ->with(
+                'sales_executive:id,employee_id,name,email,mobile,profile_image,joining_date',
+                'customers:dealer_id,id,name,mobile,email,profile_image'
+            )->whereSalesExecutiveId(auth()->user()->id)->whereId($id)->first();
+
+
+        if ($record) :
+            $arr                =   ['status' => true, 'message' => 'Successfully data fetched', 'data' => $record];
+        else :
+            $arr                =   ['status' => true, 'message' => 'No data available', 'data' => null];
+
+        endif;
+
+        return response()->json($arr);
     }
 
     public function customers()
     {
-        return User::get();
+        $arr                    =   [];
+        $records                =    User::select('id', 'name', 'mobile', 'dealer_id', 'email', 'profile_image')
+                                    ->with('dealer:id,sales_executive_id,name,email,mobile,profile_image', 
+                                    'dealer.sales_executive:id,employee_id,name,email,mobile,profile_image,joining_date')->whereDealerId(auth()->user()->id)->get();
+
+        if (count($records)) :
+            $records->makeHidden(['profile_image', 'status_view']);
+
+            $arr                =   ['status' => true, 'message' => 'Successfully data fetched', 'data' => $records];
+        else :
+            $arr                =   ['status' => true, 'message' => 'No data available', 'data' => null];
+
+        endif;
+
+        return response()->json($arr);
+    }
+
+    public function customer($id)
+    {
+        $arr                    =   [];
+        $record               =    User::select('id', 'name', 'mobile', 'dealer_id', 'email', 'profile_image')
+                                    ->with('dealer:id,sales_executive_id,name,email,mobile,profile_image', 
+                                    'dealer.sales_executive:id,employee_id,name,email,mobile,profile_image,joining_date')
+                                    ->whereDealerId(auth()->user()->id)->whereId($id)->first();
+
+        if ($record) :
+            $arr                =   ['status' => true, 'message' => 'Successfully data fetched', 'data' => $record];
+        else :
+            $arr                =   ['status' => true, 'message' => 'No data available', 'data' => null];
+
+        endif;
+
+        return response()->json($arr);
     }
 
     public function categories()
