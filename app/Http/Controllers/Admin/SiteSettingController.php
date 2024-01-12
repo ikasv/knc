@@ -16,7 +16,7 @@ class SiteSettingController extends Controller
     public function index()
     {
         $sitesetting = SiteSetting::first();
-        $sitesetting->address       =   json_decode($sitesetting->address);
+        $sitesetting->address       =   $sitesetting->address;
         $sitesetting->socialLinks   =   $sitesetting->socialLinks;
 
         return view("admin.sitesettings.edit",compact('sitesetting'));

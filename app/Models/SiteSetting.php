@@ -28,6 +28,7 @@ class SiteSetting extends Model
     }
   
   	protected $casts 		= [
-    								'socialLinks' 		=> 	'object'
+    								'socialLinks' 		=> 	'object',
+                                    'address'           =>  'object'
     						];
 }

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,7 +22,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $site_setting = site_setting();
+        
+        return view('home', compact('site_setting'));
     }
     public function Products()
     {
@@ -34,13 +35,13 @@ class HomeController extends Controller
         return view('product.single');
     }
 
-    public function about_us(){
+    public function aboutUs(){
         return view('about');
     }
-    public function contact_us(){
+    public function contactUs(){
         return view('contact');
     }
-    public function thank_you(){
+    public function thankYou(){
         return view('thank_you');
     }
     

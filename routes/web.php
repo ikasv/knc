@@ -12,18 +12,18 @@ Route::get('clearCache', function() {
        return 'Cache Cleared';
 });
 
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/', function () {
+//     return view('home');
+// });
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/products', [HomeController::class, 'products'])->name('products');
 Route::get('/product', [HomeController::class, 'product'])->name('product');
-Route::get('/about_us', [HomeController::class, 'about_us'])->name('about_us');
-Route::get('/contact_us', [HomeController::class, 'contact_us'])->name('contact_us');
-Route::get('/thank_you', [HomeController::class, 'thank_you'])->name('thank_you');
+Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('about-us');
+Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact-us');
+Route::get('/thank-you', [HomeController::class, 'thankYou'])->name('thank-you');
 
 Route::view('about-us', 'about');
 

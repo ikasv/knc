@@ -9,12 +9,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
-    <link rel="stylesheet" href="{{ asset('public/assets/css/styles.css') }}">
-    <title>KNC</title>
+    <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
+    <title>{{ $site_setting->site_name ?? '' }}</title>
     @yield('style')
 </head>
 
 <body>
+    
     <section id="header">
         <nav id="top-nav" class="py-2">
             <div class="container">
@@ -22,17 +23,20 @@
                     <div class="col-5 align-self-center">
 
                         <div class="header-social ">
-                            <a href="">
-                                <i class="fa-brands fa-facebook pe-2"></i>
+                            <a href="{{ $site_setting->socialLinks->facebook ?? '' }}">
+                                <i class="fa-brands fa-facebook pe-3"></i>
                             </a>
-                            <a href="">
-                                <i class="fa-brands fa-instagram pe-2"></i>
+                            <a href="{{ $site_setting->socialLinks->youtube ?? '' }}">
+                                <i class="fa-brands fa-youtube pe-3"></i>
                             </a>
-                            <a href="">
-                                <i class="fa-brands fa-twitter pe-2"></i>
+                            <a href="{{ $site_setting->socialLinks->instagram ?? '' }}">
+                                <i class="fa-brands fa-instagram pe-3"></i>
                             </a>
-                            <a href="">
-                                <i class="fa-brands fa-linkedin pe-2"></i>
+                            <a href="{{ $site_setting->socialLinks->twitter ?? '' }}">
+                                <i class="fa-brands fa-twitter pe-3"></i>
+                            </a>
+                            <a href="{{ $site_setting->socialLinks->linkedin ?? '' }}">
+                                <i class="fa-brands fa-linkedin pe-3"></i>
                             </a>
                         </div>
                     </div>
@@ -40,7 +44,7 @@
                     <div class="col-7 email">
                         <a href="">
                             <span><i class="fa-solid fa-envelope pe-2"></i></span>
-                            <span>info@knc@gmail.com</span>
+                            <span>{{ $site_setting->top_header_text ?? '' }}</span>
                         </a>
                     </div>
                 </div>
@@ -81,13 +85,13 @@
                                 <a class="nav-link p-0 py-2" aria-current="page" href="#">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link p-0 py-2" href="{{ route('about_us') }}">About us</a>
+                                <a class="nav-link p-0 py-2" href="{{ url('about-us') }}">About us</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link p-0 py-2" href="{{ route('products') }}">Our products</a>
+                                <a class="nav-link p-0 py-2" href="{{ url('products') }}">Our products</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link p-0 py-2" href="{{ route('contact_us') }}">Contact us</a>
+                                <a class="nav-link p-0 py-2" href="{{ url('contact-us') }}">Contact us</a>
                             </li>
                         </ul>
 
@@ -115,14 +119,20 @@
                     <h5>Contact</h5>
                     <ul class="nav flex-column">
                         <li class="nav-item d-flex align-items-center mb-2 text-white"><i
-                                class="fa-solid fa-location-dot pe-2"></i>Plot No. 102,
-                            103, 123 Pt. T. N Mishra Marg,
-                            Santosh Nagar, Gopalpura Bypass
-                            Jaipur 302015 Rajasthan India</li>
+                                class="fa-solid fa-location-dot pe-2"></i>
+                                {{$site_setting->address->streetAddress ." ".
+                                $site_setting->address->addressLocality ." ".
+                                $site_setting->address->addressRegion   ." ".
+                                $site_setting->address->postalCode ?? ''}}
+                                {{-- Plot No. 102,
+                                103, 123 Pt. T. N Mishra Marg,
+                                Santosh Nagar, Gopalpura Bypass
+                                Jaipur 302015 Rajasthan India --}}
+                        </li>
                         <li class="nav-item d-flex align-items-center mb-2 text-white"><i
-                                class="fa-solid fa-phone pe-2"></i>98745 61230</li>
+                                class="fa-solid fa-phone pe-2"></i>{{$site_setting->address->telephone ?? ''}}</li>
                         <li class="nav-item d-flex align-items-center mb-2 text-white"><i
-                                class="fa-solid fa-envelope pe-2"></i>info@getpill.in
+                                class="fa-solid fa-envelope pe-2"></i>{{ $site_setting->top_header_text ?? '' }}
                         </li>
 
                     </ul>
@@ -132,11 +142,11 @@
                     <h5>Quick Links</h5>
                     <ul class="nav flex-column">
                         <li class="nav-item mb-2"><a href="javascript:void(0)" class="nav-link p-0">Home</a></li>
-                        <li class="nav-item mb-2"><a href="{{ route('about_us') }}" class="nav-link p-0">About us</a>
+                        <li class="nav-item mb-2"><a href="{{ url('about_us') }}" class="nav-link p-0">About us</a>
                         </li>
-                        <li class="nav-item mb-2"><a href="{{ route('products') }}" class="nav-link p-0">Our
+                        <li class="nav-item mb-2"><a href="{{ url('products') }}" class="nav-link p-0">Our
                                 products</a></li>
-                        <li class="nav-item mb-2"><a href="{{ route('contact_us') }}" class="nav-link p-0">Contact
+                        <li class="nav-item mb-2"><a href="{{ url('contact_us') }}" class="nav-link p-0">Contact
                                 us</a></li>
 
                     </ul>
@@ -163,14 +173,21 @@
                         <div class="col-12">
                             <h5>Follow us:</h5>
                             <ul id="footer-social" class="nav gap-3">
-                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0"><i
+                                <li class="nav-item mb-2"><a href="{{ $site_setting->socialLinks->facebook ?? '' }}" class="nav-link p-0"><i
                                             class="fa-brands fa-facebook p-2"></i></a></li>
-                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0"><i
+
+                                <li class="nav-item mb-2"><a href="{{ $site_setting->socialLinks->youtube ?? '' }}" class="nav-link p-0"><i
+                                            class="fa-brands fa-youtube p-2"></i></a></li>
+
+                                <li class="nav-item mb-2"><a href="{{ $site_setting->socialLinks->instagram ?? '' }}" class="nav-link p-0"><i
                                             class="fa-brands fa-instagram p-2"></i></a></li>
-                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0"><i
+
+                                <li class="nav-item mb-2"><a href="{{ $site_setting->socialLinks->twitter ?? '' }}" class="nav-link p-0"><i
                                             class="fa-brands fa-twitter p-2"></i></a></li>
-                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0"><i
+
+                                <li class="nav-item mb-2"><a href="{{ $site_setting->socialLinks->linkedin ?? '' }}" class="nav-link p-0"><i
                                             class="fa-brands fa-linkedin p-2"></i></a></li>
+                                            
 
                             </ul>
                         </div>
