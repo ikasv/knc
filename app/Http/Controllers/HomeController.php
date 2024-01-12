@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -22,9 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $site_setting = site_setting();
-        
-        return view('home', compact('site_setting'));
+        return view('home');
     }
     public function Products()
     {

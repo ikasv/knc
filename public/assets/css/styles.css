@@ -824,6 +824,12 @@ h3{
     #thank-you{
         height:60vh;
         }
+    .header-social{
+        text-align: center;
+    }
+    #top-nav .email{
+        text-align: center;
+    }
 }
 
 

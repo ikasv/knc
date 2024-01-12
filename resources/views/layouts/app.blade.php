@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
+    <link rel="shortcut icon" href="{{ site_setting()->fav_icon_url ?? '' }}">
     <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
-    <title>{{ $site_setting->site_name ?? '' }}</title>
+    <title>{{ site_setting()->site_name ?? '' }}</title>
     @yield('style')
 </head>
 
@@ -20,31 +21,35 @@
         <nav id="top-nav" class="py-2">
             <div class="container">
                 <div class="row">
-                    <div class="col-5 align-self-center">
+                    <div class="col-sm-5 col-12 align-self-center">
 
                         <div class="header-social ">
-                            <a href="{{ $site_setting->socialLinks->facebook ?? '' }}">
+                            <a href="{{ site_setting()->socialLinks->facebook ?? '' }}">
                                 <i class="fa-brands fa-facebook pe-3"></i>
                             </a>
-                            <a href="{{ $site_setting->socialLinks->youtube ?? '' }}">
+                            <a href="{{ site_setting()->socialLinks->youtube ?? '' }}">
                                 <i class="fa-brands fa-youtube pe-3"></i>
                             </a>
-                            <a href="{{ $site_setting->socialLinks->instagram ?? '' }}">
+                            <a href="{{ site_setting()->socialLinks->instagram ?? '' }}">
                                 <i class="fa-brands fa-instagram pe-3"></i>
                             </a>
-                            <a href="{{ $site_setting->socialLinks->twitter ?? '' }}">
+                            <a href="{{ site_setting()->socialLinks->twitter ?? '' }}">
                                 <i class="fa-brands fa-twitter pe-3"></i>
                             </a>
-                            <a href="{{ $site_setting->socialLinks->linkedin ?? '' }}">
+                            <a href="{{ site_setting()->socialLinks->linkedin ?? '' }}">
                                 <i class="fa-brands fa-linkedin pe-3"></i>
                             </a>
                         </div>
                     </div>
 
-                    <div class="col-7 email">
+                    <div class="col-sm-7 col-12 email">
+                        <a href="" class="pe-3">
+                            <span><i class="fa-solid fa-phone pe-2"></i></span>
+                            <span>{{site_setting()->address->telephone ?? ''}}</span>
+                        </a>
                         <a href="">
                             <span><i class="fa-solid fa-envelope pe-2"></i></span>
-                            <span>{{ $site_setting->top_header_text ?? '' }}</span>
+                            <span>{{ site_setting()->top_header_text ?? '' }}</span>
                         </a>
                     </div>
                 </div>
@@ -56,7 +61,7 @@
                 <div class="row align-items-center justify-content-between">
                     <div class=" col-xl-4 col-lg-3 col-md-3 col-5">
                         <a class="navbar-brand d-flex" href="#">
-                            <img src="https://www.ozonstar.com/img/logo.png" class="logo img-fluid" alt=""
+                            <img src="{{ asset('storage/site').'/'.site_setting()->logo ?? '' }}" class="logo img-fluid" alt=""
                                 srcset="">
                         </a>
                     </div>
@@ -120,19 +125,19 @@
                     <ul class="nav flex-column">
                         <li class="nav-item d-flex align-items-center mb-2 text-white"><i
                                 class="fa-solid fa-location-dot pe-2"></i>
-                                {{$site_setting->address->streetAddress ." ".
-                                $site_setting->address->addressLocality ." ".
-                                $site_setting->address->addressRegion   ." ".
-                                $site_setting->address->postalCode ?? ''}}
+                                {{site_setting()->address->streetAddress ." ".
+                                site_setting()->address->addressLocality ." ".
+                                site_setting()->address->addressRegion   ." ".
+                                site_setting()->address->postalCode}}
                                 {{-- Plot No. 102,
                                 103, 123 Pt. T. N Mishra Marg,
                                 Santosh Nagar, Gopalpura Bypass
                                 Jaipur 302015 Rajasthan India --}}
                         </li>
                         <li class="nav-item d-flex align-items-center mb-2 text-white"><i
-                                class="fa-solid fa-phone pe-2"></i>{{$site_setting->address->telephone ?? ''}}</li>
+                                class="fa-solid fa-phone pe-2"></i>{{site_setting()->address->telephone ?? ''}}</li>
                         <li class="nav-item d-flex align-items-center mb-2 text-white"><i
-                                class="fa-solid fa-envelope pe-2"></i>{{ $site_setting->top_header_text ?? '' }}
+                                class="fa-solid fa-envelope pe-2"></i>{{ site_setting()->top_header_text ?? '' }}
                         </li>
 
                     </ul>
@@ -166,26 +171,26 @@
                     <div class="row">
                         <div class="col-12">
                             <a href="/" class="d-flex align-items-center mb-3">
-                                <img src="https://www.ozonstar.com/img/logo.png" class="logo img-fluid"
+                                <img src="{{ asset('storage/site').'/'.site_setting()->logo ?? '' }}" class="logo img-fluid"
                                     alt="" srcset="">
                             </a>
                         </div>
                         <div class="col-12">
                             <h5>Follow us:</h5>
-                            <ul id="footer-social" class="nav gap-3">
-                                <li class="nav-item mb-2"><a href="{{ $site_setting->socialLinks->facebook ?? '' }}" class="nav-link p-0"><i
+                            <ul id="footer-social" class="nav gap-2">
+                                <li class="nav-item mb-2"><a href="{{ site_setting()->socialLinks->facebook ?? '' }}" class="nav-link p-0"><i
                                             class="fa-brands fa-facebook p-2"></i></a></li>
 
-                                <li class="nav-item mb-2"><a href="{{ $site_setting->socialLinks->youtube ?? '' }}" class="nav-link p-0"><i
+                                <li class="nav-item mb-2"><a href="{{ site_setting()->socialLinks->youtube ?? '' }}" class="nav-link p-0"><i
                                             class="fa-brands fa-youtube p-2"></i></a></li>
 
-                                <li class="nav-item mb-2"><a href="{{ $site_setting->socialLinks->instagram ?? '' }}" class="nav-link p-0"><i
+                                <li class="nav-item mb-2"><a href="{{ site_setting()->socialLinks->instagram ?? '' }}" class="nav-link p-0"><i
                                             class="fa-brands fa-instagram p-2"></i></a></li>
 
-                                <li class="nav-item mb-2"><a href="{{ $site_setting->socialLinks->twitter ?? '' }}" class="nav-link p-0"><i
+                                <li class="nav-item mb-2"><a href="{{ site_setting()->socialLinks->twitter ?? '' }}" class="nav-link p-0"><i
                                             class="fa-brands fa-twitter p-2"></i></a></li>
 
-                                <li class="nav-item mb-2"><a href="{{ $site_setting->socialLinks->linkedin ?? '' }}" class="nav-link p-0"><i
+                                <li class="nav-item mb-2"><a href="{{ site_setting()->socialLinks->linkedin ?? '' }}" class="nav-link p-0"><i
                                             class="fa-brands fa-linkedin p-2"></i></a></li>
                                             
 
