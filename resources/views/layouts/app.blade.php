@@ -52,7 +52,8 @@
                 <div class="row align-items-center justify-content-between">
                     <div class=" col-xl-4 col-lg-3 col-md-3 col-5">
                         <a class="navbar-brand d-flex" href="#">
-                            <img src="https://www.ozonstar.com/img/logo.png" class="logo img-fluid" alt="" srcset="">
+                            <img src="https://www.ozonstar.com/img/logo.png" class="logo img-fluid" alt=""
+                                srcset="">
                         </a>
                     </div>
                     <div class="d-none search-bar col-xl-4 col-lg-3 col-md-6 col-6">
@@ -113,12 +114,15 @@
                 <div class="col-lg-5 col-md-6 col-12 mb-3">
                     <h5>Contact</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item d-flex align-items-center mb-2 text-white"><i class="fa-solid fa-location-dot pe-2"></i>Plot No. 102,
+                        <li class="nav-item d-flex align-items-center mb-2 text-white"><i
+                                class="fa-solid fa-location-dot pe-2"></i>Plot No. 102,
                             103, 123 Pt. T. N Mishra Marg,
                             Santosh Nagar, Gopalpura Bypass
                             Jaipur 302015 Rajasthan India</li>
-                        <li class="nav-item d-flex align-items-center mb-2 text-white"><i class="fa-solid fa-phone pe-2"></i>98745 61230</li>
-                        <li class="nav-item d-flex align-items-center mb-2 text-white"><i class="fa-solid fa-envelope pe-2"></i>info@getpill.in
+                        <li class="nav-item d-flex align-items-center mb-2 text-white"><i
+                                class="fa-solid fa-phone pe-2"></i>98745 61230</li>
+                        <li class="nav-item d-flex align-items-center mb-2 text-white"><i
+                                class="fa-solid fa-envelope pe-2"></i>info@getpill.in
                         </li>
 
                     </ul>
@@ -128,9 +132,12 @@
                     <h5>Quick Links</h5>
                     <ul class="nav flex-column">
                         <li class="nav-item mb-2"><a href="javascript:void(0)" class="nav-link p-0">Home</a></li>
-                        <li class="nav-item mb-2"><a href="{{ route('about_us') }}" class="nav-link p-0">About us</a></li>
-                        <li class="nav-item mb-2"><a href="{{ route('products') }}" class="nav-link p-0">Our products</a></li>
-                        <li class="nav-item mb-2"><a href="{{ route('contact_us') }}" class="nav-link p-0">Contact us</a></li>
+                        <li class="nav-item mb-2"><a href="{{ route('about_us') }}" class="nav-link p-0">About us</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="{{ route('products') }}" class="nav-link p-0">Our
+                                products</a></li>
+                        <li class="nav-item mb-2"><a href="{{ route('contact_us') }}" class="nav-link p-0">Contact
+                                us</a></li>
 
                     </ul>
                 </div>
@@ -149,8 +156,8 @@
                     <div class="row">
                         <div class="col-12">
                             <a href="/" class="d-flex align-items-center mb-3">
-                                <img src="https://www.ozonstar.com/img/logo.png" class="logo img-fluid" alt=""
-                                    srcset="">
+                                <img src="https://www.ozonstar.com/img/logo.png" class="logo img-fluid"
+                                    alt="" srcset="">
                             </a>
                         </div>
                         <div class="col-12">

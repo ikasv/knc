@@ -152,23 +152,23 @@
                     </div>
                 @endfor --}}
                 @for ($i = 0; $i < 15; $i++)
-                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 ">
-                    <div class="d-flex d-flex justify-content-center align-items-center px-2">
-                        <div class="card " style="width: 19rem;">
-                            <img src="{{ url('storage/front_images/what_we_offer.jpg') }}" class="img-fluid rounded-top"
-                                alt="...">
-                            <div class="card-body p-3 pb-0">
-                                <h5 class="card-title card-heading mb-2">3D Adjustable Hinge</h5>
-                                <p class="mb-2 product-status">In-stock</p>
-                            </div>
-                            <div class="d-grid">
-                                <a href="" class="btn btn-secondary btn-sm button-primary border-0 ">View
-                                    details</a>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 ">
+                        <div class="d-flex d-flex justify-content-center align-items-center px-2">
+                            <div class="card " style="width: 19rem;">
+                                <img src="{{ url('storage/front_images/what_we_offer.jpg') }}" class="img-fluid rounded-top"
+                                    alt="...">
+                                <div class="card-body p-3 pb-0">
+                                    <h5 class="card-title card-heading mb-2">3D Adjustable Hinge</h5>
+                                    <p class="mb-2 product-status">In-stock</p>
+                                </div>
+                                <div class="d-grid">
+                                    <a href="" class="btn btn-secondary btn-sm button-primary border-0 ">View
+                                        details</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            @endfor
+                @endfor
             </div>
         </div>
         {{-- related product end --}}

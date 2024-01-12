@@ -163,51 +163,25 @@
 @section('script')
     <script>
         $(document).ready(function() {
-    function handleWindowSize() {
-        if ($(window).width() > 1200) {
-            $('#filter-by-category').removeClass('collapse');
-            $('#filter-toggler').addClass('d-none');
-        } else {
-            $('#filter-by-category').addClass('collapse');
-            $('#filter-toggler').removeClass('d-none');
-        }
-    }
+            function handleWindowSize() {
+                if ($(window).width() > 1200) {
+                    $('#filter-by-category').removeClass('collapse');
+                    $('#filter-toggler').addClass('d-none');
+                } else {
+                    $('#filter-by-category').addClass('collapse');
+                    $('#filter-toggler').removeClass('d-none');
+                }
+            }
 
-    // Initial call to handle window size on page load
-    handleWindowSize();
-
-    // Use a single resize event and debounce for performance
-    var resizeTimer;
-    $(window).on('resize', function() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function() {
             handleWindowSize();
-        }, 250);
-    });
-});
 
-        // $(document).ready(function() {
-        //     if ($(window).width() > 1200) {
-        //         $('#filter-by-category').removeClass('collapse');
-        //         $('#filter-toggler').addClass('d-none');
-        //     }
-        //     if ($(window).width() < 1200) {
-        //         $('#filter-by-category').addClass('collapse');
-        //         $('#filter-toggler').removeClass('d-none');
-        //     }
-        //     $(window).resize(function() {
-        //         if ($(window).width() < 1200) {
-        //             $('#filter-by-category').addClass('collapse');
-        //             $('#filter-toggler').removeClass('d-none');
-        //         }
-        //     });
-        //     $(window).resize(function() {
-        //         if ($(window).width() > 1200) {
-        //             $('#filter-by-category').removeClass('collapse');
-        //             $('#filter-toggler').addClass('d-none');
-        //         }
-        //     });
-        // });
-
+            var resizeTimer;
+            $(window).on('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function() {
+                    handleWindowSize();
+                }, 250);
+            });
+        });
     </script>
 @endsection

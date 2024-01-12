@@ -74,9 +74,6 @@
                                     <div class="overlay-box"></div>
                                     <h5 class="mb-0 text-white">3D Adjustable Hinge</h5>
                                 </div>
-                                {{-- <div class="w-100 bg-light py-3  rounded text-center ">
-                                    <h5 class="mb-0">3D Adjustable Hinge</h5>
-                                </div> --}}
                             </div>
                         </div>
                     </a>
