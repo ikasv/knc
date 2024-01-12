@@ -76,18 +76,18 @@
                             <button class="btn btn-outline-success button-primary" type="submit"><i
                                     class="fas fa-search"></i></button>
                         </form>
-                        <ul class="navbar-nav gap-lg-3">
+                        <ul class="navbar-nav gap-lg-4">
                             <li class="nav-item">
-                                <a class="nav-link " aria-current="page" href="#">Home</a>
+                                <a class="nav-link p-0 py-2" aria-current="page" href="#">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('about_us') }}">About us</a>
+                                <a class="nav-link p-0 py-2" href="{{ route('about_us') }}">About us</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('products') }}">Our products</a>
+                                <a class="nav-link p-0 py-2" href="{{ route('products') }}">Our products</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link pe-0" href="{{ route('contact_us') }}">Contact us</a>
+                                <a class="nav-link p-0 py-2" href="{{ route('contact_us') }}">Contact us</a>
                             </li>
                         </ul>
 

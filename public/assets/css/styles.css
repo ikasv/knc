@@ -29,6 +29,7 @@ h6 {
 
 h1 {
     font-size: 50px;
+        transition: 0.9s ease all;
 }
 
 h2 {
@@ -37,6 +38,7 @@ h2 {
 
 h3 {
     font-size: 25px;
+        transition: 0.9s ease all;
 }
 
 h4 {
@@ -250,7 +252,7 @@ a:hover {
 }
 
 #search {
-    width: calc(20rem - 1rem);
+    width: calc(19rem - 1rem);
     height: 30px;
 }
 
@@ -640,6 +642,17 @@ li::marker {
 }
 
 /* footer end */
+#thank-you{
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    height:100vh;
+    background-position: center;
+    background-repeat: no-repeat
+    }
+    #thank-you .content{
+        text-align: end;
+    }
 /* Carousel base class */
 .carousel {
     margin-bottom: 2rem;
@@ -782,32 +795,38 @@ li::marker {
     #sec-nav li a {
         padding: 3px 0px;
     }
-
+h1{
+    font-size: 30px;
+    transition: 0.9s ease all;
+    
+}
     h2 {
         font-size: 20px;
     }
-
+h3{
+    font-size: 17px;
+    transition: 0.9s ease all;
+}
     h5 {
         font-size: 13px;
     }
-
-    /* home slider end */
+    
+    
 }
 
 @media (max-width: 576px) {
     #filter-by-category {
         padding: 5px 15px;
     }
+    #thank-you .content{
+        text-align: center;
+    }
+    #thank-you{
+        height:60vh;
+        }
 }
 
-#thank-you{
-    display: flex;
-    align-items: center;
-    background-size: cover;
-    height:100vh;
-    background-position: center;
-    background-repeat: no-repeat
-    }
+
 
 
 /* test section */

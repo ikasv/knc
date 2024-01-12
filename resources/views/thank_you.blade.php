@@ -6,10 +6,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="text-end">
+                    <div class="content">
                         <h1>Thank you! To show Intrest</h1>
                         <h3>Lorem ipsum dolor sit amet consectetur.</h3>
-                        <button class="btn btn-secondary button-primary ">Go To Home</button>
+                        <a href="{{ url('/') }}" class="btn btn-secondary button-primary ">Go To Home</a>
                     </div>
                 </div>
             </div>
