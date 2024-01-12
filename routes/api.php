@@ -15,13 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('home', [ ApiController::class, 'home' ]);
 
-Route::post('login-with-email-or-mobile-and-password', [ ApiController::class, 'login_with_email_or_mobile_and_password' ]);
+Route::post('login', [ ApiController::class, 'login' ]);
 Route::post('send-otp', [ ApiController::class, 'send_otp' ]);
 Route::post('register', [ ApiController::class, 'register' ]);
+Route::get('categories', [ ApiController::class, 'categories' ]);
+Route::get('category/{id_or_slug}', [ ApiController::class, 'categories' ]);
+
+Route::get('products', [ ApiController::class, 'products' ]);
+Route::get('product/{id_or_slug}', [ ApiController::class, 'product' ]);
 
 Route::group(['middleware' => 'auth:sanctum'], function(){
     Route::get('profile', [ ApiController::class, 'profile' ]);
