@@ -84,7 +84,7 @@
 													<br>
 													<select type="text" class="form-control select2" id="category_ids" name="category_ids" >
 														<option value="0">Select Category</option>
-														@foreach(App\Models\Category::approved()->get() ?? [] as $row)
+														@foreach(App\Models\Category::active()->get() ?? [] as $row)
 														<option value="{{ $row->id }}" {{ ( isset($record) && $record->category_id == $row->id ) ? 'selected' : '' }}>{{ $row->name }} {{ $row->parent_id == 0 ? '( Main )' : '' }}</option>
 														@endforeach
 													</select>
@@ -257,6 +257,16 @@
 												</div>
 											</div>
 											<!-- End Popular -->
+
+											<!-- Quantity -->
+											<div class="col-md-4">
+												<div class="form-group">
+													<label for="quantity">Quantity <span class="text-danger">*</span></label>
+													<input type="number" min="1" max="1000"  class="form-control" id="quantity" name="quantity" placeholder="Enter quantity" value="{{ old('quantity', $record->quantity ?? '') }}" required>
+													@error('quantity') <div class="text-danger">{{ $message }}</div> @enderror
+												</div>
+											</div>
+											<!-- End Quantity -->
 
 											<!-- Status -->
 											<div class="col-md-4">

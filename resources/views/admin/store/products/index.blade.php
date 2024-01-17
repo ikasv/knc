@@ -43,7 +43,9 @@
 								<tr>
 									<th style="width: 50px;" class="text-center">#</th>
 									<th>Name</th>
+									<th>Sku</th>
 									<th>Status</th>
+									<th class="text-center" width="200px">Generate QR Code</th>
 									<th style="width: 100px;" class="text-center">Action</th>
 								</tr>
 							</thead>
@@ -52,7 +54,22 @@
 									<tr>
 										<td class="text-center">{{ $loop->iteration }}</td>
 										<td>{{ $record->name }}</td>
+										<td>{{ $record->sku }}</td>
 										<td>{!! $record->status_view !!}</td>
+										
+										<td class="text-center pb-0">
+											@if(count($record->qr_codes))
+												<a href="{{ url('admin/view-generate-qr-codes/'.$record->id) }}" class="btn btn-primary btn-sm px-2 {{ $record->quantity != count($record->qr_codes) ? 'disabled' : '' }}" target="_blank"><i class="fa fa-eye"></i></a>
+												<a href="{{ url('admin/download-generate-qr-codes/'.$record->id) }}" class="btn btn-success btn-sm px-2 {{ $record->quantity != count($record->qr_codes) ? 'disabled' : '' }}"><i class="fa fa-download"></i></a>
+												<a onclick="return confirm('Are you sure?')" href="{{ url('admin/delete-generate-qr-codes/'.$record->id) }}" class="btn btn-danger btn-sm px-2"><i class="fa fa-trash"></i></a>
+												@if($record->quantity != count($record->qr_codes))
+													<div><marquee scrollamount="5"><small class="text-danger">Product quantity has been changed. Please delete and re-genrate QR codes.</small></marquee></div>
+												@endif
+											@else
+												<a href="{{ url('admin/generate-qr-codes/'.$record->id) }}" class="btn btn-info btn-sm">Generate QR Code</a>
+											@endif
+										</td>
+
 										<td class="text-center">
 											@if($record->deleted_at)
 												<form action="{{ route($restore_route, $record->id) }}" method="post" class="d-inline">

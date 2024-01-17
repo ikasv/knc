@@ -184,6 +184,9 @@
     .f-13{ font-size: 13px; }
     .f-14{ font-size: 14px; }
 
+    a.disabled:hover{
+      cursor: not-allowed !important;
+    }
   </style>
 
   @yield("style")

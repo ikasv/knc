@@ -21,6 +21,7 @@ class Product extends Model
         'name',
         'category_ids',
         'slug',
+        'quantity',
         'icon',
         'featured_image',
         'banner_image',
@@ -78,4 +79,11 @@ class Product extends Model
   
     # End Attributes
 
+    protected $casts    =   [
+                                'quantity'      => 'int'
+                            ];
+
+    public function qr_codes(){
+        return $this->hasMany(GeneratedQrCode::class);
+    }
 }

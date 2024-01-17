@@ -20,10 +20,19 @@ use App\Http\Controllers\CustomAuth\AdminAuthController;
 Route::get('login', [AdminAuthController::class, 'index']);
 
 Route::post('/login-process', [AdminAuthController::class, 'login_process']);
+
 # End Admin
+
 
 Route::group(['as' => 'admin::', 'middleware' => 'auth:admin'], function(){
 	Route::get("/",[AdminController::class,'index']);
+	
+	# Qr Codes
+		Route::get('generate-qr-codes/{id}', [AdminController::class, 'generate_qr_codes']);
+		Route::get('view-generate-qr-codes/{id}', [AdminController::class, 'view_generate_qr_codes']);
+		Route::get('download-generate-qr-codes/{id}', [AdminController::class, 'download_generate_qr_codes']);
+		Route::get('delete-generate-qr-codes/{id}', [AdminController::class, 'delete_generate_qr_codes']);
+	# End Qr Codes
   
 	# Resources
 	Route::resources([

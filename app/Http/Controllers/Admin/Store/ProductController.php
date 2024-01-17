@@ -50,7 +50,7 @@ class ProductController extends Controller
     {
         $this->authorize('permissions', [$this->permission_key, 'view']);
 
-        $records            =   $this->eloquentModel()->get();
+        $records            =   $this->eloquentModel()->with('qr_codes:product_id,id,qr_code_id,status')->get();
 
         return  view($this->index_view, compact('records'))
                 ->with([
@@ -106,6 +106,7 @@ class ProductController extends Controller
                                                                                 'name'                  =>  request()->name,
                                                                                 'slug'                  =>  request()->slug,
                                                                                 'parent_id'             =>  request()->parent_id,
+                                                                                'quantity'              =>  request()->quantity,
                                                                                 'icon'                  =>  $icon,
                                                                                 'featured_image'        =>  $featured_image,
                                                                                 'banner_image'          =>  $banner_image,
